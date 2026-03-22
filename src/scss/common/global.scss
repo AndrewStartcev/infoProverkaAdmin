@@ -1,0 +1,97 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --accent: #2f94ef;
+  --text: #0f1b33;
+  --bg: #ffffff;
+  --scroll-track: #f2f7fa;
+}
+
+html {
+  overflow-y: auto;
+  scrollbar-color: var(--accent) var(--scroll-track);
+  scrollbar-width: thin;
+
+  &::-webkit-scrollbar {
+    width: 10px;
+  }
+  &::-webkit-scrollbar-track {
+    background-color: var(--scroll-track);
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--accent);
+  }
+}
+
+body {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.4;
+  min-height: 100vh;
+  background-color: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+
+  font-family:
+    'AAStetica',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    Helvetica,
+    Arial,
+    sans-serif;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: all 0.5s ease;
+
+  @include hover {
+    color: lighten(#3289d9, 10%);
+  }
+}
+
+button {
+  cursor: pointer;
+  border: 0;
+  transition: all 0.5s ease;
+}
+
+a {
+  cursor: pointer;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.container,
+[class*='__container'] {
+  max-width: $mediaWidthLaptop;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+
+  @include media-tablet-horizontal {
+    max-width: 100%;
+    padding: 0 10px;
+  }
+}
+
+.main {
+  flex: 1 1 auto;
+}
+
+/* Блокировка скролла (твоя JS логика) */
+.no-scroll {
+  overflow: hidden;
+}

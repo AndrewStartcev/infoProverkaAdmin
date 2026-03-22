@@ -1,0 +1,39 @@
+@import '../ui-kit/media';
+
+@mixin media-custom($width) {
+  @media (max-width: $width) {
+    @content;
+  }
+}
+
+@mixin media-tablet-horizontal {
+  @media (max-width: (1199px)) {
+    @content;
+  }
+}
+
+@mixin media-tablet {
+  @media (max-width: ($mediaWidthTabletHorizontal - 0.2px)) {
+    @content;
+  }
+}
+
+@mixin media-mobile-horizontal {
+  @media (max-width: ($mediaWidthTablet - 0.2px)) {
+    @content;
+  }
+}
+
+@mixin media-mobile {
+  @media (max-width: ($mediaWidthMobile - 0.2px)) {
+    @content;
+  }
+}
+
+@mixin hover {
+  @media (any-hover: hover) {
+    &:hover {
+      @content;
+    }
+  }
+}

@@ -1,0 +1,23 @@
+@font-face {
+  font-family: 'AAStetica';
+  src: url('fonts/AASteticaRegular.eot');
+  src:
+    url('../font/AASteticaRegular.eot') format('embedded-opentype'),
+    url('../font/AASteticaRegular.woff2') format('woff2'),
+    url('../font/AASteticaRegular.woff') format('woff'),
+    url('../font/AASteticaRegular.ttf') format('truetype'),
+    url('../font/AASteticaRegular.svg#AASteticaRegular') format('svg');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'AAStetica';
+  src: url('../font/AASteticaMedium.eot');
+  src:
+    url('../font/AASteticaMedium.eot') format('embedded-opentype'),
+    url('../font/AASteticaMedium.woff2') format('woff2'),
+    url('../font/AASteticaMedium.woff') format('woff'),
+    url('../font/AASteticaMedium.ttf') format('truetype'),
+    url('../font/AASteticaMedium.svg#AASteticaMedium') format('svg');
+  font-weight: 500;
+}

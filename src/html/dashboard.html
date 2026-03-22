@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="Ru-ru">
+  @@include("admin/chunk/head.html", {"title": "Обзор",})
+
+  <body>
+    <div class="dashboard">
+      <main class="dashboard-layout">
+        @@include("admin/chunk/sidebar.html")
+        <div class="dashboard-wrapper">
+          @@include("admin/chunk/header.html", {"title": "Обзор"})
+          <div class="dashboard-content"></div>
+        </div>
+      </main>
+      @@include("admin/chunk/footer.html")
+    </div>
+    @@include("admin/chunk/script.html")
+  </body>
+</html>

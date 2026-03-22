@@ -1,0 +1,28 @@
+{
+  "name": "gulp-lite-wp-bx",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Лёгкая gulp-сборка для верстки под WP/Bitrix: без webpack, без минификации и без оптимизации изображений.",
+  "scripts": {
+    "start": "gulp",
+    "build": "gulp build"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.29.1",
+    "del": "^6.1.1",
+    "gulp": "^4.0.2",
+    "gulp-file-include": "^2.3.0",
+    "gulp-html-beautify": "^1.0.1",
+    "gulp-newer": "^1.4.0",
+    "gulp-notify": "^4.0.0",
+    "gulp-plumber": "^1.2.1",
+    "gulp-postcss": "^10.0.0",
+    "gulp-sass": "^5.1.0",
+    "gulp-sass-glob": "^1.1.0",
+    "gulp-size": "^4.0.1",
+    "postcss": "^8.5.8",
+    "postcss-combine-duplicated-selectors": "^10.0.3",
+    "postcss-merge-rules": "^7.0.8",
+    "sass": "^1.60.0"
+  }
+}

@@ -1,0 +1,16 @@
+@import 'ui-kit/media';
+@import 'ui-kit/colors';
+@import 'ui-kit/fonts';
+
+@import 'mixins/media';
+
+@import 'admin/common/global';
+@import 'admin/common/controls';
+@import 'admin/common/form';
+@import 'admin/common/accordion';
+@import 'admin/common/content';
+@import 'admin/common/menu';
+
+@import 'admin/chunk/header';
+@import 'admin/chunk/footer';
+@import 'admin/chunk/popup';

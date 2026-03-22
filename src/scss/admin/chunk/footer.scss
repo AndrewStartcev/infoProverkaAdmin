@@ -1,0 +1,122 @@
+.dashboard-footer {
+  display: flex;
+  padding: 48px 24px 24px 24px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  align-self: stretch;
+  border-top: 1px solid rgba(15, 27, 51, 0.08);
+  background: #fff;
+  &__container {
+    padding: 0;
+    max-width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    gap: 20px;
+  }
+
+  &__menu {
+    display: flex;
+    justify-content: flex-start;
+    align-items: stretch;
+    gap: 24px;
+    ul {
+      flex: 0 0 276px;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      li,
+      a {
+        margin: 0;
+        padding: 0;
+        align-self: stretch;
+        color: rgba(15, 27, 51, 0.5);
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 120%;
+        @include hover() {
+          color: #2f94ef;
+        }
+      }
+      li {
+        @include hover() {
+          color: rgba(15, 27, 51, 0.5);
+        }
+      }
+    }
+  }
+
+  &__contacts {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+  }
+
+  &__phone {
+    text-align: right;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 100%;
+    letter-spacing: -0.4px;
+    background: linear-gradient(180deg, #2f94ef 0%, #91c6f6 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  &__email {
+    color: #0f1b33;
+    text-align: right;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 120%;
+  }
+}
+
+@include media-tablet-horizontal {
+  .dashboard-footer {
+    padding: 32px 16px 16px 16px;
+
+    &__menu {
+      gap: 20px;
+      ul {
+        flex: 0 0 232px;
+        li,
+        a {
+          font-size: 10px;
+        }
+      }
+    }
+
+    &__phone {
+      font-size: 16px;
+    }
+
+    &__email {
+      font-size: 14px;
+    }
+  }
+}
+
+@include media-mobile-horizontal {
+  .dashboard-footer {
+    padding: 24px 16px 16px 16px;
+    &__container {
+      flex-direction: column-reverse;
+    }
+    &__contacts {
+      align-items: flex-start;
+    }
+    &__menu {
+      ul {
+        flex: 1 1 50%;
+      }
+    }
+  }
+}
