@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="Ru-ru">
+  @@include("admin/chunk/head.html", {"title": "Настройки",})
+
+  <body>
+    <div class="dashboard">
+      <main class="dashboard-layout">
+        @@include("admin/chunk/sidebar.html")
+        <div class="dashboard-wrapper">
+          @@include("admin/chunk/header.html", {"title": "Настройки"})
+          <div class="dashboard-content container">
+            <div class="dashboard-head">
+              <div class="breadcrumbs">
+                <a href="#">Главная</a> /
+                <span>Настройки</span>
+              </div>
+              <h1>Настройки</h1>
+            </div>
+            <div class="settings">
+              <div class="settings__wrapper">
+                <div class="settings__title">Персональные данные</div>
+                <div class="settings__list">
+                  <div class="settings__item">
+                    <div class="settings__name">Номер телефона</div>
+                    <div class="settings__action">
+                      <div class="--phone">+ 7 999 999 99 99</div>
+                    </div>
+                  </div>
+                  <div class="settings__item">
+                    <div class="settings__name">Дата регистрации</div>
+                    <div class="settings__action">12.09.2025</div>
+                  </div>
+                </div>
+              </div>
+              <div class="settings__wrapper">
+                <div class="settings__title">Уведомления</div>
+                <div class="settings__list">
+                  <div class="settings__item">
+                    <div class="settings__name">Получать уведомления о новых штрафах</div>
+                    <div class="settings__action">
+                      <label class="switch --big">
+                        <input type="checkbox" />
+                        <span class="switch__slider"></span>
+                      </label>
+                    </div>
+                  </div>
+                  <div class="settings__item">
+                    <div class="settings__name">Получать реквизиты для оплаты</div>
+                    <div class="settings__action">
+                      <label class="switch --big">
+                        <input type="checkbox" />
+                        <span class="switch__slider"></span>
+                      </label>
+                    </div>
+                  </div>
+                  <div class="settings__item">
+                    <div class="settings__name">Почта для уведомлений и чеков</div>
+                    <div class="settings__action">
+                      <div class="settings__overflow">
+                        <div class="settings__label">Почта для уведомлений и чеков</div>
+                        <input type="email" readonly value="79999999999@infoproverka.net" />
+                      </div>
+                      <div class="settings__row">
+                        <a href="#" class="settings__link">Перейти в почту</a>
+                        <button class="settings__link" data-popup="#getEditEmail">
+                          Изменить почту
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="settings__wrapper mobile-column">
+                <div class="settings__title">Безопасность</div>
+                <div class="settings__list">
+                  <div class="settings__item no-border">
+                    <div class="settings__name">Новый пароль</div>
+                    <div class="settings__action">
+                      <div class="settings__overflow no-label">
+                        <input type="password" placeholder="********" />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="settings__item no-border">
+                    <div class="settings__name">Повторите ввод нового пароля</div>
+                    <div class="settings__action">
+                      <div class="settings__overflow no-label">
+                        <input type="password" placeholder="********" />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="settings__item no-border">
+                    <div class="settings__name">Старый пароль</div>
+                    <div class="settings__action">
+                      <div class="settings__overflow no-label">
+                        <input type="password" placeholder="********" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="settings__row">
+                <button class="btn-gray">Удалить аккаунт</button
+                ><button class="btn">Сохранить</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+      @@include("admin/chunk/footer.html") @@include("admin/chunk/popup.html")
+    </div>
+    @@include("admin/chunk/script.html")
+  </body>
+</html>

@@ -34,4 +34,206 @@
       transition: 0.2s ease;
     }
   }
+  &.--big {
+    width: 50px;
+    height: 30px;
+    input {
+      &:checked + .switch__slider::before {
+        transform: translateX(20px);
+      }
+    }
+    .switch__slider {
+      &::before {
+        width: 28px;
+        height: 28px;
+      }
+    }
+    @include media-mobile-horizontal {
+      width: 28px;
+      height: 18px;
+      input {
+        &:checked + .switch__slider::before {
+          transform: translateX(10px);
+        }
+      }
+      .switch__slider {
+        &::before {
+          width: 16px;
+          height: 16px;
+        }
+      }
+    }
+  }
+}
+
+.checkbox {
+  &__label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+
+    input[type='checkbox'] {
+      display: none;
+    }
+
+    &::before {
+      content: '';
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      margin: 2px;
+      margin-bottom: auto;
+      border-radius: 6px;
+      border: 1px solid #0f1b33;
+      transition:
+        background 0.2s,
+        border-color 0.2s;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 2px;
+      top: 2px;
+      width: 20px;
+      height: 20px;
+      opacity: 0;
+      transition: opacity 0.2s;
+      background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%0A%3E%3Cpath d='M14.19 0H5.81C2.17 0 0 2.17 0 5.81V14.18C0 17.83 2.17 20 5.81 20H14.18C17.82 20 19.99 17.83 19.99 14.19V5.81C20 2.17 17.83 0 14.19 0ZM14.78 7.7L9.11 13.37C8.97 13.51 8.78 13.59 8.58 13.59C8.38 13.59 8.19 13.51 8.05 13.37L5.22 10.54C4.93 10.25 4.93 9.77 5.22 9.48C5.51 9.19 5.99 9.19 6.28 9.48L8.58 11.78L13.72 6.64C14.01 6.35 14.49 6.35 14.78 6.64C15.07 6.93 15.07 7.4 14.78 7.7Z' fill='%2328AF4C' /%3E%3C/svg%3E%0A");
+    }
+
+    position: relative;
+  }
+
+  &__label:has(input:checked) {
+    &::before {
+      border-color: #28af4c;
+    }
+
+    &::after {
+      opacity: 1;
+    }
+  }
+
+  .checkbox-text {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 120%;
+    color: rgba(#0f1b33, 0.5);
+    b {
+      color: #0f1b33;
+      font-weight: 400;
+    }
+
+    a {
+      color: #0f1b33;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.suggest {
+  position: relative;
+
+  &__dropdown {
+    display: none;
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 0;
+    width: 100%;
+    max-height: 120px;
+    overflow-y: auto;
+    background: #fff;
+    border: 1px solid rgba(15, 27, 51, 0.08);
+    border-radius: 10px;
+    z-index: 50;
+
+    &._open {
+      display: block;
+    }
+  }
+
+  &__option {
+    padding: 10px 16px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.2s;
+
+    &:hover {
+      background: #f0f0f0;
+    }
+  }
+}
+
+.form {
+  form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  &__item {
+    width: 100%;
+    input {
+      width: 100%;
+      display: flex;
+      padding: 20px 20px;
+      align-items: center;
+      gap: 8px;
+      align-self: stretch;
+      border-radius: 12px;
+      border: 1px solid rgba(15, 27, 51, 0.08);
+      background: rgba(15, 27, 51, 0.04);
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 1;
+      align-self: stretch;
+      overflow: hidden;
+      color: rgba(15, 27, 51, 1);
+      text-overflow: ellipsis;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 120%;
+    }
+  }
+
+  &__row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: stretch;
+    gap: 16px;
+    width: 100%;
+    .form__item {
+      flex: 1 1 calc(33.33% - 16px);
+    }
+    button {
+      flex: 1 1 calc(50% - 16px);
+      width: 100%;
+    }
+  }
+}
+
+@include media-mobile-horizontal {
+  .form {
+    &__row {
+      flex-direction: column;
+      .form__item {
+        flex: 1 1 auto;
+      }
+      button {
+        flex: 1 1 auto;
+        width: 100%;
+      }
+    }
+    &__footer {
+      flex-direction: column-reverse;
+    }
+  }
 }
