@@ -330,4 +330,29 @@
       }
     });
   });
+
+  document.querySelectorAll('.toggle-content').forEach(btn => {
+    const target = btn.closest('[data-toggle-wrap]').querySelector('[data-toggle-target]');
+
+    // По умолчанию скрыт
+    target.style.maxHeight = '0';
+    btn.dataset.toggleOpen = 'false';
+
+    btn.addEventListener('click', () => {
+      const isOpen = btn.dataset.toggleOpen === 'true';
+
+      if (isOpen) {
+        target.style.maxHeight = '0';
+        btn.dataset.toggleOpen = 'false';
+        btn.textContent = btn.dataset.textShow;
+      } else {
+        target.style.maxHeight = '100%';
+        btn.dataset.toggleOpen = 'true';
+        btn.textContent = btn.dataset.textHide;
+      }
+    });
+
+    // Текст кнопки по умолчанию
+    btn.textContent = btn.dataset.textShow;
+  });
 })();

@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="Ru-ru">
+  @@include("admin/chunk/head.html", {"title": "Штрафы ГИБДД",})
+
+  <body>
+    <div class="dashboard">
+      <main class="dashboard-layout">
+        @@include("admin/chunk/sidebar.html")
+        <div class="dashboard-wrapper">
+          @@include("admin/chunk/header.html", {"title": "Штрафы ГИБДД"})
+          <div class="dashboard-content container">
+            <div class="dashboard-head">
+              <div class="breadcrumbs">
+                <a href="#">Главная</a> /
+                <span>Штрафы ГИБДД</span>
+              </div>
+              <h1>Штрафы ГИБДД</h1>
+            </div>
+            <div class="admins">
+              <div class="admins-empty">
+                <div class="admins-empty__icon">
+                  <img src="assets/img/dashboard/icons/clipboard.svg" alt="" />
+                </div>
+                <div class="admins-empty__title">
+                  Добавьте профиль для запуска мониторинга долгов
+                </div>
+                <button class="btn admins-empty__btn" data-popup="#getPopupAddAvto">
+                  Добавить профиль
+                  <svg
+                    width="14"
+                    height="14"
+                    viewBox="0 0 14 14"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M7.00033 12.8333C10.2087 12.8333 12.8337 10.2083 12.8337 6.99999C12.8337 3.79166 10.2087 1.16666 7.00033 1.16666C3.79199 1.16666 1.16699 3.79166 1.16699 6.99999C1.16699 10.2083 3.79199 12.8333 7.00033 12.8333Z"
+                      stroke="#ffffff"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M4.66699 7H9.33366"
+                      stroke="#ffffff"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M7 9.33332V4.66666"
+                      stroke="#ffffff"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </button>
+              </div>
+              <div class="admins-console">
+                <div class="admins-console__header">
+                  <div class="admins-console__title">Найденные записи</div>
+                  <div class="admins-console__labels">
+                    <div class="admins-console__banner --success">
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M4 8L6.66353 10.6667L12 5.33334"
+                          stroke="#28AF4C"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+
+                      <span>Нет запрета на выезд за границу</span>
+                    </div>
+                    <div class="admins-console__icon">
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22Z"
+                          stroke="#C0C5CE"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M12.8159 15.0957C12.7096 14.9924 12.5824 14.9104 12.4418 14.8543C12.3012 14.7983 12.15 14.7695 11.9974 14.7695H11.9767C11.3218 14.7695 10.7934 15.2695 10.7934 15.8848C10.7934 16.5 11.3218 17 11.9767 17H11.9974C12.6522 16.9902 13.1723 16.4824 13.162 15.8652C13.1557 15.5762 13.0314 15.3008 12.8159 15.0957ZM14.2063 7.76758C13.6842 7.26172 12.9402 7.00391 11.9974 7H11.9767C11.2307 7 10.5945 7.19141 10.0847 7.57031C9.8423 7.75 9.62679 7.95898 9.44236 8.19141C9.26416 8.41797 9.1191 8.66797 9.01549 8.93359C8.9699 9.05273 9.02793 9.18359 9.15018 9.23438L10.2671 9.69727C10.3956 9.75 10.5448 9.69727 10.6007 9.57617C10.6028 9.57422 10.6028 9.57031 10.6049 9.56836C10.7085 9.33008 10.8743 9.0957 11.0981 8.87305C11.297 8.67383 11.585 8.57812 11.9767 8.57812H11.9974C12.3994 8.58203 12.6999 8.68164 12.9154 8.88477C13.1329 9.0918 13.2386 9.3418 13.2386 9.6543C13.2386 9.91602 13.1557 10.1562 12.9858 10.3887C12.7993 10.6445 12.5237 10.9277 12.1673 11.2305C12.1093 11.2812 12.0513 11.3301 11.9995 11.3789C11.6824 11.6719 11.4628 11.9434 11.3322 12.207C11.2555 12.3613 11.1975 12.5547 11.1561 12.7891C11.1126 13.0645 11.0898 13.3418 11.0898 13.6211C11.0877 13.7539 11.1996 13.8613 11.3384 13.8652H12.675C12.8138 13.8652 12.9257 13.7617 12.9278 13.6309C12.9382 13.0977 13.0024 12.8379 13.0563 12.7129C13.1081 12.5918 13.2759 12.3516 13.7795 11.8945C14.196 11.5195 14.5068 11.1523 14.6995 10.8047C14.8985 10.4453 15 10.041 15 9.60352C14.9959 8.89453 14.7306 8.27539 14.2063 7.76758Z"
+                          fill="#C0C5CE"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+                <div class="admins-information">
+                  <div class="admins-information__icon">
+                    <img src="assets/img/dashboard/icons/clipboard.svg" alt="" />
+                  </div>
+                  <div class="admins-information__conten">
+                    <div class="admins-information__title">Обновление данных не запускалось</div>
+                    <div class="admins-information__text">
+                      Вам нужно Оформить Премиум доступ для запуска мониторинга задолженностей
+                    </div>
+                    <button class="btn" data-popup="#getPopupPremium">Активировать премиум</button>
+                  </div>
+                </div>
+                <div class="admins-information">
+                  <div class="admins-information__icon">
+                    <img src="assets/img/dashboard/icons/clipboard.svg" alt="" />
+                  </div>
+                  <div class="admins-information__conten">
+                    <div class="admins-information__title">Идет обновление данных</div>
+                    <div class="admins-information__text">
+                      Ищем информацию по вашему объекту, в зависимости от загруженности базы ГИБДД
+                      это может занять время от нескольких секунд до нескольких часов. Вы можете
+                      добавить еmail в настройках Профиля и мы вас уведомим, если обнаружим
+                      задолженность.
+                    </div>
+                    <div class="admins-information__status">
+                      <h3>Статус:</h3>
+                      <div>
+                        <svg
+                          width="16"
+                          height="16"
+                          viewBox="0 0 16 16"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M10.1594 1.33334H5.83937C3.33271 1.33334 3.13937 3.58668 4.49271 4.81334L11.506 11.1867C12.8594 12.4133 12.666 14.6667 10.1594 14.6667H5.83937C3.33271 14.6667 3.13937 12.4133 4.49271 11.1867L11.506 4.81334C12.8594 3.58668 12.666 1.33334 10.1594 1.33334Z"
+                            stroke="#2F94EF"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                        </svg>
+                        В очереди на проверку ..
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="admins-information">
+                  <div class="admins-information__icon">
+                    <img src="assets/img/dashboard/icons/clipboard.svg" alt="" />
+                  </div>
+                  <div class="admins-information__conten">
+                    <div class="admins-information__title">Задолженностей не найдено</div>
+                    <div class="admins-information__text">
+                      Завтра мы проверим снова, если будут изменения, оповестим вас на электронную
+                      почту, указанную в вашем профиле
+                    </div>
+                  </div>
+                </div>
+                <div class="admins-fssp">
+                  <div class="admins-fssp__top">
+                    <div class="admins-fssp__header">
+                      <div class="admins-fssp__logo">
+                        <img src="assets/img/dashboard/preview-logo-gibdd.svg" alt="" />
+                      </div>
+                      <h3>Превышение скорости движения ТС от 20 до 40 км/ч</h3>
+                    </div>
+                  </div>
+                  <div class="admins-fssp__content">
+                    <div class="admins-fssp__table">
+                      <div class="admins-fssp__item">
+                        <b>Инициатор</b>
+                        <span>ГЛАДКОВА Г. В.</span>
+                        <span> УФК по Алтайскому краю (ГУ МВД России по Алтайскому краю) </span>
+                      </div>
+
+                      <div class="admins-fssp__item">
+                        <b>Физ. лицо</b>
+                        <span
+                          >Мерседес, 2007 Свидетельство о регистрации №9919139166 Государственный
+                          номер B555BC22</span
+                        >
+                      </div>
+
+                      <div class="admins-fssp__item --flex-1">
+                        <b>Дата составления протокола</b>
+                        <span>22.10.2025 14:11</span>
+                      </div>
+                    </div>
+                    <div class="admins-fssp__sidebar">
+                      <div class="admins-fssp__price">
+                        <span>Сумма к оплате</span>
+                        <b>750 руб</b>
+                      </div>
+                      <div class="admins-fssp__btns">
+                        <button class="btn" data-popup="#getPopupCarPay">Оплатить</button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="admins-fssp__props" data-toggle-wrap>
+                    <button
+                      class="btn--text toggle-content"
+                      data-text-show="Показать реквизиты оплаты"
+                      data-text-hide="Скрыть реквизиты оплаты"
+                    >
+                      Скрыть реквизиты оплаты
+                    </button>
+                    <div class="toggle-content__wrap" data-toggle-target>
+                      <div class="admins-fssp__pays">
+                        <div class="admins-fssp__pay">
+                          <b>Организация</b>
+                          <span>УФК по Алтайскому краю (ГУ МВД России по Алтайскому краю)</span>
+                        </div>
+                        <div class="admins-fssp__pay">
+                          <b>ИНН</b>
+                          <span>2224011531</span>
+                        </div>
+                        <div class="admins-fssp__pay">
+                          <b>КПП</b>
+                          <span>222401001</span>
+                        </div>
+                        <div class="admins-fssp__pay">
+                          <b>Банк:</b>
+                          <span>Отделение Барнаул Банка России//УФК по Алтайскому краю</span>
+                        </div>
+                        <div class="admins-fssp__pay">
+                          <b>Расчетный счет:</b>
+                          <span>03100643000000011700</span>
+                        </div>
+                        <div class="admins-fssp__pay">
+                          <b>БИК:</b>
+                          <span>010173001</span>
+                        </div>
+                        <div class="admins-fssp__pay">
+                          <b>Назначение платежа:</b>
+                          <span>УФК по Алтайскому краю (ГУ МВД России по Алтайскому краю)</span>
+                        </div>
+                        <div class="admins-fssp__pay">
+                          <b>КБК:</b>
+                          <span>18811601121010001140</span>
+                        </div>
+                        <div class="admins-fssp__pay">
+                          <b>ОКАТО:</b>
+                          <span>01701000</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <div class="popup" id="getPopupCarPay">
+        <div class="popup__content">
+          <div class="popup__body">
+            <button class="popup__close" type="button"></button>
+
+            <div class="popup__header">
+              <div class="popup__title">
+                Для успешного погашения задолженности укажите данные плательщика
+              </div>
+            </div>
+
+            <div class="popup__form form">
+              <form action="" method="post">
+                <div class="form__item patronymic-item">
+                  <input name="patronymic" type="text" placeholder="ФИО плательщика*" required />
+                </div>
+
+                <div class="form__item patronymic-item">
+                  <input name="patronymic" type="text" placeholder="Эл почта*" required />
+                </div>
+
+                <div class="form__item checkbox">
+                  <label for="fiz-policy" class="checkbox__label">
+                    <input type="checkbox" id="fiz-policy" name="policy" value="1" required />
+                    <span class="checkbox-text">
+                      Я даю <b>Согласие</b> на обработку моих персональных данных в соответствии
+                      <a href="#">с Политикой конфиденциальности</a> и ознакомлен
+                      <a href="#">с Правилами работы сервиса</a>
+                    </span>
+                  </label>
+                </div>
+
+                <div class="form__row form__footer">
+                  <button class="btn-gray" type="reset" data-close>Отмена</button>
+                  <button class="btn" type="submit">Сохранить</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      @@include("admin/chunk/footer.html") @@include("admin/chunk/popup.html")
+    </div>
+    @@include("admin/chunk/script.html")
+  </body>
+</html>

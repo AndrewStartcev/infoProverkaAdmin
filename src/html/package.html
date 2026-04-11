@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="Ru-ru">
+  @@include("admin/chunk/head.html", {"title": "Посылки",})
+
+  <body>
+    <div class="dashboard">
+      <main class="dashboard-layout">
+        @@include("admin/chunk/sidebar.html")
+        <div class="dashboard-wrapper">
+          @@include("admin/chunk/header.html", {"title": "Посылки"})
+          <div class="dashboard-content container">
+            <div class="dashboard-head">
+              <div class="breadcrumbs">
+                <a href="#">Главная</a> /
+                <span>Посылки</span>
+              </div>
+              <h1>Посылки</h1>
+            </div>
+            <div class="admins">
+              <div class="admins-empty">
+                <div class="admins-empty__icon">
+                  <img src="assets/img/dashboard/icons/clipboard.svg" alt="" />
+                </div>
+                <div class="admins-empty__title">
+                  Добавьте трек-номер посылки для начала мониторинга
+                </div>
+                <button class="btn admins-empty__btn" data-popup="#getPopupBox">
+                  Добавить трек-номер
+                  <svg
+                    width="14"
+                    height="14"
+                    viewBox="0 0 14 14"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M7.00033 12.8333C10.2087 12.8333 12.8337 10.2083 12.8337 6.99999C12.8337 3.79166 10.2087 1.16666 7.00033 1.16666C3.79199 1.16666 1.16699 3.79166 1.16699 6.99999C1.16699 10.2083 3.79199 12.8333 7.00033 12.8333Z"
+                      stroke="#ffffff"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M4.66699 7H9.33366"
+                      stroke="#ffffff"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M7 9.33332V4.66666"
+                      stroke="#ffffff"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </button>
+              </div>
+              <div class="admins-console">
+                <div class="admins-console__header">
+                  <div class="admins-console__title">Найденные записи</div>
+                </div>
+                <div class="admins-information">
+                  <div class="admins-information__icon">
+                    <img src="assets/img/dashboard/icons/clipboard.svg" alt="" />
+                  </div>
+                  <div class="admins-information__conten">
+                    <div class="admins-information__title">Обновление данных не запускалось</div>
+                    <div class="admins-information__text">
+                      Вам нужно Оформить Премиум доступ для запуска мониторинга задолженностей
+                    </div>
+                    <button class="btn" data-popup="#getPopupPremium">Активировать премиум</button>
+                  </div>
+                </div>
+                <div class="admins-information">
+                  <div class="admins-information__icon">
+                    <img src="assets/img/dashboard/icons/clipboard.svg" alt="" />
+                  </div>
+                  <div class="admins-information__conten">
+                    <div class="admins-information__title">Идет обновление данных</div>
+                    <div class="admins-information__text">
+                      Ищем информацию по вашей посылке, в зависимости от загруженности баз служб
+                      доставки это может занять время от нескольких секунд до нескольких часов.
+                    </div>
+                    <div class="admins-information__status">
+                      <h3>Статус:</h3>
+                      <div>
+                        <svg
+                          width="16"
+                          height="16"
+                          viewBox="0 0 16 16"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M10.1594 1.33334H5.83937C3.33271 1.33334 3.13937 3.58668 4.49271 4.81334L11.506 11.1867C12.8594 12.4133 12.666 14.6667 10.1594 14.6667H5.83937C3.33271 14.6667 3.13937 12.4133 4.49271 11.1867L11.506 4.81334C12.8594 3.58668 12.666 1.33334 10.1594 1.33334Z"
+                            stroke="#2F94EF"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                        </svg>
+                        В очереди на проверку ..
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="admins-postaltracker">
+                  <div class="admins-postaltracker__content">
+                    <div class="admins-postaltracker__header">
+                      <div class="admins-postaltracker__icon">
+                        <img src="assets/img/dashboard/icons/popup-box.svg" alt="" />
+                      </div>
+                      <div class="admins-postaltracker__title"><span>№2</span>8675334456789087</div>
+                    </div>
+                    <div class="admins-postaltracker__status">
+                      <span>Ищем данные по посылке</span>
+                      <div class="admins-postaltracker__bar">
+                        <div class="admins-postaltracker__line" style="width: 60%"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="admins-postaltracker__sidebar">
+                    <span>Посылка не найдена</span>
+                    <div>
+                      <p>Текущее местоположение...</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="admins-information">
+                  <div class="admins-information__icon">
+                    <img src="assets/img/dashboard/icons/clipboard.svg" alt="" />
+                  </div>
+                  <div class="admins-information__conten">
+                    <div class="admins-information__title">
+                      Нам не удалось найти вашу посылку после 7 попыток за последние 7 дней
+                    </div>
+                    <div class="admins-information__text">
+                      <p><b>Возможные причины:</b></p>
+                      <ol>
+                        <li>
+                          Допущена ошибка при введении данных о номере посылки (трек коде).
+                          Убедитесь, пожалуйста, в корректности указанных данных.
+                        </li>
+                        <li>
+                          Ошибка в передаче данных о номере посылки со стороны грузоперевозчика.
+                        </li>
+                      </ol>
+                      <p>В дальнейшем автоматических попыток осуществляться не будет.</p>
+                      <p>
+                        При необходимости обратитесь в службу поддержки за альтернативными методами
+                        и помощью в поиске вашей посылки.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="admins-postaltracker --success">
+                  <div class="admins-postaltracker__content">
+                    <div class="admins-postaltracker__header">
+                      <div class="admins-postaltracker__icon">
+                        <img src="assets/img/dashboard/icons/popup-box.svg" alt="" />
+                      </div>
+                      <div class="admins-postaltracker__title"><span>№2</span>8675334456789087</div>
+                      <div class="admins-postaltracker__date">26.10.2025 09:05</div>
+                    </div>
+                    <div class="admins-postaltracker__status">
+                      <div class="admins-postaltracker__bar">
+                        <div class="admins-postaltracker__line" style="width: 100%"></div>
+                      </div>
+                      <div class="admins-postaltracker__footer">
+                        <div>
+                          <span>Россия</span>
+                          Kseniya
+                        </div>
+                        <div>
+                          <span>Россия</span>
+                          Игорь Витальевич
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="admins-postaltracker__sidebar">
+                    <span>Доставлена</span>
+                    <div>
+                      <p>
+                        <b>Выдана по адресу</b> <br />
+                        Отделение связи № 658080 край Алтайский, г Новоалтайск,
+                        ул Космонавтов, дом. 2 пн, вт, ср, чт, пт: 08:00–20:00 сб: 09:00–18:00 вс:
+                        09:00–14:00
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="admins-postal">
+                  <div class="admins-postal__header">
+                    <div class="admins-postal__icon">
+                      <img src="assets/img/dashboard/icons/popup-box.svg" alt="" />
+                    </div>
+                    <div class="admins-postal__title"><span>№2</span>8675334456789087</div>
+                    <div class="admins-postal__date">26.10.2025 09:05</div>
+                  </div>
+                  <div class="admins-postal__content">
+                    <h3>Вручение - Вручение адресату</h3>
+                    <p><b>Новоалтайск</b></p>
+                    <p>
+                      Отделение связи № 658080 край Алтайский, г Новоалтайск, ул Космонавтов, дом 2
+                      пн, вт, ср, чт, пт: 08:00-20:00 сб: 09:00-18:00 вс: 09:00-14:00
+                    </p>
+                  </div>
+                  <div class="admins-postal__marker">
+                    <span>Russian-post</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      @@include("admin/chunk/footer.html") @@include("admin/chunk/popup.html")
+    </div>
+    @@include("admin/chunk/script.html")
+  </body>
+</html>

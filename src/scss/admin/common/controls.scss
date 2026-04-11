@@ -595,6 +595,24 @@
   &:active {
     transform: scale(0.98);
   }
+  @include media-mobile-horizontal {
+    padding: 16px;
+    font-size: 14px;
+    width: 100%;
+  }
+}
+.btn--text {
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 4px;
+  align-self: stretch;
+  color: #2f94ef;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 100%;
 }
 .btn {
   display: flex;
@@ -618,5 +636,10 @@
   }
   &.--flex-1 {
     flex: 1 1 100%;
+  }
+  @include media-mobile-horizontal {
+    padding: 16px;
+    font-size: 14px;
+    width: 100%;
   }
 }

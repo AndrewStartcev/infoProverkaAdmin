@@ -59,6 +59,9 @@
     transition: all 0.5s ease 0s;
     background: #fff;
     border-radius: 24px;
+    &.--big {
+      max-width: 968px;
+    }
   }
 
   &__close {
@@ -153,7 +156,8 @@
       font-size: 16px;
     }
 
-    &__text {
+    &__text,
+    &__description {
       font-size: 14px;
     }
   }

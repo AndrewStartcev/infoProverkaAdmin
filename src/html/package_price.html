@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="Ru-ru">
+  @@include("admin/chunk/head.html", {"title": "Стоимость посылок по России",})
+
+  <body>
+    <div class="dashboard">
+      <main class="dashboard-layout">
+        @@include("admin/chunk/sidebar.html")
+        <div class="dashboard-wrapper">
+          @@include("admin/chunk/header.html", {"title": "Стоимость посылок по России"})
+          <div class="dashboard-content container">
+            <div class="dashboard-head">
+              <div class="breadcrumbs">
+                <a href="#">Главная</a> /
+                <span>Стоимость посылок по России</span>
+              </div>
+              <h1>Стоимость посылок по России</h1>
+            </div>
+            <div class="admins">
+              <div class="admins-empty">
+                <div class="admins-empty__icon">
+                  <img src="assets/img/dashboard/icons/clipboard.svg" alt="" />
+                </div>
+                <div class="admins-empty__title">
+                  Добавьте данные для рассчета стоимости отправления
+                </div>
+                <button class="btn admins-empty__btn" data-popup="#getPopupBox">
+                  Добавить данные
+                  <svg
+                    width="14"
+                    height="14"
+                    viewBox="0 0 14 14"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M7.00033 12.8333C10.2087 12.8333 12.8337 10.2083 12.8337 6.99999C12.8337 3.79166 10.2087 1.16666 7.00033 1.16666C3.79199 1.16666 1.16699 3.79166 1.16699 6.99999C1.16699 10.2083 3.79199 12.8333 7.00033 12.8333Z"
+                      stroke="#ffffff"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M4.66699 7H9.33366"
+                      stroke="#ffffff"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M7 9.33332V4.66666"
+                      stroke="#ffffff"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </button>
+              </div>
+              <div class="admins-console">
+                <div class="admins-console__header">
+                  <div class="admins-console__title">Найденные записи</div>
+                </div>
+                <div class="admins-information">
+                  <div class="admins-information__icon">
+                    <img src="assets/img/dashboard/icons/clipboard.svg" alt="" />
+                  </div>
+                  <div class="admins-information__conten">
+                    <div class="admins-information__title">Обновление данных не запускалось</div>
+                    <div class="admins-information__text">
+                      Вам нужно Оформить Премиум доступ для запуска мониторинга задолженностей
+                    </div>
+                    <button class="btn" data-popup="#getPopupPremium">Активировать премиум</button>
+                  </div>
+                </div>
+                <div class="admins-information">
+                  <div class="admins-information__icon">
+                    <img src="assets/img/dashboard/icons/clipboard.svg" alt="" />
+                  </div>
+                  <div class="admins-information__conten">
+                    <div class="admins-information__title">Ищем расчет стоимости отправления</div>
+                    <div class="admins-information__text">
+                      Ищем информацию по вашему объекту, в зависимости от загруженности баз данных
+                      это мажет занять от нескольких секунд до нескольких часов.
+                    </div>
+                    <div class="admins-information__quets">
+                      <h3>Рекомендация</h3>
+                      <p>
+                        Укажите вашу электронную почту в
+                        <a href="/settings.html">настройках</a> личного кабинета, на нее будем
+                        присылать уведомления о новых событиях
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      @@include("admin/chunk/footer.html") @@include("admin/chunk/popup.html")
+    </div>
+    @@include("admin/chunk/script.html")
+  </body>
+</html>

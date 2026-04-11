@@ -137,20 +137,6 @@
   }
 }
 
-.btn--text {
-  background: transparent;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 4px;
-  align-self: stretch;
-  color: #2f94ef;
-  text-align: center;
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 100%;
-}
-
 @include media-tablet-horizontal {
   .dashboard-console {
     padding-top: 16px;

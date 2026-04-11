@@ -1,0 +1,753 @@
+<!doctype html>
+<html lang="Ru-ru">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+
+  <title>Посылки</title>
+
+  <meta name="format-detection" content="telephone=no" />
+
+  <link rel="stylesheet" href="assets/css/admin.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css" />
+</head>
+
+
+<body>
+  <div class="dashboard">
+    <main class="dashboard-layout">
+      <aside class="dashboard-sidebar">
+        <div class="dashboard-sidebar__header">
+          <div class="dashboard-sidebar__logo">
+            <img src="assets/img/dashboard/logo.svg" alt="" />
+          </div>
+
+          <button class="dashboard-sidebar__burger" type="button" aria-label="Закрыть меню">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6 18L18 6" stroke="#0F1B33" stroke-width="1.5" stroke-linecap="round" />
+              <path d="M6 6L18 18" stroke="#0F1B33" stroke-width="1.5" stroke-linecap="round" />
+            </svg>
+          </button>
+        </div>
+
+        <div class="dashboard-sidebar__content">
+          <div class="dashboard-sidebar__navbar"></div>
+
+          <div class="dashboard-sidebar__footer">
+            <div class="dashboard-sidebar__item">
+              <div class="dashboard-sidebar__item-row">
+                <a href="settings.html" class="dashboard-sidebar__item-link">
+                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10 12.5C11.3807 12.5 12.5 11.3807 12.5 10C12.5 8.61929 11.3807 7.5 10 7.5C8.61929 7.5 7.5 8.61929 7.5 10C7.5 11.3807 8.61929 12.5 10 12.5Z" stroke="#0F1B33" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M1.66602 10.7334V9.26669C1.66602 8.40003 2.37435 7.68336 3.24935 7.68336C4.75768 7.68336 5.37435 6.6167 4.61602 5.30836C4.18268 4.55836 4.44102 3.58336 5.19935 3.15003L6.64102 2.32503C7.29935 1.93336 8.14935 2.1667 8.54102 2.82503L8.63268 2.98336C9.38268 4.2917 10.616 4.2917 11.3743 2.98336L11.466 2.82503C11.8577 2.1667 12.7077 1.93336 13.366 2.32503L14.8077 3.15003C15.566 3.58336 15.8243 4.55836 15.391 5.30836C14.6327 6.6167 15.2493 7.68336 16.7577 7.68336C17.6243 7.68336 18.341 8.39169 18.341 9.26669V10.7334C18.341 11.6 17.6327 12.3167 16.7577 12.3167C15.2493 12.3167 14.6327 13.3834 15.391 14.6917C15.8243 15.45 15.566 16.4167 14.8077 16.85L13.366 17.675C12.7077 18.0667 11.8577 17.8334 11.466 17.175L11.3743 17.0167C10.6243 15.7084 9.39102 15.7084 8.63268 17.0167L8.54102 17.175C8.14935 17.8334 7.29935 18.0667 6.64102 17.675L5.19935 16.85C4.44102 16.4167 4.18268 15.4417 4.61602 14.6917C5.37435 13.3834 4.75768 12.3167 3.24935 12.3167C2.37435 12.3167 1.66602 11.6 1.66602 10.7334Z" stroke="#0F1B33" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+
+                  <span>Настройки</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="dashboard-sidebar__item">
+              <div class="dashboard-sidebar__item-row">
+                <a href="#" class="dashboard-sidebar__item-link _red">
+                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7.41602 6.30001C7.67435 3.30001 9.21602 2.07501 12.591 2.07501H12.6993C16.4243 2.07501 17.916 3.56668 17.916 7.29168V12.725C17.916 16.45 16.4243 17.9417 12.6993 17.9417H12.591C9.24102 17.9417 7.69935 16.7333 7.42435 13.7833" stroke="#AF2828" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M12.5009 10H3.01758" stroke="#AF2828" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M4.87565 7.20831L2.08398 9.99998L4.87565 12.7916" stroke="#AF2828" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                  <span>Выйти</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="dashboard-sidebar__monitoring">
+            <div class="dashboard-sidebar__monitoring-row">
+              <span class="dashboard-sidebar__monitoring-title">Мониторинг</span>
+
+              <label class="switch">
+                <input type="checkbox" />
+                <span class="switch__slider"></span>
+              </label>
+            </div>
+
+            <div class="dashboard-sidebar__widget">
+              <h3>Последнее обновление</h3>
+              <p>25.10.2025 09:05</p>
+
+              <button class="btn-white" type="button">
+                Обновить сейчас
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M14.6663 7.99998C14.6663 11.68 11.6797 14.6666 7.99967 14.6666C4.31967 14.6666 2.07301 10.96 2.07301 10.96M2.07301 10.96H5.08634M2.07301 10.96V14.2933M1.33301 7.99998C1.33301 4.31998 4.29301 1.33331 7.99967 1.33331C12.4463 1.33331 14.6663 5.03998 14.6663 5.03998M14.6663 5.03998V1.70665M14.6663 5.03998H11.7063" stroke="#0F1B33" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <div class="dashboard-wrapper">
+        <header class="dashboard-header">
+          <div class="dashboard-header__container">
+            <div class="dashboard-header__mobile">
+              <button class="dashboard-header__burger">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M4 9.33333H28" stroke="#0F1B33" stroke-width="1.5" stroke-linecap="round" />
+                  <path d="M4 16H28" stroke="#0F1B33" stroke-width="1.5" stroke-linecap="round" />
+                  <path d="M4 22.6667H28" stroke="#0F1B33" stroke-width="1.5" stroke-linecap="round" />
+                </svg>
+              </button>
+              <div class="dashboard-header__logo">
+                <img src="assets/img/dashboard/logo.svg" alt="" />
+              </div>
+            </div>
+            <div class="dashboard-header__title">Посылки</div>
+            <div class="dashboard-header__actions">
+              <div class="dashboard-header__premium">
+                <button class="dashboard-header__premium-btn" data-popup="#getPopupPremium">
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M9.74154 11.0717H4.25821C4.01321 11.0717 3.73904 10.8792 3.65737 10.6458L1.24237 3.89083C0.898205 2.9225 1.30071 2.625 2.12904 3.22L4.40404 4.8475C4.78321 5.11 5.21487 4.97583 5.37821 4.55L6.40487 1.81417C6.73154 0.939167 7.27404 0.939167 7.60071 1.81417L8.62737 4.55C8.79071 4.97583 9.22237 5.11 9.59571 4.8475L11.7307 3.325C12.6407 2.67167 13.0782 3.00417 12.7049 4.06L10.3482 10.6575C10.2607 10.8792 9.98654 11.0717 9.74154 11.0717Z" stroke="#E2A32E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M3.79199 12.8333H10.2087" stroke="#E2A32E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M5.54199 8.16667H8.45866" stroke="#E2A32E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                  Активировать премиум
+                </button>
+              </div>
+              <button class="dashboard-header__user">
+                <span class="dashboard-header__user-avatar">
+                  <img src="assets/img/dashboard/user-avatar.jpg" alt="" />
+                </span>
+                <span class="dashboard-header__user-name">
+                  <b>79888471627</b>
+                  <span>79888471627@shtrafoff.net</span>
+                </span>
+              </button>
+            </div>
+          </div>
+        </header>
+
+        <div class="dashboard-content container">
+          <div class="dashboard-head">
+            <div class="breadcrumbs">
+              <a href="#">Главная</a> /
+              <span>Посылки</span>
+            </div>
+            <h1>Посылки</h1>
+          </div>
+          <div class="admins">
+            <div class="admins-empty">
+              <div class="admins-empty__icon">
+                <img src="assets/img/dashboard/icons/clipboard.svg" alt="" />
+              </div>
+              <div class="admins-empty__title">
+                Добавьте трек-номер посылки для начала мониторинга
+              </div>
+              <button class="btn admins-empty__btn" data-popup="#getPopupBox">
+                Добавить трек-номер
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M7.00033 12.8333C10.2087 12.8333 12.8337 10.2083 12.8337 6.99999C12.8337 3.79166 10.2087 1.16666 7.00033 1.16666C3.79199 1.16666 1.16699 3.79166 1.16699 6.99999C1.16699 10.2083 3.79199 12.8333 7.00033 12.8333Z" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M4.66699 7H9.33366" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M7 9.33332V4.66666" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </button>
+            </div>
+            <div class="admins-console">
+              <div class="admins-console__header">
+                <div class="admins-console__title">Найденные записи</div>
+              </div>
+              <div class="admins-information">
+                <div class="admins-information__icon">
+                  <img src="assets/img/dashboard/icons/clipboard.svg" alt="" />
+                </div>
+                <div class="admins-information__conten">
+                  <div class="admins-information__title">Обновление данных не запускалось</div>
+                  <div class="admins-information__text">
+                    Вам нужно Оформить Премиум доступ для запуска мониторинга задолженностей
+                  </div>
+                  <button class="btn" data-popup="#getPopupPremium">Активировать премиум</button>
+                </div>
+              </div>
+              <div class="admins-information">
+                <div class="admins-information__icon">
+                  <img src="assets/img/dashboard/icons/clipboard.svg" alt="" />
+                </div>
+                <div class="admins-information__conten">
+                  <div class="admins-information__title">Идет обновление данных</div>
+                  <div class="admins-information__text">
+                    Ищем информацию по вашей посылке, в зависимости от загруженности баз служб
+                    доставки это может занять время от нескольких секунд до нескольких часов.
+                  </div>
+                  <div class="admins-information__status">
+                    <h3>Статус:</h3>
+                    <div>
+                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10.1594 1.33334H5.83937C3.33271 1.33334 3.13937 3.58668 4.49271 4.81334L11.506 11.1867C12.8594 12.4133 12.666 14.6667 10.1594 14.6667H5.83937C3.33271 14.6667 3.13937 12.4133 4.49271 11.1867L11.506 4.81334C12.8594 3.58668 12.666 1.33334 10.1594 1.33334Z" stroke="#2F94EF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                      </svg>
+                      В очереди на проверку ..
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="admins-postaltracker">
+                <div class="admins-postaltracker__content">
+                  <div class="admins-postaltracker__header">
+                    <div class="admins-postaltracker__icon">
+                      <img src="assets/img/dashboard/icons/popup-box.svg" alt="" />
+                    </div>
+                    <div class="admins-postaltracker__title"><span>№2</span>8675334456789087</div>
+                  </div>
+                  <div class="admins-postaltracker__status">
+                    <span>Ищем данные по посылке</span>
+                    <div class="admins-postaltracker__bar">
+                      <div class="admins-postaltracker__line" style="width: 60%"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="admins-postaltracker__sidebar">
+                  <span>Посылка не найдена</span>
+                  <div>
+                    <p>Текущее местоположение...</p>
+                  </div>
+                </div>
+              </div>
+              <div class="admins-information">
+                <div class="admins-information__icon">
+                  <img src="assets/img/dashboard/icons/clipboard.svg" alt="" />
+                </div>
+                <div class="admins-information__conten">
+                  <div class="admins-information__title">
+                    Нам не удалось найти вашу посылку после 7 попыток за последние 7 дней
+                  </div>
+                  <div class="admins-information__text">
+                    <p><b>Возможные причины:</b></p>
+                    <ol>
+                      <li>
+                        Допущена ошибка при введении данных о номере посылки (трек коде).
+                        Убедитесь, пожалуйста, в корректности указанных данных.
+                      </li>
+                      <li>
+                        Ошибка в передаче данных о номере посылки со стороны грузоперевозчика.
+                      </li>
+                    </ol>
+                    <p>В дальнейшем автоматических попыток осуществляться не будет.</p>
+                    <p>
+                      При необходимости обратитесь в службу поддержки за альтернативными методами
+                      и помощью в поиске вашей посылки.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="admins-postaltracker --success">
+                <div class="admins-postaltracker__content">
+                  <div class="admins-postaltracker__header">
+                    <div class="admins-postaltracker__icon">
+                      <img src="assets/img/dashboard/icons/popup-box.svg" alt="" />
+                    </div>
+                    <div class="admins-postaltracker__title"><span>№2</span>8675334456789087</div>
+                    <div class="admins-postaltracker__date">26.10.2025 09:05</div>
+                  </div>
+                  <div class="admins-postaltracker__status">
+                    <div class="admins-postaltracker__bar">
+                      <div class="admins-postaltracker__line" style="width: 100%"></div>
+                    </div>
+                    <div class="admins-postaltracker__footer">
+                      <div>
+                        <span>Россия</span>
+                        Kseniya
+                      </div>
+                      <div>
+                        <span>Россия</span>
+                        Игорь Витальевич
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="admins-postaltracker__sidebar">
+                  <span>Доставлена</span>
+                  <div>
+                    <p>
+                      <b>Выдана по адресу</b> <br />
+                      Отделение связи № 658080 край Алтайский, г Новоалтайск,
+                      ул Космонавтов, дом. 2 пн, вт, ср, чт, пт: 08:00–20:00 сб: 09:00–18:00 вс:
+                      09:00–14:00
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="admins-postal">
+                <div class="admins-postal__header">
+                  <div class="admins-postal__icon">
+                    <img src="assets/img/dashboard/icons/popup-box.svg" alt="" />
+                  </div>
+                  <div class="admins-postal__title"><span>№2</span>8675334456789087</div>
+                  <div class="admins-postal__date">26.10.2025 09:05</div>
+                </div>
+                <div class="admins-postal__content">
+                  <h3>Вручение - Вручение адресату</h3>
+                  <p><b>Новоалтайск</b></p>
+                  <p>
+                    Отделение связи № 658080 край Алтайский, г Новоалтайск, ул Космонавтов, дом 2
+                    пн, вт, ср, чт, пт: 08:00-20:00 сб: 09:00-18:00 вс: 09:00-14:00
+                  </p>
+                </div>
+                <div class="admins-postal__marker">
+                  <span>Russian-post</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="dashboard-footer">
+      <div class="dashboard-footer__container">
+        <div class="dashboard-footer__menu">
+          <ul>
+            <li><a href="#">Правила оказания услуг</a></li>
+            <li><a href="#">Политика конфиденциальности</a></li>
+            <li><a href="#">Согласие на обработку персональных данных</a></li>
+            <li>© 2025 Все права защищены</li>
+          </ul>
+          <ul>
+            <li><a href="#">Премиум</a></li>
+            <li><a href="#">Служба поддержки</a></li>
+            <li><a href="#">Описание функциональных характеристик</a></li>
+            <li><a href="#">Отмена подписки (мобильные и карты)</a></li>
+          </ul>
+        </div>
+        <div class="dashboard-footer__contacts">
+          <a class="dashboard-footer__phone" href="#">8-499-999-99-99</a>
+          <a class="dashboard-footer__email" href="#">support@infoproverka.me</a>
+        </div>
+      </div>
+    </footer>
+    <div class="popup" id="getPopupFizFace">
+      <div class="popup__content">
+        <div class="popup__body">
+          <button class="popup__close" type="button"></button>
+
+          <div class="popup__header">
+            <div class="popup__icon">
+              <img src="assets/img/dashboard/icons/popup-fizface.svg" alt="" />
+            </div>
+            <div class="popup__title">Физическое лицо</div>
+          </div>
+
+          <div class="popup__form form">
+            <form action="" method="post">
+              <div class="form__item">
+                <input name="surname" type="text" placeholder="Фамилия*" required />
+              </div>
+
+              <div class="form__item">
+                <input name="firstname" type="text" placeholder="Имя*" required />
+              </div>
+
+              <div class="form__item patronymic-item">
+                <input name="patronymic" type="text" placeholder="Отчество*" required />
+              </div>
+
+              <div class="form__item checkbox">
+                <label for="no-patronymic" class="checkbox__label">
+                  <input type="checkbox" id="no-patronymic" name="no_patronymic" value="1" class="checkbox-no-patronymic" />
+                  <span class="checkbox-text">У меня нет отчества</span>
+                </label>
+              </div>
+
+              <div class="form__row">
+                <div class="form__item">
+                  <div class="suggest" data-suggest="day">
+                    <input type="text" class="suggest__input" placeholder="День*" autocomplete="off" />
+                    <input type="hidden" name="day" />
+                    <div class="suggest__dropdown"></div>
+                  </div>
+                </div>
+                <div class="form__item">
+                  <div class="suggest" data-suggest="month">
+                    <input type="text" class="suggest__input" placeholder="Месяц*" autocomplete="off" />
+                    <input type="hidden" name="month" />
+                    <div class="suggest__dropdown"></div>
+                  </div>
+                </div>
+                <div class="form__item">
+                  <div class="suggest" data-suggest="year">
+                    <input type="text" class="suggest__input" placeholder="Год*" autocomplete="off" />
+                    <input type="hidden" name="year" />
+                    <div class="suggest__dropdown"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form__item">
+                <div class="suggest" data-suggest="region">
+                  <input type="text" class="suggest__input" placeholder="Регион*" autocomplete="off" />
+                  <input type="hidden" name="region" />
+                  <div class="suggest__dropdown"></div>
+                </div>
+              </div>
+
+              <div class="form__item checkbox">
+                <label for="fiz-policy" class="checkbox__label">
+                  <input type="checkbox" id="fiz-policy" name="policy" value="1" required />
+                  <span class="checkbox-text">
+                    Я даю <b>Согласие</b> на обработку моих персональных данных в соответствии
+                    <a href="#">с Политикой конфиденциальности</a> и ознакомлен
+                    <a href="#">с Правилами работы сервиса</a>
+                  </span>
+                </label>
+              </div>
+
+              <div class="form__row form__footer">
+                <button class="btn-gray" type="reset" data-close>Отмена</button>
+                <button class="btn" type="submit">Сохранить</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="popup" id="getPopupYrFace">
+      <div class="popup__content">
+        <div class="popup__body">
+          <button class="popup__close" type="button"></button>
+
+          <div class="popup__header">
+            <div class="popup__icon">
+              <img src="assets/img/dashboard/icons/popup-Yrface.svg" alt="" />
+            </div>
+            <div class="popup__title">Юридическое лицо</div>
+          </div>
+
+          <div class="popup__form form">
+            <form action="" method="post">
+              <div class="form__item">
+                <input name="surname" type="text" placeholder="Название организации*" required />
+              </div>
+
+              <div class="form__item">
+                <input name="firstname" type="text" placeholder="Юридический адрес*" required />
+              </div>
+
+              <div class="form__item patronymic-item">
+                <input name="patronymic" type="text" placeholder="ИНН*" required />
+              </div>
+
+              <div class="form__item">
+                <div class="suggest" data-suggest="region">
+                  <input type="text" class="suggest__input" placeholder="Регион*" autocomplete="off" />
+                  <input type="hidden" name="region" />
+                  <div class="suggest__dropdown"></div>
+                </div>
+              </div>
+
+              <div class="form__item checkbox">
+                <label for="fiz-policy" class="checkbox__label">
+                  <input type="checkbox" id="fiz-policy" name="policy" value="1" required />
+                  <span class="checkbox-text">
+                    Я даю <b>Согласие</b> на обработку моих персональных данных в соответствии
+                    <a href="#">с Политикой конфиденциальности</a> и ознакомлен
+                    <a href="#">с Правилами работы сервиса</a>
+                  </span>
+                </label>
+              </div>
+
+              <div class="form__row form__footer">
+                <button class="btn-gray" type="reset" data-close>Отмена</button>
+                <button class="btn" type="submit">Сохранить</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="popup" id="getPopupFizCar">
+      <div class="popup__content">
+        <div class="popup__body">
+          <button class="popup__close" type="button"></button>
+
+          <div class="popup__header">
+            <div class="popup__icon">
+              <img src="assets/img/dashboard/icons/popup-fizCar.svg" alt="" />
+            </div>
+            <div class="popup__title">Транспортное средство для физ лица</div>
+          </div>
+
+          <div class="popup__form form">
+            <form action="" method="post">
+              <div class="form__item">
+                <input name="surname" type="text" placeholder="Марка автомобиля*" required />
+              </div>
+
+              <div class="form__item">
+                <input name="firstname" type="text" placeholder="Год выпуска*" required />
+              </div>
+
+              <div class="form__item patronymic-item">
+                <input name="patronymic" type="text" placeholder="Госномер автомобиля*" required />
+              </div>
+
+              <div class="form__item patronymic-item">
+                <input name="patronymic" type="text" placeholder="Номер свидетельства о регистрации*" required />
+              </div>
+
+              <div class="form__item checkbox">
+                <label for="fiz-policy" class="checkbox__label">
+                  <input type="checkbox" id="fiz-policy" name="policy" value="1" required />
+                  <span class="checkbox-text">
+                    Я даю <b>Согласие</b> на обработку моих персональных данных в соответствии
+                    <a href="#">с Политикой конфиденциальности</a> и ознакомлен
+                    <a href="#">с Правилами работы сервиса</a>
+                  </span>
+                </label>
+              </div>
+
+              <div class="form__row form__footer">
+                <button class="btn-gray" type="reset" data-close>Отмена</button>
+                <button class="btn" type="submit">Сохранить</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="popup" id="getPopupYrCar">
+      <div class="popup__content">
+        <div class="popup__body">
+          <button class="popup__close" type="button"></button>
+
+          <div class="popup__header">
+            <div class="popup__icon">
+              <img src="assets/img/dashboard/icons/popup-yrCar.svg" alt="" />
+            </div>
+            <div class="popup__title">Транспортное средство для юр лица</div>
+          </div>
+
+          <div class="popup__form form">
+            <form action="" method="post">
+              <div class="form__row">
+                <div class="form__item">
+                  <input name="surname" type="text" placeholder="Марка автомобиля*" required />
+                </div>
+
+                <div class="form__item patronymic-item">
+                  <input name="patronymic" type="text" placeholder="Госномер автомобиля*" required />
+                </div>
+              </div>
+
+              <div class="form__item patronymic-item">
+                <input name="patronymic" type="text" placeholder="Номер свидетельства о регистрации*" required />
+              </div>
+
+              <div class="form__item patronymic-item">
+                <input name="patronymic" type="text" placeholder="Название организации*" required />
+              </div>
+
+              <div class="form__row">
+                <div class="form__item">
+                  <input name="surname" type="text" placeholder="ИНН*" required />
+                </div>
+
+                <div class="form__item">
+                  <input name="firstname" type="text" placeholder="КПП*" required />
+                </div>
+              </div>
+
+              <div class="form__item checkbox">
+                <label for="fiz-policy" class="checkbox__label">
+                  <input type="checkbox" id="fiz-policy" name="policy" value="1" required />
+                  <span class="checkbox-text">
+                    Я даю <b>Согласие</b> на обработку моих персональных данных в соответствии
+                    <a href="#">с Политикой конфиденциальности</a> и ознакомлен
+                    <a href="#">с Правилами работы сервиса</a>
+                  </span>
+                </label>
+              </div>
+
+              <div class="form__row form__footer">
+                <button class="btn-gray" type="reset" data-close>Отмена</button>
+                <button class="btn" type="submit">Сохранить</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="popup" id="getPopupPrava">
+      <div class="popup__content">
+        <div class="popup__body">
+          <button class="popup__close" type="button"></button>
+
+          <div class="popup__header">
+            <div class="popup__icon">
+              <img src="assets/img/dashboard/icons/popup-prava.svg" alt="" />
+            </div>
+            <div class="popup__title">Водительское удостоверение</div>
+          </div>
+
+          <div class="popup__form form">
+            <form action="" method="post">
+              <div class="form__item patronymic-item">
+                <input name="patronymic" type="text" placeholder="Водительское удостоверение" required />
+              </div>
+
+              <div class="form__item checkbox">
+                <label for="fiz-policy" class="checkbox__label">
+                  <input type="checkbox" id="fiz-policy" name="policy" value="1" required />
+                  <span class="checkbox-text">
+                    Я даю <b>Согласие</b> на обработку моих персональных данных в соответствии
+                    <a href="#">с Политикой конфиденциальности</a> и ознакомлен
+                    <a href="#">с Правилами работы сервиса</a>
+                  </span>
+                </label>
+              </div>
+
+              <div class="form__row form__footer">
+                <button class="btn-gray" type="reset" data-close>Отмена</button>
+                <button class="btn" type="submit">Сохранить</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="popup" id="getPopupInn">
+      <div class="popup__content">
+        <div class="popup__body">
+          <button class="popup__close" type="button"></button>
+
+          <div class="popup__header">
+            <div class="popup__icon">
+              <img src="assets/img/dashboard/icons/popup-inn.svg" alt="" />
+            </div>
+            <div class="popup__title">ИНН</div>
+          </div>
+
+          <div class="popup__form form">
+            <form action="" method="post">
+              <div class="form__item patronymic-item">
+                <input name="patronymic" type="text" placeholder="Имя*" required />
+              </div>
+
+              <div class="form__item patronymic-item">
+                <input name="patronymic" type="text" placeholder="ИНН*" required />
+              </div>
+
+              <div class="form__item checkbox">
+                <label for="fiz-policy" class="checkbox__label">
+                  <input type="checkbox" id="fiz-policy" name="policy" value="1" required />
+                  <span class="checkbox-text">
+                    Я даю <b>Согласие</b> на обработку моих персональных данных в соответствии
+                    <a href="#">с Политикой конфиденциальности</a> и ознакомлен
+                    <a href="#">с Правилами работы сервиса</a>
+                  </span>
+                </label>
+              </div>
+
+              <div class="form__row form__footer">
+                <button class="btn-gray" type="reset" data-close>Отмена</button>
+                <button class="btn" type="submit">Сохранить</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="popup" id="getPopupBox">
+      <div class="popup__content">
+        <div class="popup__body">
+          <button class="popup__close" type="button"></button>
+
+          <div class="popup__header">
+            <div class="popup__icon">
+              <img src="assets/img/dashboard/icons/popup-box.svg" alt="" />
+            </div>
+            <div class="popup__title">Посылка</div>
+          </div>
+
+          <div class="popup__form form">
+            <form action="" method="post">
+              <div class="form__item patronymic-item">
+                <input name="patronymic" type="text" placeholder="Название посылки*" required />
+              </div>
+
+              <div class="form__item patronymic-item">
+                <input name="patronymic" type="text" placeholder="Номер отслеживаемой посылки*" required />
+              </div>
+
+              <div class="form__item checkbox">
+                <label for="fiz-policy" class="checkbox__label">
+                  <input type="checkbox" id="fiz-policy" name="policy" value="1" required />
+                  <span class="checkbox-text">
+                    Я даю <b>Согласие</b> на обработку моих персональных данных в соответствии
+                    <a href="#">с Политикой конфиденциальности</a> и ознакомлен
+                    <a href="#">с Правилами работы сервиса</a>
+                  </span>
+                </label>
+              </div>
+
+              <div class="form__row form__footer">
+                <button class="btn-gray" type="reset" data-close>Отмена</button>
+                <button class="btn" type="submit">Сохранить</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="popup" id="getPopupPremium">
+      <div class="popup__content">
+        <div class="popup__body">
+          <button class="popup__close" type="button"></button>
+
+          <div class="popup__header">
+            <div class="popup__icon">
+              <img src="assets/img/dashboard/icons/popup-premium.svg" alt="" />
+            </div>
+            <div class="popup__title">Оформите премиум доступ</div>
+            <div class="popup__text">Данная функция доступна пользователям с Премум доступом</div>
+          </div>
+
+          <button class="btn">Оформить Премиум</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="popup" id="getEditEmail">
+      <div class="popup__content">
+        <div class="popup__body">
+          <button class="popup__close" type="button"></button>
+
+          <div class="popup__header">
+            <div class="popup__icon">
+              <img src="assets/img/dashboard/icons/popup-email.svg" alt="" />
+            </div>
+            <div class="popup__title">Сменить почту</div>
+          </div>
+
+          <div class="popup__form form --flex-1">
+            <form action="" method="post">
+              <div class="form__item">
+                <input name="patronymic" type="email" placeholder="Укажите новый адрес эл почты" required />
+              </div>
+              <button class="btn --flex-1" type="submit">Сохранить</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <script src="assets/js/index.js"></script>
+
+</body>
+
+</html>
