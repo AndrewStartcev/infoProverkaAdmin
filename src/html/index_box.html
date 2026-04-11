@@ -24,7 +24,7 @@
                 <div class="admins-empty__title">
                   Добавьте адрес почтового отделения, для которого необходимо узнать индекс
                 </div>
-                <button class="btn admins-empty__btn" data-popup="#getPopupBox">
+                <button class="btn admins-empty__btn" data-popup="#getPopupIndexSeaher">
                   Добавить данные
                   <svg
                     width="14"
@@ -80,6 +80,33 @@
           </div>
         </div>
       </main>
+      <div class="popup" id="getPopupIndexSeaher">
+        <div class="popup__content">
+          <div class="popup__body">
+            <button class="popup__close" type="button"></button>
+
+            <div class="popup__header">
+              <div class="popup__icon">
+                <img src="assets/img/dashboard/icons/index-box.svg" alt="" />
+              </div>
+              <div class="popup__title">Поиск почтового индекса</div>
+            </div>
+
+            <div class="popup__form form">
+              <form action="" method="post">
+                <div class="form__item patronymic-item">
+                  <input name="patronymic" type="text" placeholder="Введите адрес*" required />
+                </div>
+
+                <div class="form__row form__footer">
+                  <button class="btn-gray" type="reset" data-close>Отмена</button>
+                  <button class="btn" type="submit">Сохранить</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
 
       @@include("admin/chunk/footer.html") @@include("admin/chunk/popup.html")
     </div>

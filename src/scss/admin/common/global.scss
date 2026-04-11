@@ -208,4 +208,8 @@ img {
 [data-toggle-target] {
   overflow: hidden;
   transition: max-height 0.4s ease;
+  padding-top: 10px;
+}
+[data-toggle-wrap] {
+  width: 100%;
 }

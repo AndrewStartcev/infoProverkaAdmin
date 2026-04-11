@@ -200,6 +200,11 @@ img {
 [data-toggle-target] {
   overflow: hidden;
   transition: max-height 0.4s ease;
+  padding-top: 10px;
+}
+
+[data-toggle-wrap] {
+  width: 100%;
 }
 
 .dashboard-sidebar {
@@ -725,6 +730,37 @@ img {
   }
 }
 
+.btn-red {
+  display: flex;
+  padding: 22px 36px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border-radius: 100px;
+  background: #af2828;
+  color: #fff;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 100%;
+  transition: all 0.5 ease;
+}
+@media (any-hover: hover) {
+  .btn-red:hover {
+    background: #e05252;
+  }
+}
+.btn-red:active {
+  transform: scale(0.98);
+}
+@media (max-width: 767.8px) {
+  .btn-red {
+    padding: 16px;
+    font-size: 14px;
+    width: 100%;
+  }
+}
+
 .btn--text {
   background: transparent;
   align-items: flex-start;
@@ -772,6 +808,55 @@ img {
   }
 }
 
+[data-tab-list] {
+  margin-bottom: 32px;
+}
+
+[data-tab-list],[data-tab-btn] {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+}
+
+[data-tab-btn] {
+  background: rgba(15, 27, 51, 0.04);
+  padding: 16px;
+  min-width: 120px;
+  flex-direction: column;
+  gap: 8px;
+  color: #0f1b33;
+  text-align: center;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+}
+
+[data-tab-btn][data-active] {
+  background: #2f94ef;
+  color: #fff;
+}
+[data-tab-btn][data-active] svg {
+  filter: invert(1);
+}
+
+[data-tab-panel] {
+  display: none;
+}
+
+[data-tab-panel][data-active] {
+  display: flex;
+}
+
+@media (max-width: 767.8px) {
+  [data-tab-btn] {
+    padding: 5px;
+    min-width: auto;
+    gap: 3px;
+    font-size: 12px;
+  }
+}
 .switch {
   position: relative;
   display: inline-block;
@@ -918,14 +1003,14 @@ img {
 .suggest__option:hover {
   background: #f0f0f0;
 }
-
-.form form {
+.form,.form form {
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 16px;
 }
-.form form,.form__item {
+.form__item {
   width: 100%;
 }
 .form__item input {
@@ -1509,6 +1594,12 @@ img {
 .popup__body.--big {
   max-width: 968px;
 }
+.popup__body.--mini {
+  max-width: 490px;
+}
+.popup__body.--mini .popup__title {
+  font-size: 28px;
+}
 .popup__close {
   width: 32px;
   height: 32px;
@@ -1564,6 +1655,12 @@ img {
   font-size: 16px;
   font-weight: 400;
   line-height: 120%;
+}
+.popup__row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
 }
 
 @media (max-width: 767.8px) {

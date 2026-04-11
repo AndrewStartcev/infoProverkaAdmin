@@ -24,7 +24,7 @@
                 <div class="admins-empty__title">
                   Добавьте трек-номер посылки для начала мониторинга
                 </div>
-                <button class="btn admins-empty__btn" data-popup="#getPopupBox">
+                <button class="btn admins-empty__btn" data-popup="#getPopupBoxTracker">
                   Добавить трек-номер
                   <svg
                     width="14"
@@ -217,6 +217,64 @@
           </div>
         </div>
       </main>
+
+      <div class="popup" id="getPopupBoxTracker">
+        <div class="popup__content">
+          <div class="popup__body">
+            <button class="popup__close" type="button"></button>
+
+            <div class="popup__header">
+              <div class="popup__icon">
+                <img src="assets/img/dashboard/icons/popup-check.svg" alt="" />
+              </div>
+              <div class="popup__title">Вы успешно зарегистрировались!</div>
+              <div class="popup__text">Подтвердите Ваш трек номер для отслеживания посылки</div>
+            </div>
+
+            <div class="popup__form form">
+              <form action="" method="post">
+                <div class="form__item patronymic-item">
+                  <input name="patronymic" type="text" placeholder="Название посылки*" required />
+                </div>
+
+                <div class="form__item patronymic-item">
+                  <input
+                    name="patronymic"
+                    type="text"
+                    placeholder="Номер отслеживаемой посылки*"
+                    required
+                  />
+                </div>
+
+                <div class="form__item checkbox">
+                  <label for="fiz-policy" class="checkbox__label">
+                    <input type="checkbox" id="fiz-policy" name="policy" value="1" required />
+                    <span class="checkbox-text">
+                      Я даю <b>Согласие</b> на обработку моих персональных данных в соответствии
+                      <a href="#">с Политикой конфиденциальности</a> и ознакомлен
+                      <a href="#">с Правилами работы сервиса</a>
+                    </span>
+                  </label>
+                </div>
+
+                <div class="form__item checkbox">
+                  <label for="box-policy" class="checkbox__label">
+                    <input type="checkbox" id="box-policy" name="policy" value="1" required />
+                    <span class="checkbox-text">
+                      Согласен получать чеки оплаты на внутреннюю почту сервиса
+                    </span>
+                  </label>
+                </div>
+
+                <div class="form__row form__footer">
+                  <button class="btn-gray" type="reset" data-close>Отмена</button>
+                  <button class="btn" type="submit">Сохранить</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
 
       @@include("admin/chunk/footer.html") @@include("admin/chunk/popup.html")
     </div>

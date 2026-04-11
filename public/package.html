@@ -143,7 +143,7 @@
               <div class="admins-empty__title">
                 Добавьте трек-номер посылки для начала мониторинга
               </div>
-              <button class="btn admins-empty__btn" data-popup="#getPopupBox">
+              <button class="btn admins-empty__btn" data-popup="#getPopupBoxTracker">
                 Добавить трек-номер
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M7.00033 12.8333C10.2087 12.8333 12.8337 10.2083 12.8337 6.99999C12.8337 3.79166 10.2087 1.16666 7.00033 1.16666C3.79199 1.16666 1.16699 3.79166 1.16699 6.99999C1.16699 10.2083 3.79199 12.8333 7.00033 12.8333Z" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
@@ -300,6 +300,59 @@
         </div>
       </div>
     </main>
+
+    <div class="popup" id="getPopupBoxTracker">
+      <div class="popup__content">
+        <div class="popup__body">
+          <button class="popup__close" type="button"></button>
+
+          <div class="popup__header">
+            <div class="popup__icon">
+              <img src="assets/img/dashboard/icons/popup-check.svg" alt="" />
+            </div>
+            <div class="popup__title">Вы успешно зарегистрировались!</div>
+            <div class="popup__text">Подтвердите Ваш трек номер для отслеживания посылки</div>
+          </div>
+
+          <div class="popup__form form">
+            <form action="" method="post">
+              <div class="form__item patronymic-item">
+                <input name="patronymic" type="text" placeholder="Название посылки*" required />
+              </div>
+
+              <div class="form__item patronymic-item">
+                <input name="patronymic" type="text" placeholder="Номер отслеживаемой посылки*" required />
+              </div>
+
+              <div class="form__item checkbox">
+                <label for="fiz-policy" class="checkbox__label">
+                  <input type="checkbox" id="fiz-policy" name="policy" value="1" required />
+                  <span class="checkbox-text">
+                    Я даю <b>Согласие</b> на обработку моих персональных данных в соответствии
+                    <a href="#">с Политикой конфиденциальности</a> и ознакомлен
+                    <a href="#">с Правилами работы сервиса</a>
+                  </span>
+                </label>
+              </div>
+
+              <div class="form__item checkbox">
+                <label for="box-policy" class="checkbox__label">
+                  <input type="checkbox" id="box-policy" name="policy" value="1" required />
+                  <span class="checkbox-text">
+                    Согласен получать чеки оплаты на внутреннюю почту сервиса
+                  </span>
+                </label>
+              </div>
+
+              <div class="form__row form__footer">
+                <button class="btn-gray" type="reset" data-close>Отмена</button>
+                <button class="btn" type="submit">Сохранить</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <footer class="dashboard-footer">
       <div class="dashboard-footer__container">
@@ -717,6 +770,22 @@
           </div>
 
           <button class="btn">Оформить Премиум</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="popup" id="getDelet">
+      <div class="popup__content">
+        <div class="popup__body --mini">
+          <button class="popup__close" type="button"></button>
+
+          <div class="popup__header">
+            <div class="popup__title">Вы уверены, что ходите удалить объект?</div>
+          </div>
+          <div class="popup__row">
+            <button class="btn-gray" data-close="">Отмена</button>
+            <button class="btn-red">Удалить</button>
+          </div>
         </div>
       </div>
     </div>

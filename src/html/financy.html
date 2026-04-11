@@ -24,7 +24,7 @@
                 <div class="admins-empty__title">
                   Добавьте данные для поиска предложений по финансовым продуктам
                 </div>
-                <button class="btn admins-empty__btn" data-popup="#getPopupYrFace">
+                <button class="btn admins-empty__btn" data-popup="#getPopupMyData">
                   Добавить данные
                   <svg
                     width="14"
@@ -317,6 +317,95 @@
           </div>
         </div>
       </main>
+
+      <div class="popup" id="getPopupMyData">
+        <div class="popup__content">
+          <div class="popup__body">
+            <button class="popup__close" type="button"></button>
+
+            <div class="popup__header">
+              <div class="popup__icon">
+                <img src="assets/img/dashboard/icons/user.svg" alt="" />
+              </div>
+              <div class="popup__title">Мои данные</div>
+            </div>
+
+            <div class="popup__form form">
+              <form action="" method="post">
+                <div class="form__item patronymic-item">
+                  <input name="patronymic" type="text" placeholder="ФИО*" required />
+                </div>
+                <div class="form__item patronymic-item">
+                  <input name="patronymic" type="text" placeholder="Дата рождения*" required />
+                </div>
+                <div class="form__row">
+                  <div class="form__item patronymic-item">
+                    <input
+                      name="patronymic"
+                      type="text"
+                      placeholder="Серия и номер паспорта*"
+                      required
+                    />
+                  </div>
+                  <div class="form__item patronymic-item">
+                    <input name="patronymic" type="text" placeholder="Дата выдачи" required />
+                  </div>
+                </div>
+                <div class="form__item patronymic-item">
+                  <input name="patronymic" type="text" placeholder="Кем выдан*" required />
+                </div>
+                <div class="form__item patronymic-item">
+                  <input
+                    name="patronymic"
+                    type="text"
+                    placeholder="Регистрация (прописка)*"
+                    required
+                  />
+                </div>
+
+                <div class="form__row">
+                  <div class="form__item patronymic-item">
+                    <input name="patronymic" type="text" placeholder="Телефон*" required />
+                  </div>
+                  <div class="form__item patronymic-item">
+                    <input name="patronymic" type="text" placeholder="Эл почта*" required />
+                  </div>
+                </div>
+                <div class="form__item patronymic-item">
+                  <input name="patronymic" type="text" placeholder="Сумма кредита*" required />
+                </div>
+
+                <div class="form__item checkbox">
+                  <label for="addres-policy" class="checkbox__label">
+                    <input type="checkbox" id="addres-policy" name="policy" value="1" required />
+                    <span class="checkbox-text"> Совпадает с местом проживания </span>
+                  </label>
+                </div>
+
+                <div class="form__item patronymic-item">
+                  <input name="patronymic" type="text" placeholder="Место проживания*" required />
+                </div>
+
+                <div class="form__item checkbox">
+                  <label for="fiz-policy" class="checkbox__label">
+                    <input type="checkbox" id="fiz-policy" name="policy" value="1" required />
+                    <span class="checkbox-text">
+                      Я даю <b>Согласие</b> на обработку моих персональных данных в соответствии
+                      <a href="#">с Политикой конфиденциальности</a> и ознакомлен
+                      <a href="#">с Правилами работы сервиса</a>
+                    </span>
+                  </label>
+                </div>
+
+                <div class="form__row form__footer">
+                  <button class="btn-gray" type="reset" data-close>Отмена</button>
+                  <button class="btn" type="submit">Сохранить</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
 
       @@include("admin/chunk/footer.html") @@include("admin/chunk/popup.html")
     </div>

@@ -24,7 +24,7 @@
                 <div class="admins-empty__title">
                   Добавьте данные для рассчета стоимости отправления
                 </div>
-                <button class="btn admins-empty__btn" data-popup="#getPopupBox">
+                <button class="btn admins-empty__btn" data-popup="#getPopupBoxPriceWorld">
                   Добавить данные
                   <svg
                     width="14"
@@ -157,6 +157,79 @@
           </div>
         </div>
       </main>
+
+      <div class="popup" id="getPopupBoxPriceWorld">
+        <div class="popup__content">
+          <div class="popup__body">
+            <button class="popup__close" type="button"></button>
+
+            <div class="popup__header">
+              <div class="popup__icon">
+                <img src="assets/img/dashboard/icons/postal-price-world.svg" alt="" />
+              </div>
+              <div class="popup__title">Стоимость посылки по миру</div>
+            </div>
+
+            <div class="popup__form form">
+              <form action="" method="post">
+                <div class="form__item patronymic-item">
+                  <input name="patronymic" type="text" placeholder="Страна получателя*" required />
+                </div>
+
+                <div data-toggle-wrap>
+                  <button
+                    class="btn--text toggle-content"
+                    data-text-show="Дополнительные параметры"
+                    data-text-hide="Скрыть Дополнительные параметры"
+                  >
+                    Дополнительные параметры
+                  </button>
+                  <div class="form" data-toggle-target>
+                    <div class="form__item patronymic-item">
+                      <input
+                        name="patronymic"
+                        type="text"
+                        placeholder="Масса отправления, грамм*"
+                        required
+                      />
+                    </div>
+                    <div class="form__item checkbox">
+                      <label for="nes-policy" class="checkbox__label">
+                        <input type="checkbox" id="nes-policy" name="policy" value="1" required />
+                        <span class="checkbox-text"> Расчет с НДС 20% </span>
+                      </label>
+                    </div>
+                    <div class="form__item patronymic-item">
+                      <input
+                        name="patronymic"
+                        type="text"
+                        placeholder="Ценность отправления, руб*"
+                        required
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form__item checkbox">
+                  <label for="fiz-policy" class="checkbox__label">
+                    <input type="checkbox" id="fiz-policy" name="policy" value="1" required />
+                    <span class="checkbox-text">
+                      Я даю <b>Согласие</b> на обработку моих персональных данных в соответствии
+                      <a href="#">с Политикой конфиденциальности</a> и ознакомлен
+                      <a href="#">с Правилами работы сервиса</a>
+                    </span>
+                  </label>
+                </div>
+
+                <div class="form__row form__footer">
+                  <button class="btn-gray" type="reset" data-close>Отмена</button>
+                  <button class="btn" type="submit">Сохранить</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
 
       @@include("admin/chunk/footer.html") @@include("admin/chunk/popup.html")
     </div>

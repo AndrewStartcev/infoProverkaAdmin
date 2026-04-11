@@ -143,7 +143,7 @@
               <div class="admins-empty__title">
                 Добавьте профиль для запуска мониторинга долгов
               </div>
-              <button class="btn admins-empty__btn" data-popup="#getPopupYrFace">
+              <button class="btn admins-empty__btn" data-popup="#getPopupAddInn">
                 Добавить профиль
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M7.00033 12.8333C10.2087 12.8333 12.8337 10.2083 12.8337 6.99999C12.8337 3.79166 10.2087 1.16666 7.00033 1.16666C3.79199 1.16666 1.16699 3.79166 1.16699 6.99999C1.16699 10.2083 3.79199 12.8333 7.00033 12.8333Z" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
@@ -306,6 +306,139 @@
         </div>
       </div>
     </main>
+
+    <div class="popup" id="getPopupAddInn">
+      <div class="popup__content">
+        <div class="popup__body">
+          <button class="popup__close" type="button"></button>
+
+          <div data-tabs>
+            <div data-tab-list>
+              <button data-tab-btn data-target="tab-1">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M7 13H15" stroke="#0F1B33" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M7 17H12" stroke="#0F1B33" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M16 3.5C19.33 3.68 21 4.95 21 9.65V15.83C21 19.95 20 22.01 15 22.01H9C4 22.01 3 19.95 3 15.83V9.65C3 4.95 4.67 3.69 8 3.5H16Z" stroke="#0F1B33" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+
+                <span>ИНН</span>
+              </button>
+              <button data-tab-btn data-target="tab-2">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M8.74287 18.4857C10.2577 18.4857 11.4857 17.2577 11.4857 15.7429C11.4857 14.228 10.2577 13 8.74287 13C7.22803 13 6 14.228 6 15.7429C6 17.2577 7.22803 18.4857 8.74287 18.4857Z" stroke="#0F1B33" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M11.9997 18.9999L11.1426 18.1428" stroke="#0F1B33" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M15.8098 3.42001C19.1498 3.54001 20.8398 4.77001 20.9398 9.47001L21.0698 15.64C21.1498 19.76 20.1998 21.83 15.1998 21.94L9.19983 22.06C4.19983 22.16 3.15983 20.12 3.07983 16.01L2.93983 9.83001C2.83983 5.13001 4.48983 3.83001 7.80983 3.58001L15.8098 3.42001Z" stroke="#0F1B33" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+
+                <span>Поиск ИНН</span>
+              </button>
+            </div>
+
+            <div data-tab-panel data-tab="tab-1">
+              <div class="popup__form form">
+                <form action="" method="post">
+                  <div class="form__item patronymic-item">
+                    <input name="patronymic" type="text" placeholder="Имя*" required />
+                  </div>
+
+                  <div class="form__item patronymic-item">
+                    <input name="patronymic" type="text" placeholder="ИНН*" required />
+                  </div>
+
+                  <div class="form__item checkbox">
+                    <label for="fiz-policy" class="checkbox__label">
+                      <input type="checkbox" id="fiz-policy" name="policy" value="1" required />
+                      <span class="checkbox-text">
+                        Я даю <b>Согласие</b> на обработку моих персональных данных в соответствии
+                        <a href="#">с Политикой конфиденциальности</a> и ознакомлен
+                        <a href="#">с Правилами работы сервиса</a>
+                      </span>
+                    </label>
+                  </div>
+
+                  <div class="form__row form__footer">
+                    <button class="btn-gray" type="reset" data-close>Отмена</button>
+                    <button class="btn" type="submit">Сохранить</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div data-tab-panel data-tab="tab-2">
+              <div class="popup__form form">
+                <form action="" method="post">
+                  <div class="form__item">
+                    <input name="surname" type="text" placeholder="Фамилия*" required />
+                  </div>
+
+                  <div class="form__item">
+                    <input name="firstname" type="text" placeholder="Имя*" required />
+                  </div>
+
+                  <div class="form__item patronymic-item">
+                    <input name="patronymic" type="text" placeholder="Отчество*" required />
+                  </div>
+
+                  <div class="form__item checkbox">
+                    <label for="no-patronymic" class="checkbox__label">
+                      <input type="checkbox" id="no-patronymic" name="no_patronymic" value="1" class="checkbox-no-patronymic" />
+                      <span class="checkbox-text">У меня нет отчества</span>
+                    </label>
+                  </div>
+
+                  <div class="form__row">
+                    <div class="form__item">
+                      <div class="suggest" data-suggest="day">
+                        <input type="text" class="suggest__input" placeholder="День*" autocomplete="off" />
+                        <input type="hidden" name="day" />
+                        <div class="suggest__dropdown"></div>
+                      </div>
+                    </div>
+                    <div class="form__item">
+                      <div class="suggest" data-suggest="month">
+                        <input type="text" class="suggest__input" placeholder="Месяц*" autocomplete="off" />
+                        <input type="hidden" name="month" />
+                        <div class="suggest__dropdown"></div>
+                      </div>
+                    </div>
+                    <div class="form__item">
+                      <div class="suggest" data-suggest="year">
+                        <input type="text" class="suggest__input" placeholder="Год*" autocomplete="off" />
+                        <input type="hidden" name="year" />
+                        <div class="suggest__dropdown"></div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="form__item">
+                    <div class="suggest" data-suggest="region">
+                      <input type="text" class="suggest__input" placeholder="Регион*" autocomplete="off" />
+                      <input type="hidden" name="region" />
+                      <div class="suggest__dropdown"></div>
+                    </div>
+                  </div>
+
+                  <div class="form__item checkbox">
+                    <label for="fiz-policy2" class="checkbox__label">
+                      <input type="checkbox" id="fiz-policy2" name="policy" value="1" required />
+                      <span class="checkbox-text">
+                        Я даю <b>Согласие</b> на обработку моих персональных данных в соответствии
+                        <a href="#">с Политикой конфиденциальности</a> и ознакомлен
+                        <a href="#">с Правилами работы сервиса</a>
+                      </span>
+                    </label>
+                  </div>
+
+                  <div class="form__row form__footer">
+                    <button class="btn-gray" type="reset" data-close>Отмена</button>
+                    <button class="btn" type="submit">Сохранить</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <footer class="dashboard-footer">
       <div class="dashboard-footer__container">
@@ -723,6 +856,22 @@
           </div>
 
           <button class="btn">Оформить Премиум</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="popup" id="getDelet">
+      <div class="popup__content">
+        <div class="popup__body --mini">
+          <button class="popup__close" type="button"></button>
+
+          <div class="popup__header">
+            <div class="popup__title">Вы уверены, что ходите удалить объект?</div>
+          </div>
+          <div class="popup__row">
+            <button class="btn-gray" data-close="">Отмена</button>
+            <button class="btn-red">Удалить</button>
+          </div>
         </div>
       </div>
     </div>

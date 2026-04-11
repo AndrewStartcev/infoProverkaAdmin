@@ -405,6 +405,38 @@
     // Текст кнопки по умолчанию
     btn.textContent = btn.dataset.textShow;
   });
+
+  class Tabs {
+    constructor(selector) {
+      const roots = typeof selector === 'string' ? document.querySelectorAll(selector) : [selector];
+      roots.forEach(root => this._init(root));
+    }
+
+    _init(root) {
+      const buttons = root.querySelectorAll('[data-tab-btn]');
+      const panels = root.querySelectorAll('[data-tab-panel]');
+
+      const activate = targetId => {
+        buttons.forEach(btn => {
+          btn.toggleAttribute('data-active', btn.dataset.target === targetId);
+        });
+        panels.forEach(panel => {
+          const active = panel.dataset.tab === targetId;
+          panel.toggleAttribute('data-active', active);
+          panel.style.display = active ? 'flex' : 'none';
+        });
+      };
+
+      buttons.forEach(btn => {
+        btn.addEventListener('click', () => activate(btn.dataset.target));
+      });
+
+      const first = buttons[0];
+      if (first) activate(first.dataset.target);
+    }
+  }
+
+  new Tabs('[data-tabs]');
 })();
 
 /**

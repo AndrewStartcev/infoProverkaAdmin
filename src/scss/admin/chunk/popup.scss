@@ -62,6 +62,12 @@
     &.--big {
       max-width: 968px;
     }
+    &.--mini {
+      max-width: 490px;
+      .popup__title {
+        font-size: 28px;
+      }
+    }
   }
 
   &__close {
@@ -130,6 +136,12 @@
     font-size: 16px;
     font-weight: 400;
     line-height: 120%;
+  }
+  &__row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
   }
 }
 
