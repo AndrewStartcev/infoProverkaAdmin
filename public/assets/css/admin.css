@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @font-face {
   font-family: "AAStetica";
   src: url("fonts/AASteticaRegular.eot");
@@ -128,6 +129,7 @@ img {
 }
 
 .dashboard-wrapper {
+  width: 100%;
   display: flex;
   flex-direction: column;
   flex: 1 1 auto;
@@ -185,6 +187,21 @@ img {
     font-size: 20px;
   }
 }
+.spinner {
+  animation: spin 1s linear infinite;
+  transform-origin: center;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+[data-toggle-target] {
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+}
+
 .dashboard-sidebar {
   position: relative;
   z-index: 20;
@@ -930,6 +947,10 @@ img {
   font-weight: 400;
   line-height: 120%;
 }
+.form__item input:not(:placeholder-shown) {
+  background: #fff;
+  border: 1px solid #0f1b33;
+}
 .form__row {
   display: flex;
   flex-wrap: wrap;
@@ -944,6 +965,12 @@ img {
 .form__row button {
   flex: 1 1 calc(50% - 16px);
   width: 100%;
+}
+.form__footer {
+  margin-top: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 @media (max-width: 767.8px) {
@@ -960,6 +987,185 @@ img {
     flex-direction: column-reverse;
   }
 }
+/* ─── Обёртка поля ─────────────────────────────────────────────────────────── */
+.datepicker {
+  width: 100%;
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 4px;
+  font-family: inherit;
+}
+
+.datepicker__input-wrap {
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.datepicker__input-wrap input {
+  width: 100%;
+}
+.datepicker__input-wrap button {
+  flex: 0 0 auto;
+  width: auto;
+}
+
+.datepicker__icon {
+  width: auto;
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  color: #8a9ab0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.15s;
+}
+
+.datepicker__icon:hover {
+  color: #3b9af5;
+}
+
+/* ─── Дропдаун ─────────────────────────────────────────────────────────────── */
+.datepicker__calendar {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  z-index: 100;
+  display: none;
+}
+
+.datepicker__calendar._open {
+  display: block;
+  animation: cal-in 0.18s ease;
+}
+
+@keyframes cal-in {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* ─── Блок календаря ───────────────────────────────────────────────────────── */
+.cal {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 6px 16px 0 rgba(15, 27, 51, 0.12);
+  padding: 10px;
+  min-width: 280px;
+  user-select: none;
+}
+
+/* Шапка */
+.cal__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.cal__title {
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+}
+
+.cal__nav {
+  display: flex;
+  gap: 6px;
+}
+
+.cal__nav-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #5a7a99;
+  transition: background 0.15s, color 0.15s;
+}
+
+.cal__nav-btn:hover {
+  background: #eaf2fc;
+  color: #3b9af5;
+}
+
+/* Сетка */
+.cal__grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px 0;
+}
+
+/* Дни недели */
+.cal__dow {
+  text-align: center;
+  color: rgba(15, 27, 51, 0.3);
+  padding-bottom: 10px;
+}
+
+/* Ячейки дней */
+.cal__dow,.cal__day {
+  font-size: 12px;
+  font-weight: 500;
+}
+.cal__day {
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  background: none;
+  border: none;
+  color: #0f1b33;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.12s, color 0.12s;
+  margin: 2px auto;
+  width: 32px;
+  height: 34px;
+}
+
+.cal__day:hover:not(._selected):not(._other) {
+  background: #eaf2fc;
+  color: #3b9af5;
+}
+
+.cal__day._other {
+  color: #c5d0da;
+  font-weight: 400;
+}
+
+.cal__day._other:hover {
+  color: #a0b4c4;
+}
+
+.cal__day._today:not(._selected) {
+  background: #fff;
+  color: #2f94ef;
+}
+
+.cal__day._selected {
+  color: #fff;
+}
+
+.cal__day._selected,.cal__day._selected:hover {
+  background: #2f94ef;
+}
+
 .text-content {
   margin: 60px 0;
 }
@@ -1710,6 +1916,9 @@ img {
     font-size: 14px;
   }
 }
+.admins {
+  width: 100%;
+}
 
 .admins,.admins-empty {
   display: flex;
@@ -2334,6 +2543,432 @@ img {
   line-height: 120%;
 }
 
+.admins-prices {
+  display: flex;
+  padding: 20px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  align-self: stretch;
+  border-radius: 12px;
+  border: 1px solid rgba(15, 27, 51, 0.04);
+  background: #fff;
+}
+.admins-prices__header {
+  width: 100%;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(15, 27, 51, 0.08);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  align-self: stretch;
+}
+.admins-prices__icon {
+  flex: 0 0 auto;
+}
+.admins-prices__title {
+  color: #0f1b33;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 100%;
+  letter-spacing: -0.4px;
+}
+.admins-prices__title span {
+  color: rgba(15, 27, 51, 0.5);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 120%;
+}
+.admins-prices__content {
+  width: 100%;
+}
+.admins-prices__content h3 {
+  margin: 0;
+  color: #0f1b33;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 100%;
+}
+.admins-prices__content p {
+  color: rgba(15, 27, 51, 0.8);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 120%;
+}
+.admins-prices__table {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  align-self: stretch;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 3px 16px 0 rgba(15, 27, 51, 0.06);
+  overflow: hidden;
+}
+.admins-prices__top {
+  width: 100%;
+  display: flex;
+  align-items: stretch;
+  align-self: stretch;
+  background: rgba(15, 27, 51, 0.08);
+}
+.admins-prices__top div {
+  display: flex;
+  padding: 10px 12px;
+  align-items: center;
+  gap: 10px;
+  flex: 1 0 0;
+  color: #0f1b33;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 100%;
+}
+.admins-prices__list {
+  width: 100%;
+}
+.admins-prices__row {
+  width: 100%;
+  display: flex;
+  align-items: stretch;
+  align-self: stretch;
+  border-bottom: 1px solid rgba(15, 27, 51, 0.08);
+}
+.admins-prices__row:last-child {
+  border-bottom: 0;
+}
+.admins-prices__row div {
+  flex: 1 1 50%;
+  display: flex;
+  padding: 10px 12px;
+  align-items: center;
+  gap: 10px;
+  color: #0f1b33;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 120%;
+}
+.admins-prices__row div:first-child {
+  border-right: 1px solid rgba(15, 27, 51, 0.08);
+}
+
+.admins-index {
+  display: flex;
+  width: 100%;
+  padding: 20px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  border-radius: 12px;
+  border: 1px solid rgba(15, 27, 51, 0.04);
+  background: #fff;
+}
+.admins-index__header {
+  width: 100%;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(15, 27, 51, 0.08);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  align-self: stretch;
+}
+.admins-index__title {
+  color: #0f1b33;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 100%;
+  letter-spacing: -0.4px;
+}
+.admins-index__title span {
+  color: rgba(15, 27, 51, 0.5);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 120%;
+}
+.admins-index__content {
+  width: 100%;
+}
+.admins-index__content h3 {
+  margin: 0;
+  color: #0f1b33;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 100%;
+}
+.admins-index__content p {
+  color: rgba(15, 27, 51, 0.8);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 120%;
+}
+.admins-index__map {
+  width: 100%;
+  height: 500px;
+  border-radius: 8px;
+  box-shadow: 0 3px 16px 0 rgba(15, 27, 51, 0.06);
+  overflow: hidden;
+}
+
+.admins-loading {
+  padding: 64px 20px;
+  justify-content: center;
+  gap: 24px;
+  border-radius: 12px;
+  border: 1px solid rgba(15, 27, 51, 0.04);
+  background: #fff;
+}
+.admins-loading,.admins-loading__title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-self: stretch;
+}
+.admins-loading__title {
+  gap: 16px;
+}
+.admins-loading__title h3 {
+  margin: 0;
+  color: #0f1b33;
+  text-align: center;
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 94%;
+  letter-spacing: -0.56px;
+}
+.admins-loading__title p {
+  color: #0f1b33;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 120%;
+}
+
+.admins-schedule {
+  width: 100%;
+  display: flex;
+  padding: 20px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(15, 27, 51, 0.04);
+  background: #fff;
+}
+.admins-schedule__header {
+  justify-content: space-between;
+  width: 100%;
+}
+.admins-schedule__header,.admins-schedule__left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.admins-schedule__left {
+  align-self: stretch;
+}
+.admins-schedule__icon {
+  flex: 0 0 auto;
+}
+.admins-schedule__title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1 1 0;
+  color: #0f1b33;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 100%;
+  letter-spacing: -0.4px;
+}
+.admins-schedule__right {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  gap: 8px;
+}
+.admins-schedule__content {
+  width: 100%;
+}
+
+.schedule {
+  font-family: inherit;
+  font-size: 14px;
+  color: #0f1b33;
+}
+.schedule__date {
+  text-align: right;
+  color: rgba(15, 27, 51, 0.3);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 120%;
+  margin-bottom: 8px;
+}
+.schedule__note {
+  margin-top: 20px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+.schedule__scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: #d0dce8 transparent;
+}
+.schedule__scroll::-webkit-scrollbar {
+  height: 4px;
+}
+.schedule__scroll::-webkit-scrollbar-thumb {
+  background: #d0dce8;
+  border-radius: 2px;
+}
+.schedule__table {
+  width: 100%;
+  min-width: 820px;
+  border-collapse: collapse;
+  border-radius: 8px;
+  box-shadow: 0 3px 16px 0 rgba(15, 27, 51, 0.06);
+  overflow: hidden;
+}
+.schedule__table th,
+.schedule__table td {
+  padding: 10px 12px;
+  text-align: center;
+  border-bottom: 1px solid #edf1f6;
+  white-space: nowrap;
+  font-size: 12px;
+}
+.schedule__table th:first-child,
+.schedule__table td:first-child {
+  text-align: left;
+  font-weight: 500;
+  color: #4a6070;
+  font-size: 14px;
+  width: 130px;
+  min-width: 130px;
+  padding-right: 24px;
+}
+.schedule__table thead tr:first-child th {
+  border-bottom: none;
+  padding: 10px 12px;
+  font-size: 13px;
+  font-weight: 400;
+  color: transparent;
+}
+.schedule__table thead tr:first-child th.col-active {
+  color: #0f1b33;
+  font-weight: 500;
+  font-size: 13px;
+  display: inline-block;
+  border-radius: 8px 8px 0 0;
+  border-top: 1px solid #2f94ef;
+}
+.schedule__table thead tr:last-child {
+  background: rgba(15, 27, 51, 0.08);
+}
+.schedule__table thead tr:last-child th {
+  font-size: 12px;
+  font-weight: 500;
+  color: #0f1b33;
+  border-bottom: 2px solid #edf1f6;
+  padding: 10px 12px;
+}
+.schedule__table thead tr:last-child th:first-child {
+  font-size: 13px;
+  font-weight: 500;
+  color: #4a6070;
+  vertical-align: bottom;
+  border-radius: 8px 0 0 0;
+}
+.schedule__table thead tr:last-child th:last-child {
+  border-radius: 0 8px 0 0;
+}
+.schedule__table .col-active {
+  border-left: 1px solid #2f94ef !important;
+  border-right: 1px solid #2f94ef !important;
+  width: 160px;
+  min-width: 160px;
+  background: rgba(47, 148, 239, 0.04);
+}
+.schedule__table tbody tr:last-child td.col-active {
+  border-bottom: 1px solid #2f94ef !important;
+}
+.schedule__dash {
+  color: #c0ccd8;
+}
+.schedule__price {
+  font-weight: 500;
+}
+
+.admins-banks {
+  display: flex;
+  align-items: stretch;
+  align-content: flex-start;
+  gap: 12px;
+  align-self: stretch;
+  flex-wrap: wrap;
+}
+.admins-banks__card {
+  flex: 0 0 calc(33.333% - 8px);
+  display: flex;
+  padding: 20px;
+  flex-direction: column;
+  align-items: flex-start;
+  border-radius: 12px;
+  border: 1px solid rgba(15, 27, 51, 0.04);
+  background: #fff;
+}
+.admins-banks__header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  align-self: stretch;
+  margin: 0;
+  color: #0f1b33;
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 94%;
+  letter-spacing: -0.56px;
+  margin-bottom: 32px;
+}
+.admins-banks__icons img {
+  width: 56px;
+  height: 56px;
+}
+.admins-banks__content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  align-self: stretch;
+}
+.admins-banks__item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-self: stretch;
+}
+.admins-banks__item div {
+  color: #142013;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 120%;
+  opacity: 0.5;
+}
+.admins-banks__item div:last-child {
+  opacity: 1;
+}
+.admins-banks__footer {
+  width: 100%;
+  margin-top: 12px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(15, 27, 51, 0.08);
+  color: #2f94ef;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 100%;
+}
+
 @media (max-width: 1199px) {
   .admins-empty {
     margin: 32px 0;
@@ -2357,6 +2992,9 @@ img {
   }
   .admins-fssp__pay {
     flex: 1 1 calc(50% - 16px);
+  }
+  .admins-banks__card {
+    flex: 0 0 calc(50% - 6px);
   }
 }
 @media (max-width: 767.8px) {
@@ -2485,8 +3123,128 @@ img {
   .admins-postal__marker {
     align-items: flex-start;
   }
-}
-[data-toggle-target] {
-  overflow: hidden;
-  transition: max-height 0.4s ease;
+  .admins-prices {
+    padding: 16px;
+    gap: 16px;
+    border-radius: 16px;
+  }
+  .admins-prices__header {
+    padding-bottom: 16px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .admins-prices__title {
+    font-size: 16px;
+  }
+  .admins-prices__title span {
+    font-size: 12px;
+  }
+  .admins-prices__content h3 {
+    font-size: 14px;
+  }
+  .admins-prices__content p {
+    font-size: 12px;
+  }
+  .admins-prices__table {
+    margin-top: 16px;
+  }
+  .admins-prices__top div {
+    padding: 8px 10px;
+    font-size: 10px;
+  }
+  .admins-prices__list {
+    width: 100%;
+  }
+  .admins-prices__row div {
+    padding: 8px 10px;
+    font-size: 10px;
+  }
+  .admins-index {
+    gap: 16px;
+    padding: 16px;
+    border-radius: 8px;
+  }
+  .admins-index__header {
+    padding-bottom: 16px;
+  }
+  .admins-index__title {
+    font-size: 16px;
+  }
+  .admins-index__title span {
+    font-size: 12px;
+  }
+  .admins-index__content h3 {
+    font-size: 14px;
+  }
+  .admins-index__content p {
+    font-size: 12px;
+  }
+  .admins-index__map {
+    height: 374px;
+  }
+  .admins-loading {
+    padding: 32px 16px;
+    gap: 16px;
+    border-radius: 8px;
+  }
+  .admins-loading__icons svg {
+    width: 48px;
+    height: 48px;
+  }
+  .admins-loading__title {
+    gap: 12px;
+  }
+  .admins-loading__title h3 {
+    font-size: 20px;
+  }
+  .admins-loading__title p {
+    font-size: 14px;
+  }
+  .admins-schedule {
+    padding: 16px;
+    gap: 8px;
+    border-radius: 8px;
+  }
+  .admins-schedule__header {
+    gap: 12px;
+  }
+  .admins-schedule__header,.admins-schedule__left {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .admins-schedule__left {
+    gap: 8px;
+  }
+  .admins-schedule__icon {
+    flex: 0 0 auto;
+  }
+  .admins-schedule__title {
+    font-size: 18px;
+    gap: 8px;
+  }
+  .admins-schedule__right,.admins-schedule__right span {
+    font-size: 12px;
+  }
+  .admins-schedule__content {
+    margin-top: 12px;
+  }
+  .admins-banks__card {
+    flex: 0 0 100%;
+    padding: 16px;
+    border-radius: 8px;
+  }
+  .admins-banks__header {
+    font-size: 20px;
+    margin-bottom: 16px;
+  }
+  .admins-banks__icons img {
+    width: 48px;
+    height: 48px;
+  }
+  .admins-banks__item div {
+    font-size: 12px;
+  }
+  .admins-banks__footer {
+    padding-top: 16px;
+  }
 }

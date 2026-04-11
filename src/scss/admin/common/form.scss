@@ -200,6 +200,10 @@
       font-size: 16px;
       font-weight: 400;
       line-height: 120%;
+      &:not(:placeholder-shown) {
+        background: #fff;
+        border: 1px solid #0f1b33;
+      }
     }
   }
 
@@ -217,6 +221,12 @@
       flex: 1 1 calc(50% - 16px);
       width: 100%;
     }
+  }
+  &__footer {
+    margin-top: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
 
@@ -236,4 +246,190 @@
       flex-direction: column-reverse;
     }
   }
+}
+
+/* ─── Обёртка поля ─────────────────────────────────────────────────────────── */
+.datepicker {
+  width: 100%;
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 4px;
+  font-family: inherit;
+}
+
+.datepicker__input-wrap {
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  input {
+    width: 100%;
+  }
+  button {
+    flex: 0 0 auto;
+    width: auto;
+  }
+}
+
+.datepicker__icon {
+  width: auto;
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  color: #8a9ab0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.15s;
+}
+
+.datepicker__icon:hover {
+  color: #3b9af5;
+}
+
+/* ─── Дропдаун ─────────────────────────────────────────────────────────────── */
+.datepicker__calendar {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  z-index: 100;
+  display: none;
+}
+
+.datepicker__calendar._open {
+  display: block;
+  animation: cal-in 0.18s ease;
+}
+
+@keyframes cal-in {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ─── Блок календаря ───────────────────────────────────────────────────────── */
+.cal {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 6px 16px 0 rgba(15, 27, 51, 0.12);
+  padding: 10px;
+  min-width: 280px;
+  user-select: none;
+}
+
+/* Шапка */
+.cal__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.cal__title {
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+}
+
+.cal__nav {
+  display: flex;
+  gap: 6px;
+}
+
+.cal__nav-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #5a7a99;
+  transition:
+    background 0.15s,
+    color 0.15s;
+}
+
+.cal__nav-btn:hover {
+  background: #eaf2fc;
+  color: #3b9af5;
+}
+
+/* Сетка */
+.cal__grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px 0;
+}
+
+/* Дни недели */
+.cal__dow {
+  text-align: center;
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(15, 27, 51, 0.3);
+  padding-bottom: 10px;
+}
+
+/* Ячейки дней */
+.cal__day {
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  background: none;
+  border: none;
+  font-size: 12px;
+  font-weight: 500;
+  color: #0f1b33;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    background 0.12s,
+    color 0.12s;
+  margin: 2px auto;
+  width: 32px;
+  height: 34px;
+}
+
+.cal__day:hover:not(._selected):not(._other) {
+  background: #eaf2fc;
+  color: #3b9af5;
+}
+
+.cal__day._other {
+  color: #c5d0da;
+  font-weight: 400;
+}
+
+.cal__day._other:hover {
+  color: #0f1b33;
+  color: #a0b4c4;
+}
+
+.cal__day._today:not(._selected) {
+  background: #fff;
+  color: #2f94ef;
+}
+
+.cal__day._selected {
+  background: #2f94ef;
+  color: #fff;
+}
+
+.cal__day._selected:hover {
+  background: #2f94ef;
 }

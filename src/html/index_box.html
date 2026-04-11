@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="Ru-ru">
+  @@include("admin/chunk/head.html", {"title": "Почтовые индексы",})
+
+  <body>
+    <div class="dashboard">
+      <main class="dashboard-layout">
+        @@include("admin/chunk/sidebar.html")
+        <div class="dashboard-wrapper">
+          @@include("admin/chunk/header.html", {"title": "Почтовые индексы"})
+          <div class="dashboard-content container">
+            <div class="dashboard-head">
+              <div class="breadcrumbs">
+                <a href="#">Главная</a> /
+                <span>Почтовые индексы</span>
+              </div>
+              <h1>Почтовые индексы</h1>
+            </div>
+            <div class="admins">
+              <div class="admins-empty">
+                <div class="admins-empty__icon">
+                  <img src="assets/img/dashboard/icons/clipboard.svg" alt="" />
+                </div>
+                <div class="admins-empty__title">
+                  Добавьте адрес почтового отделения, для которого необходимо узнать индекс
+                </div>
+                <button class="btn admins-empty__btn" data-popup="#getPopupBox">
+                  Добавить данные
+                  <svg
+                    width="14"
+                    height="14"
+                    viewBox="0 0 14 14"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M7.00033 12.8333C10.2087 12.8333 12.8337 10.2083 12.8337 6.99999C12.8337 3.79166 10.2087 1.16666 7.00033 1.16666C3.79199 1.16666 1.16699 3.79166 1.16699 6.99999C1.16699 10.2083 3.79199 12.8333 7.00033 12.8333Z"
+                      stroke="#ffffff"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M4.66699 7H9.33366"
+                      stroke="#ffffff"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M7 9.33332V4.66666"
+                      stroke="#ffffff"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </button>
+              </div>
+              <div class="admins-console">
+                <div class="admins-console__header">
+                  <div class="admins-console__title">Найденные записи</div>
+                </div>
+                <div class="admins-index">
+                  <div class="admins-index__header">
+                    <div class="admins-index__icons">
+                      <img src="assets/img/dashboard/icons/index-box.svg" alt="" />
+                    </div>
+                    <div class="admins-index__title">Индекс <span>(102004)</span></div>
+                  </div>
+                  <div class="admins-index__content">
+                    <h3>Информация об отделении</h3>
+                    <p>Адрес: г Москва, Краснопрудный пер, 7, стр.1</p>
+                    <p>Почтовое отделение: Москва-Казанский вокзал ПЖДП цех-3</p>
+                    <div class="admins-index__map" data-coord="55.776148, 37.662749"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      @@include("admin/chunk/footer.html") @@include("admin/chunk/popup.html")
+    </div>
+    @@include("admin/chunk/script.html")
+  </body>
+</html>

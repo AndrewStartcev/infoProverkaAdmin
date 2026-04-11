@@ -1,0 +1,412 @@
+<!doctype html>
+<html lang="Ru-ru">
+  @@include("admin/chunk/head.html", {"title": "Авиабилеты",})
+
+  <body>
+    <div class="dashboard">
+      <main class="dashboard-layout">
+        @@include("admin/chunk/sidebar.html")
+        <div class="dashboard-wrapper">
+          @@include("admin/chunk/header.html", {"title": "Авиабилеты"})
+          <div class="dashboard-content container">
+            <div class="dashboard-head">
+              <div class="breadcrumbs">
+                <a href="#">Главная</a> /
+                <span>Авиабилеты</span>
+              </div>
+              <h1>Авиабилеты</h1>
+            </div>
+            <div class="admins">
+              <div class="admins-console__header">
+                <div class="admins-console__title">Добавление нового маршрута</div>
+              </div>
+              <div class="admins-form">
+                <form action="">
+                  <div class="form__row">
+                    <div class="form__item">
+                      <div class="suggest" data-suggest="city">
+                        <input
+                          type="text"
+                          class="suggest__input"
+                          placeholder="Откуда*"
+                          autocomplete="off"
+                        />
+                        <input type="hidden" name="city_fias_id" />
+                        <div class="suggest__dropdown"></div>
+                      </div>
+                    </div>
+                    <div class="form__item">
+                      <div class="suggest" data-suggest="city">
+                        <input
+                          type="text"
+                          class="suggest__input"
+                          placeholder="Куда*"
+                          autocomplete="off"
+                        />
+                        <input type="hidden" name="city_fias_id" />
+                        <div class="suggest__dropdown"></div>
+                      </div>
+                    </div>
+                    <div class="form__item">
+                      <div class="datepicker" data-datepicker>
+                        <div class="datepicker__input-wrap">
+                          <input
+                            class="datepicker__input"
+                            type="text"
+                            placeholder="Дата выезда*"
+                            readonly
+                          />
+                          <button
+                            class="datepicker__icon"
+                            type="button"
+                            aria-label="Открыть календарь"
+                          >
+                            <svg
+                              width="16"
+                              height="16"
+                              viewBox="0 0 16 16"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M5.33333 1.33398V3.33398M10.6667 1.33398V3.33398M2.33333 6.06065H13.6667M14 5.66732V11.334C14 13.334 13 14.6673 10.6667 14.6673H5.33333C3 14.6673 2 13.334 2 11.334V5.66732C2 3.66732 3 2.33398 5.33333 2.33398H10.6667C13 2.33398 14 3.66732 14 5.66732Z"
+                                stroke="#0F1B33"
+                                stroke-opacity="0.3"
+                                stroke-miterlimit="10"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                              <path
+                                d="M10.4648 9.13281H10.4708M10.4648 11.1328H10.4708M7.9987 9.13281H8.00469M7.9987 11.1328H8.00469M5.53125 9.13281H5.53724M5.53125 11.1328H5.53724"
+                                stroke="#0F1B33"
+                                stroke-opacity="0.3"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </svg>
+                          </button>
+                        </div>
+                        <div class="datepicker__calendar"></div>
+                        <input type="hidden" name="date" />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form__footer">
+                    <button type="submit" class="btn">Найти расписание</button>
+                  </div>
+                </form>
+              </div>
+              <div class="admins-loading">
+                <div class="admins-loading__icons">
+                  <svg
+                    class="spinner"
+                    width="64"
+                    height="64"
+                    viewBox="0 0 64 64"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <g clip-path="url(#clip0_137_79920)">
+                      <path
+                        d="M12.6179 55.2436C16.3872 55.2436 19.4429 52.188 19.4429 48.4187C19.4429 44.6494 16.3872 41.5938 12.6179 41.5938C8.8486 41.5938 5.79297 44.6494 5.79297 48.4187C5.79297 52.188 8.8486 55.2436 12.6179 55.2436Z"
+                        fill="#2F94EF"
+                        fill-opacity="0.5"
+                      />
+                      <path
+                        d="M56.5329 49.1908C59.8044 49.1908 62.4565 46.5388 62.4565 43.2673C62.4565 39.9958 59.8044 37.3438 56.5329 37.3438C53.2614 37.3438 50.6094 39.9958 50.6094 43.2673C50.6094 46.5388 53.2614 49.1908 56.5329 49.1908Z"
+                        fill="#2F94EF"
+                        fill-opacity="0.16"
+                      />
+                      <path
+                        d="M51.1238 19.316C53.8264 19.316 56.0172 17.1252 56.0172 14.4227C56.0172 11.7201 53.8264 9.5293 51.1238 9.5293C48.4213 9.5293 46.2305 11.7201 46.2305 14.4227C46.2305 17.1252 48.4213 19.316 51.1238 19.316Z"
+                        fill="#2F94EF"
+                        fill-opacity="0.04"
+                      />
+                      <path
+                        d="M7.24282 38.5837C11.2429 38.5837 14.4856 35.42 14.4856 31.5174C14.4856 27.6148 11.2429 24.4512 7.24282 24.4512C3.24272 24.4512 0 27.6148 0 31.5174C0 35.42 3.24272 38.5837 7.24282 38.5837Z"
+                        fill="#2F94EF"
+                        fill-opacity="0.7"
+                      />
+                      <path
+                        d="M28.0492 64.0002C31.6857 64.0002 34.6336 61.1276 34.6336 57.5841C34.6336 54.0406 31.6857 51.168 28.0492 51.168C24.4128 51.168 21.4648 54.0406 21.4648 57.5841C21.4648 61.1276 24.4128 64.0002 28.0492 64.0002Z"
+                        fill="#2F94EF"
+                        fill-opacity="0.3"
+                      />
+                      <path
+                        d="M44.97 61.1889C48.4246 61.1889 51.2251 58.4621 51.2251 55.0984C51.2251 51.7346 48.4246 49.0078 44.97 49.0078C41.5154 49.0078 38.7148 51.7346 38.7148 55.0984C38.7148 58.4621 41.5154 61.1889 44.97 61.1889Z"
+                        fill="#2F94EF"
+                        fill-opacity="0.24"
+                      />
+                      <path
+                        d="M15.0798 22.1729C19.2617 22.1729 22.6517 18.8638 22.6517 14.7818C22.6517 10.6998 19.2617 7.39062 15.0798 7.39062C10.8979 7.39062 7.50781 10.6998 7.50781 14.7818C7.50781 18.8638 10.8979 22.1729 15.0798 22.1729Z"
+                        fill="#2F94EF"
+                        fill-opacity="0.8"
+                      />
+                      <path
+                        d="M58.4014 33.3687C61.4924 33.3687 63.9981 30.9094 63.9981 27.8757C63.9981 24.8421 61.4924 22.3828 58.4014 22.3828C55.3104 22.3828 52.8047 24.8421 52.8047 27.8757C52.8047 30.9094 55.3104 33.3687 58.4014 33.3687Z"
+                        fill="#2F94EF"
+                        fill-opacity="0.08"
+                      />
+                      <path
+                        d="M33.8667 15.9678C38.2761 15.9678 41.8506 12.3933 41.8506 7.9839C41.8506 3.57452 38.2761 0 33.8667 0C29.4573 0 25.8828 3.57452 25.8828 7.9839C25.8828 12.3933 29.4573 15.9678 33.8667 15.9678Z"
+                        fill="#2F94EF"
+                      />
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_137_79920">
+                        <rect width="64" height="64" fill="white" />
+                      </clipPath>
+                    </defs>
+                  </svg>
+                </div>
+                <div class="admins-loading__title">
+                  <h3>Идет поиск авиабилетов</h3>
+                  <p>Это может занять от 30 до 60 секунд</p>
+                </div>
+              </div>
+              <div class="admins-schedule">
+                <div class="admins-schedule__header">
+                  <div class="admins-schedule__left">
+                    <div class="admins-schedule__icon">
+                      <img src="assets/img/dashboard/icons/avia.svg" alt="" />
+                    </div>
+                    <div class="admins-schedule__title">
+                      Новосибирск
+                      <svg
+                        width="21"
+                        height="8"
+                        viewBox="0 0 21 8"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M20.3536 4.03519C20.5488 3.83993 20.5488 3.52335 20.3536 3.32809L17.1716 0.146107C16.9763 -0.0491555 16.6597 -0.0491555 16.4645 0.146107C16.2692 0.341369 16.2692 0.657951 16.4645 0.853214L19.2929 3.68164L16.4645 6.51007C16.2692 6.70533 16.2692 7.02191 16.4645 7.21717C16.6597 7.41244 16.9763 7.41244 17.1716 7.21717L20.3536 4.03519ZM0 3.68164L0 4.18164L20 4.18164V3.68164V3.18164L0 3.18164L0 3.68164Z"
+                          fill="#0F1B33"
+                        />
+                      </svg>
+                      Кемерово
+                    </div>
+                  </div>
+                  <div class="admins-schedule__right">
+                    <b>Дата выезда</b>
+                    28.10.2025
+                  </div>
+                </div>
+                <div class="admins-schedule__content">
+                  <div class="schedule">
+                    <div class="schedule__date">Последнее обновление: 22.10.2025 14:11</div>
+                    <div class="schedule__scroll">
+                      <table class="schedule__table">
+                        <thead>
+                          <tr>
+                            <th></th>
+                            <th class="col-active">Ваша дата</th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                          </tr>
+                          <tr>
+                            <th>Время<br />отправления</th>
+                            <th class="col-active">Вт<br />28 октября</th>
+                            <th>Ср<br />29 октября</th>
+                            <th>Чт<br />30 октября</th>
+                            <th>Пт<br />31 октября</th>
+                            <th>Сб<br />01 ноября</th>
+                            <th>Вс<br />02 ноября</th>
+                            <th>Пн<br />03 ноября</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>00:00 – 01:59</td>
+                            <td class="col-active">
+                              <span class="schedule__price">2 182 руб</span>
+                            </td>
+                            <td><span class="schedule__price">2 182 руб</span></td>
+                            <td><span class="schedule__price">2 182 руб</span></td>
+                            <td><span class="schedule__price">2 182 руб</span></td>
+                            <td><span class="schedule__price">2 182 руб</span></td>
+                            <td><span class="schedule__price">2 182 руб</span></td>
+                            <td><span class="schedule__price">2 182 руб</span></td>
+                          </tr>
+                          <tr>
+                            <td>02:00 – 03:59</td>
+                            <td class="col-active">
+                              <span class="schedule__price">2 182 руб</span>
+                            </td>
+                            <td><span class="schedule__price">2 182 руб</span></td>
+                            <td><span class="schedule__price">2 182 руб</span></td>
+                            <td><span class="schedule__price">2 182 руб</span></td>
+                            <td>
+                              <span class="schedule__price schedule__price--low">2 061 руб</span>
+                            </td>
+                            <td><span class="schedule__price">2 182 руб</span></td>
+                            <td><span class="schedule__price">2 182 руб</span></td>
+                          </tr>
+                          <tr>
+                            <td>04:00 – 05:59</td>
+                            <td class="col-active">
+                              <span class="schedule__price schedule__price--low">1 940 руб</span>
+                            </td>
+                            <td>
+                              <span class="schedule__price schedule__price--low">1 940 руб</span>
+                            </td>
+                            <td>
+                              <span class="schedule__price schedule__price--low">1 940 руб</span>
+                            </td>
+                            <td>
+                              <span class="schedule__price schedule__price--low">1 940 руб</span>
+                            </td>
+                            <td>
+                              <span class="schedule__price schedule__price--low">1 940 руб</span>
+                            </td>
+                            <td>
+                              <span class="schedule__price schedule__price--low">1 940 руб</span>
+                            </td>
+                            <td>
+                              <span class="schedule__price schedule__price--low">1 940 руб</span>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>06:00 – 07:59</td>
+                            <td class="col-active">
+                              <span class="schedule__price">2 182 руб</span>
+                            </td>
+                            <td><span class="schedule__price">2 182 руб</span></td>
+                            <td><span class="schedule__price">2 182 руб</span></td>
+                            <td><span class="schedule__price">2 182 руб</span></td>
+                            <td><span class="schedule__price">2 182 руб</span></td>
+                            <td><span class="schedule__price">2 182 руб</span></td>
+                            <td><span class="schedule__price">2 182 руб</span></td>
+                          </tr>
+                          <tr>
+                            <td>08:00 – 09:59</td>
+                            <td class="col-active">
+                              <span class="schedule__price">2 182 руб</span>
+                            </td>
+                            <td><span class="schedule__price">2 182 руб</span></td>
+                            <td><span class="schedule__price">2 182 руб</span></td>
+                            <td><span class="schedule__price">2 182 руб</span></td>
+                            <td><span class="schedule__price">2 182 руб</span></td>
+                            <td><span class="schedule__price">2 182 руб</span></td>
+                            <td><span class="schedule__price">2 182 руб</span></td>
+                          </tr>
+                          <tr>
+                            <td>10:00 – 11:59</td>
+                            <td class="col-active">
+                              <span class="schedule__price">2 182 руб</span>
+                            </td>
+                            <td><span class="schedule__price">2 182 руб</span></td>
+                            <td><span class="schedule__price">2 182 руб</span></td>
+                            <td><span class="schedule__price">2 182 руб</span></td>
+                            <td><span class="schedule__price">2 182 руб</span></td>
+                            <td><span class="schedule__price">2 182 руб</span></td>
+                            <td><span class="schedule__price">2 182 руб</span></td>
+                          </tr>
+                          <tr>
+                            <td>12:00 – 13:59</td>
+                            <td class="col-active">
+                              <span class="schedule__price">2 182 руб</span>
+                            </td>
+                            <td><span class="schedule__price">2 182 руб</span></td>
+                            <td><span class="schedule__price">2 182 руб</span></td>
+                            <td><span class="schedule__price">2 182 руб</span></td>
+                            <td><span class="schedule__price">2 182 руб</span></td>
+                            <td><span class="schedule__price">2 182 руб</span></td>
+                            <td><span class="schedule__price">2 182 руб</span></td>
+                          </tr>
+                          <tr>
+                            <td>14:00 – 15:59</td>
+                            <td class="col-active"><span class="schedule__dash">–</span></td>
+                            <td><span class="schedule__dash">–</span></td>
+                            <td><span class="schedule__dash">–</span></td>
+                            <td><span class="schedule__dash">–</span></td>
+                            <td><span class="schedule__dash">–</span></td>
+                            <td><span class="schedule__dash">–</span></td>
+                            <td><span class="schedule__dash">–</span></td>
+                          </tr>
+                          <tr>
+                            <td>16:00 – 17:59</td>
+                            <td class="col-active">
+                              <span class="schedule__price">2 182 руб</span>
+                            </td>
+                            <td><span class="schedule__price">2 182 руб</span></td>
+                            <td><span class="schedule__price">2 182 руб</span></td>
+                            <td><span class="schedule__price">2 182 руб</span></td>
+                            <td><span class="schedule__price">2 182 руб</span></td>
+                            <td><span class="schedule__price">2 182 руб</span></td>
+                            <td><span class="schedule__price">2 182 руб</span></td>
+                          </tr>
+                          <tr>
+                            <td>18:00 – 19:59</td>
+                            <td class="col-active">
+                              <span class="schedule__price schedule__price--low">1 940 руб</span>
+                            </td>
+                            <td>
+                              <span class="schedule__price schedule__price--low">1 940 руб</span>
+                            </td>
+                            <td>
+                              <span class="schedule__price schedule__price--low">1 940 руб</span>
+                            </td>
+                            <td>
+                              <span class="schedule__price schedule__price--low">1 940 руб</span>
+                            </td>
+                            <td>
+                              <span class="schedule__price schedule__price--low">1 940 руб</span>
+                            </td>
+                            <td>
+                              <span class="schedule__price schedule__price--low">1 940 руб</span>
+                            </td>
+                            <td>
+                              <span class="schedule__price schedule__price--low">1 940 руб</span>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>20:00 – 01:59</td>
+                            <td class="col-active">
+                              <span class="schedule__price">2 182 руб</span>
+                            </td>
+                            <td><span class="schedule__price">2 182 руб</span></td>
+                            <td><span class="schedule__price">2 182 руб</span></td>
+                            <td><span class="schedule__price">2 182 руб</span></td>
+                            <td><span class="schedule__price">2 182 руб</span></td>
+                            <td><span class="schedule__price">2 182 руб</span></td>
+                            <td><span class="schedule__price">2 182 руб</span></td>
+                          </tr>
+                          <tr>
+                            <td>22:00 – 23:59</td>
+                            <td class="col-active">
+                              <span class="schedule__price">2 182 руб</span>
+                            </td>
+                            <td><span class="schedule__price">2 182 руб</span></td>
+                            <td><span class="schedule__price">2 182 руб</span></td>
+                            <td><span class="schedule__price">2 182 руб</span></td>
+                            <td><span class="schedule__price">2 182 руб</span></td>
+                            <td><span class="schedule__price">2 182 руб</span></td>
+                            <td><span class="schedule__price">2 182 руб</span></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+
+                    <p class="schedule__note">
+                      Мы будет ежедневно отслеживать изменения в расписании, если мы увидим новые
+                      рейсы, мы отправим вам уведомление на электронную почту
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      @@include("admin/chunk/footer.html") @@include("admin/chunk/popup.html")
+    </div>
+    @@include("admin/chunk/script.html")
+  </body>
+</html>

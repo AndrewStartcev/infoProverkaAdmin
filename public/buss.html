@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 
-  <title>Обзор</title>
+  <title>Автобусы</title>
 
   <meta name="format-detection" content="telephone=no" />
 
@@ -102,7 +102,7 @@
                 <img src="assets/img/dashboard/logo.svg" alt="" />
               </div>
             </div>
-            <div class="dashboard-header__title">Обзор</div>
+            <div class="dashboard-header__title">Автобусы</div>
             <div class="dashboard-header__actions">
               <div class="dashboard-header__premium">
                 <button class="dashboard-header__premium-btn" data-popup="#getPopupPremium">
@@ -131,232 +131,301 @@
           <div class="dashboard-head">
             <div class="breadcrumbs">
               <a href="#">Главная</a> /
-              <span>Обзор</span>
+              <span>Автобусы</span>
             </div>
-            <h1>Обзор</h1>
+            <h1>Автобусы</h1>
           </div>
-          <div class="dashboard-console">
-            <div class="dashboard-console__item --blue">
-              <div class="dashboard-console__header">
-                <div class="dashboard-console__icon">
-                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M9.11992 8.1525C9.04492 8.145 8.95492 8.145 8.87242 8.1525C7.08742 8.0925 5.66992 6.63 5.66992 4.83C5.66992 2.9925 7.15492 1.5 8.99992 1.5C10.8374 1.5 12.3299 2.9925 12.3299 4.83C12.3224 6.63 10.9049 8.0925 9.11992 8.1525Z" stroke="#2F94EF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                    <path d="M5.37004 10.92C3.55504 12.135 3.55504 14.115 5.37004 15.3225C7.43254 16.7025 10.815 16.7025 12.8775 15.3225C14.6925 14.1075 14.6925 12.1275 12.8775 10.92C10.8225 9.5475 7.44004 9.5475 5.37004 10.92Z" stroke="#2F94EF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                  </svg>
-                </div>
-                <div>Физические лица</div>
-              </div>
-              <div class="dashboard-console__wrapper">
-                <div class="dashboard-console__content">
-                  <div class="dashboard-console__column">
-                    <h3>Долгов найдено</h3>
-                    <p>Объектов: <span>1</span></p>
+          <div class="admins">
+            <div class="admins-console__header">
+              <div class="admins-console__title">Добавление нового маршрута</div>
+            </div>
+            <div class="admins-form">
+              <form action="">
+                <div class="form__row">
+                  <div class="form__item">
+                    <div class="suggest" data-suggest="city">
+                      <input type="text" class="suggest__input" placeholder="Откуда*" autocomplete="off" />
+                      <input type="hidden" name="city_fias_id" />
+                      <div class="suggest__dropdown"></div>
+                    </div>
                   </div>
-                  <div class="dashboard-console__label --full">1</div>
+                  <div class="form__item">
+                    <div class="suggest" data-suggest="city">
+                      <input type="text" class="suggest__input" placeholder="Куда*" autocomplete="off" />
+                      <input type="hidden" name="city_fias_id" />
+                      <div class="suggest__dropdown"></div>
+                    </div>
+                  </div>
+                  <div class="form__item">
+                    <div class="datepicker" data-datepicker>
+                      <div class="datepicker__input-wrap">
+                        <input class="datepicker__input" type="text" placeholder="Дата выезда*" readonly />
+                        <button class="datepicker__icon" type="button" aria-label="Открыть календарь">
+                          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M5.33333 1.33398V3.33398M10.6667 1.33398V3.33398M2.33333 6.06065H13.6667M14 5.66732V11.334C14 13.334 13 14.6673 10.6667 14.6673H5.33333C3 14.6673 2 13.334 2 11.334V5.66732C2 3.66732 3 2.33398 5.33333 2.33398H10.6667C13 2.33398 14 3.66732 14 5.66732Z" stroke="#0F1B33" stroke-opacity="0.3" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M10.4648 9.13281H10.4708M10.4648 11.1328H10.4708M7.9987 9.13281H8.00469M7.9987 11.1328H8.00469M5.53125 9.13281H5.53724M5.53125 11.1328H5.53724" stroke="#0F1B33" stroke-opacity="0.3" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                          </svg>
+                        </button>
+                      </div>
+                      <div class="datepicker__calendar"></div>
+                      <input type="hidden" name="date" />
+                    </div>
+                  </div>
                 </div>
-                <div class="dashboard-console__footer">
-                  <button class="btn--text" data-popup="#getPopupFizFace">
-                    Добавить профиль<svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M7.00033 12.8333C10.2087 12.8333 12.8337 10.2083 12.8337 6.99999C12.8337 3.79166 10.2087 1.16666 7.00033 1.16666C3.79199 1.16666 1.16699 3.79166 1.16699 6.99999C1.16699 10.2083 3.79199 12.8333 7.00033 12.8333Z" stroke="#2F94EF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                      <path d="M4.66699 7H9.33366" stroke="#2F94EF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                      <path d="M7 9.33332V4.66666" stroke="#2F94EF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                    </svg>
-                  </button>
+                <div class="form__footer">
+                  <button type="submit" class="btn">Найти расписание</button>
                 </div>
+              </form>
+            </div>
+            <div class="admins-loading">
+              <div class="admins-loading__icons">
+                <svg class="spinner" width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <g clip-path="url(#clip0_137_79920)">
+                    <path d="M12.6179 55.2436C16.3872 55.2436 19.4429 52.188 19.4429 48.4187C19.4429 44.6494 16.3872 41.5938 12.6179 41.5938C8.8486 41.5938 5.79297 44.6494 5.79297 48.4187C5.79297 52.188 8.8486 55.2436 12.6179 55.2436Z" fill="#2F94EF" fill-opacity="0.5" />
+                    <path d="M56.5329 49.1908C59.8044 49.1908 62.4565 46.5388 62.4565 43.2673C62.4565 39.9958 59.8044 37.3438 56.5329 37.3438C53.2614 37.3438 50.6094 39.9958 50.6094 43.2673C50.6094 46.5388 53.2614 49.1908 56.5329 49.1908Z" fill="#2F94EF" fill-opacity="0.16" />
+                    <path d="M51.1238 19.316C53.8264 19.316 56.0172 17.1252 56.0172 14.4227C56.0172 11.7201 53.8264 9.5293 51.1238 9.5293C48.4213 9.5293 46.2305 11.7201 46.2305 14.4227C46.2305 17.1252 48.4213 19.316 51.1238 19.316Z" fill="#2F94EF" fill-opacity="0.04" />
+                    <path d="M7.24282 38.5837C11.2429 38.5837 14.4856 35.42 14.4856 31.5174C14.4856 27.6148 11.2429 24.4512 7.24282 24.4512C3.24272 24.4512 0 27.6148 0 31.5174C0 35.42 3.24272 38.5837 7.24282 38.5837Z" fill="#2F94EF" fill-opacity="0.7" />
+                    <path d="M28.0492 64.0002C31.6857 64.0002 34.6336 61.1276 34.6336 57.5841C34.6336 54.0406 31.6857 51.168 28.0492 51.168C24.4128 51.168 21.4648 54.0406 21.4648 57.5841C21.4648 61.1276 24.4128 64.0002 28.0492 64.0002Z" fill="#2F94EF" fill-opacity="0.3" />
+                    <path d="M44.97 61.1889C48.4246 61.1889 51.2251 58.4621 51.2251 55.0984C51.2251 51.7346 48.4246 49.0078 44.97 49.0078C41.5154 49.0078 38.7148 51.7346 38.7148 55.0984C38.7148 58.4621 41.5154 61.1889 44.97 61.1889Z" fill="#2F94EF" fill-opacity="0.24" />
+                    <path d="M15.0798 22.1729C19.2617 22.1729 22.6517 18.8638 22.6517 14.7818C22.6517 10.6998 19.2617 7.39062 15.0798 7.39062C10.8979 7.39062 7.50781 10.6998 7.50781 14.7818C7.50781 18.8638 10.8979 22.1729 15.0798 22.1729Z" fill="#2F94EF" fill-opacity="0.8" />
+                    <path d="M58.4014 33.3687C61.4924 33.3687 63.9981 30.9094 63.9981 27.8757C63.9981 24.8421 61.4924 22.3828 58.4014 22.3828C55.3104 22.3828 52.8047 24.8421 52.8047 27.8757C52.8047 30.9094 55.3104 33.3687 58.4014 33.3687Z" fill="#2F94EF" fill-opacity="0.08" />
+                    <path d="M33.8667 15.9678C38.2761 15.9678 41.8506 12.3933 41.8506 7.9839C41.8506 3.57452 38.2761 0 33.8667 0C29.4573 0 25.8828 3.57452 25.8828 7.9839C25.8828 12.3933 29.4573 15.9678 33.8667 15.9678Z" fill="#2F94EF" />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_137_79920">
+                      <rect width="64" height="64" fill="white" />
+                    </clipPath>
+                  </defs>
+                </svg>
+              </div>
+              <div class="admins-loading__title">
+                <h3>Идет поиск автобусных билетов</h3>
+                <p>Это может занять от 30 до 60 секунд</p>
               </div>
             </div>
-            <div class="dashboard-console__item --green">
-              <div class="dashboard-console__header">
-                <div class="dashboard-console__icon">
-                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M9.75 16.5H3.75C2.25 16.5 1.5 15.75 1.5 14.25V8.25C1.5 6.75 2.25 6 3.75 6H7.5V14.25C7.5 15.75 8.25 16.5 9.75 16.5Z" stroke="#28AF4C" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
-                    <path d="M7.58249 3C7.52249 3.225 7.5 3.4725 7.5 3.75V6H3.75V4.5C3.75 3.675 4.425 3 5.25 3H7.58249Z" stroke="#28AF4C" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
-                    <path d="M10.5 6V9.75" stroke="#28AF4C" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
-                    <path d="M13.5 6V9.75" stroke="#28AF4C" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
-                    <path d="M12.75 12.75H11.25C10.8375 12.75 10.5 13.0875 10.5 13.5V16.5H13.5V13.5C13.5 13.0875 13.1625 12.75 12.75 12.75Z" stroke="#28AF4C" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
-                    <path d="M4.5 9.75V12.75" stroke="#28AF4C" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
-                    <path d="M7.5 14.25V3.75C7.5 2.25 8.25 1.5 9.75 1.5H14.25C15.75 1.5 16.5 2.25 16.5 3.75V14.25C16.5 15.75 15.75 16.5 14.25 16.5H9.75C8.25 16.5 7.5 15.75 7.5 14.25Z" stroke="#28AF4C" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
-                  </svg>
-                </div>
-                <div>Юридические лица</div>
-              </div>
-              <div class="dashboard-console__wrapper">
-                <div class="dashboard-console__content">
-                  <div class="dashboard-console__column">
-                    <h3>Долгов не найдено</h3>
-                    <p>Объектов: <span>0</span></p>
+            <div class="admins-schedule">
+              <div class="admins-schedule__header">
+                <div class="admins-schedule__left">
+                  <div class="admins-schedule__icon">
+                    <img src="assets/img/dashboard/icons/bus.svg" alt="" />
                   </div>
-                  <div class="dashboard-console__label">0</div>
-                </div>
-                <div class="dashboard-console__footer">
-                  <button class="btn--text" data-popup="#getPopupYrFace">
-                    Добавить профиль<svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M7.00033 12.8333C10.2087 12.8333 12.8337 10.2083 12.8337 6.99999C12.8337 3.79166 10.2087 1.16666 7.00033 1.16666C3.79199 1.16666 1.16699 3.79166 1.16699 6.99999C1.16699 10.2083 3.79199 12.8333 7.00033 12.8333Z" stroke="#2F94EF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                      <path d="M4.66699 7H9.33366" stroke="#2F94EF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                      <path d="M7 9.33332V4.66666" stroke="#2F94EF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                  <div class="admins-schedule__title">
+                    Новосибирск
+                    <svg width="21" height="8" viewBox="0 0 21 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M20.3536 4.03519C20.5488 3.83993 20.5488 3.52335 20.3536 3.32809L17.1716 0.146107C16.9763 -0.0491555 16.6597 -0.0491555 16.4645 0.146107C16.2692 0.341369 16.2692 0.657951 16.4645 0.853214L19.2929 3.68164L16.4645 6.51007C16.2692 6.70533 16.2692 7.02191 16.4645 7.21717C16.6597 7.41244 16.9763 7.41244 17.1716 7.21717L20.3536 4.03519ZM0 3.68164L0 4.18164L20 4.18164V3.68164V3.18164L0 3.18164L0 3.68164Z" fill="#0F1B33" />
                     </svg>
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div class="dashboard-console__item --yellow">
-              <div class="dashboard-console__header">
-                <div class="dashboard-console__icon">
-                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M2.65523 11.5478C2.62812 11.5478 2.57388 11.5478 2.54677 11.5207C2.46542 11.4936 2.32984 11.4122 2.14003 11.3309C1.27231 10.9241 0.811333 10.7072 0.675752 10.5987C0.458823 10.4089 0.323242 10.1377 0.323242 9.81235C0.323242 9.45984 0.485939 9.16156 0.784217 8.8904C0.838449 8.72771 0.838449 8.07692 0.784217 7.61594C0.757101 7.42613 0.811333 7.26343 0.946914 7.10073C1.0825 6.96515 1.27231 6.85669 1.46212 6.85669H2.68235C5.39397 4.85009 9.75967 4.41623 12.9594 7.34478C14.5592 7.34478 15.671 7.53459 16.5387 7.91422C16.8099 8.02269 17.081 8.18538 17.3522 8.3752C17.5962 8.59213 17.7318 8.91752 17.7047 9.2158L17.542 10.6801C17.5149 11.0326 17.2437 11.358 16.8641 11.4664C16.837 11.4664 16.8099 11.4936 16.7828 11.4936H15.6981C15.5354 11.4936 15.427 11.3851 15.427 11.2224C15.427 11.0597 15.5354 10.9512 15.6981 10.9512H16.7285C16.8641 10.897 16.9726 10.7885 16.9997 10.6258L17.1624 9.16156C17.1895 9.0531 17.1082 8.8904 17.0268 8.80905C16.8099 8.64636 16.5658 8.51078 16.3489 8.42943C15.5354 8.07692 14.4508 7.91422 12.878 7.91422C12.7967 7.91422 12.7424 7.8871 12.6882 7.83287C9.62409 4.98567 5.47532 5.44665 2.92639 7.3719C2.87216 7.39901 2.81793 7.42613 2.7637 7.42613H1.46212C1.40789 7.42613 1.38077 7.45325 1.35366 7.48036C1.32654 7.50748 1.32654 7.53459 1.32654 7.56171C1.32654 7.56171 1.46212 8.72771 1.24519 9.16156C1.21808 9.2158 1.16384 9.29715 1.10961 9.32426C1.00115 9.43273 0.865566 9.59542 0.865566 9.78524C0.865566 9.97505 0.919798 10.0835 1.00115 10.1649C1.13673 10.2733 1.95021 10.653 2.35696 10.8428C2.54677 10.9241 2.70947 11.0055 2.79081 11.0326C2.92639 11.0868 2.98063 11.2495 2.89928 11.3851C2.84505 11.4936 2.7637 11.5478 2.65523 11.5478Z" fill="#E2A32E" stroke="#E2A32E" stroke-width="0.3" />
-                    <path d="M12.8243 11.5478H5.50291C5.34022 11.5478 5.23175 11.4393 5.23175 11.2766C5.23175 11.1139 5.34022 11.0055 5.50291 11.0055H12.8243C12.987 11.0055 13.0954 11.1139 13.0954 11.2766C13.0954 11.4393 12.987 11.5478 12.8243 11.5478ZM11.0617 7.96846C9.51611 7.96846 7.42816 7.96846 6.37063 7.94134C5.77407 7.91423 5.23175 7.77864 4.66231 7.48037C4.52673 7.42613 4.4725 7.26344 4.55385 7.12786C4.60808 6.99228 4.77078 6.93804 4.90636 7.01939C5.42156 7.26344 5.88254 7.39902 6.39775 7.42613C7.45528 7.45325 9.54322 7.45325 11.0888 7.45325C11.2515 7.45325 11.36 7.56172 11.36 7.72441C11.36 7.88711 11.2244 7.96846 11.0617 7.96846Z" fill="#E2A32E" stroke="#E2A32E" stroke-width="0.3" />
-                    <path d="M4.09281 12.6867C3.14374 12.6867 2.38449 11.9274 2.38449 10.9783C2.38449 10.0293 3.14374 9.27002 4.09281 9.27002C5.04187 9.27002 5.80113 10.0293 5.80113 10.9783C5.80113 11.9274 5.04187 12.6867 4.09281 12.6867ZM4.09281 9.81235C3.46914 9.81235 2.92681 10.3547 2.92681 10.9783C2.92681 11.602 3.46914 12.1443 4.09281 12.1443C4.7436 12.1443 5.2588 11.6291 5.2588 10.9783C5.2588 10.3547 4.71648 9.81235 4.09281 9.81235ZM14.2614 12.6867C13.3123 12.6867 12.5531 11.9274 12.5531 10.9783C12.5531 10.0293 13.3123 9.27002 14.2614 9.27002C15.2104 9.27002 15.9697 10.0293 15.9697 10.9783C15.9697 11.9274 15.2104 12.6867 14.2614 12.6867ZM14.2614 9.81235C13.6377 9.81235 13.0954 10.3547 13.0954 10.9783C13.0954 11.602 13.6377 12.1443 14.2614 12.1443C14.9122 12.1443 15.4274 11.6291 15.4274 10.9783C15.4274 10.3547 14.885 9.81235 14.2614 9.81235ZM7.69926 7.96845C7.53656 7.96845 7.4281 7.85998 7.4281 7.69728V5.69069C7.4281 5.52799 7.53656 5.41953 7.69926 5.41953C7.86196 5.41953 7.97042 5.52799 7.97042 5.69069V7.69728C7.97042 7.85998 7.86196 7.96845 7.69926 7.96845ZM9.08218 8.7277H8.45851C8.29582 8.7277 8.18735 8.61923 8.18735 8.45654C8.18735 8.29384 8.29582 8.18538 8.45851 8.18538H9.08218C9.24488 8.18538 9.35335 8.29384 9.35335 8.45654C9.35335 8.61923 9.24488 8.7277 9.08218 8.7277ZM17.3255 10.2462C16.5391 10.2462 15.9426 9.64965 15.9426 8.86328C15.9426 8.59212 16.0239 8.32096 16.1866 8.07691C16.268 7.96845 16.4036 7.94133 16.512 7.96845C16.8103 8.07691 17.0815 8.26672 17.3255 8.42942C17.3255 8.42942 17.3526 8.42942 17.3526 8.45654C17.5967 8.67347 17.7322 8.97174 17.7051 9.27002L17.6238 10.0022C17.5695 10.1377 17.4611 10.2462 17.3255 10.2462ZM16.5391 8.59212C16.512 8.67347 16.4849 8.75481 16.4849 8.86328C16.4849 9.24291 16.7289 9.5683 17.0815 9.67676L17.1357 9.21579C17.1628 9.10732 17.0815 8.97174 17.0001 8.8904C16.8374 8.78193 16.6747 8.67347 16.5391 8.59212ZM1.8964 8.48365H1.11003C0.947332 8.48365 0.838867 8.37519 0.838867 8.21249C0.838867 8.04979 0.947332 7.94133 1.11003 7.94133H1.8964C2.0591 7.94133 2.16756 8.04979 2.16756 8.21249C2.16756 8.37519 2.0591 8.48365 1.8964 8.48365Z" fill="#E2A32E" stroke="#E2A32E" stroke-width="0.3" />
-                  </svg>
-                </div>
-                <div>Транспортные средства физ.лиц</div>
-              </div>
-              <div class="dashboard-console__wrapper">
-                <div class="dashboard-console__content">
-                  <div class="dashboard-console__column">
-                    <h3>Долгов не найдено</h3>
-                    <p>Объектов: <span>0</span></p>
+                    Кемерово
                   </div>
-                  <div class="dashboard-console__label">0</div>
                 </div>
-                <div class="dashboard-console__footer">
-                  <button class="btn--text" data-popup="#getPopupFizCar">
-                    Добавить профиль<svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M7.00033 12.8333C10.2087 12.8333 12.8337 10.2083 12.8337 6.99999C12.8337 3.79166 10.2087 1.16666 7.00033 1.16666C3.79199 1.16666 1.16699 3.79166 1.16699 6.99999C1.16699 10.2083 3.79199 12.8333 7.00033 12.8333Z" stroke="#2F94EF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                      <path d="M4.66699 7H9.33366" stroke="#2F94EF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                      <path d="M7 9.33332V4.66666" stroke="#2F94EF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                    </svg>
-                  </button>
+                <div class="admins-schedule__right">
+                  <b>Дата выезда</b>
+                  28.10.2025
                 </div>
               </div>
-            </div>
-            <div class="dashboard-console__item --green">
-              <div class="dashboard-console__header">
-                <div class="dashboard-console__icon">
-                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M3.74999 10.75C2.78468 10.75 2 11.5354 2 12.5C2 13.4646 2.78468 14.25 3.74999 14.25C4.7153 14.25 5.49998 13.4646 5.49998 12.5C5.49998 11.5354 4.7153 10.75 3.74999 10.75ZM3.74999 13.55C3.17108 13.55 2.69999 13.0789 2.69999 12.5C2.69999 11.9211 3.17108 11.45 3.74999 11.45C4.3289 11.45 4.79999 11.9211 4.79999 12.5C4.79999 13.0789 4.3289 13.55 3.74999 13.55ZM14.25 10.75C13.2847 10.75 12.5 11.5354 12.5 12.5C12.5 13.4646 13.2847 14.25 14.25 14.25C15.2153 14.25 16 13.4646 16 12.5C16 11.5354 15.2153 10.75 14.25 10.75ZM14.25 13.55C13.6711 13.55 13.2 13.0789 13.2 12.5C13.2 11.9211 13.6711 11.45 14.25 11.45C14.8289 11.45 15.3 11.9211 15.3 12.5C15.3 13.0789 14.8289 13.55 14.25 13.55ZM11.45 9.35001H10.75C10.5568 9.35001 10.4 9.50682 10.4 9.70002C10.4 9.89322 10.5568 10.05 10.75 10.05H11.45C11.6432 10.05 11.8 9.89318 11.8 9.69998C11.8 9.50678 11.6432 9.35001 11.45 9.35001Z" fill="#28AF4C" stroke="#28AF4C" stroke-width="0.3" />
-                    <path d="M16.6044 8.17749C16.097 8.05055 15.6336 7.78802 15.2639 7.41798L12.1076 4.26237C11.7765 3.93201 11.3376 3.75 10.87 3.75H2.3496C1.38432 3.75 0.599609 4.5354 0.599609 5.49999V11.1C0.599609 12.0646 1.38432 12.85 2.3496 12.85C2.5428 12.85 2.69961 12.6932 2.69961 12.5C2.69961 12.3068 2.5428 12.15 2.3496 12.15C1.77069 12.15 1.2996 11.6789 1.2996 11.1V5.49999C1.2996 4.92108 1.77069 4.44999 2.3496 4.44999H10.87C11.1458 4.44999 11.4167 4.56198 11.612 4.758L14.7683 7.91361C15.2268 8.37351 15.8036 8.6997 16.4343 8.8572C16.51 8.87606 16.5773 8.91973 16.6254 8.98126C16.6735 9.04279 16.6996 9.11863 16.6996 9.19671V11.1C16.6996 11.6789 16.2285 12.15 15.6496 12.15C15.4564 12.15 15.2995 12.3068 15.2995 12.5C15.2995 12.6932 15.4564 12.85 15.6496 12.85C16.6149 12.85 17.3996 12.0646 17.3996 11.1V9.19671C17.3996 8.71371 17.072 8.29509 16.6044 8.17749Z" fill="#28AF4C" stroke="#28AF4C" stroke-width="0.3" />
-                    <path d="M12.85 12.15H5.15003C4.95683 12.15 4.80002 12.3068 4.80002 12.5C4.80002 12.6932 4.95683 12.85 5.15003 12.85H12.85C13.0432 12.85 13.2001 12.6932 13.2001 12.5C13.2001 12.3068 13.0432 12.15 12.85 12.15ZM13.55 7.94999H9.70001V5.49997C9.70001 5.30677 9.5432 5.14996 9.35 5.14996C9.1568 5.14996 9.00002 5.30677 9.00002 5.49997V8.29996C9.00002 8.49316 9.15683 8.64997 9.35003 8.64997H13.55C13.7432 8.64997 13.9 8.49316 13.9 8.29996C13.9 8.10676 13.7432 7.94999 13.55 7.94999ZM7.95002 7.94999H6.20003V5.49997C6.20003 5.30677 6.04322 5.14996 5.85002 5.14996C5.65682 5.14996 5.50001 5.30677 5.50001 5.49997V8.29996C5.50001 8.49316 5.65682 8.64997 5.85002 8.64997H7.95002C8.14322 8.64997 8.30003 8.49316 8.30003 8.29996C8.30003 8.10676 8.14322 7.94999 7.95002 7.94999ZM4.45001 7.94999H2.70002V5.49997C2.70002 5.30677 2.54321 5.14996 2.35001 5.14996C2.15681 5.14996 2 5.30677 2 5.49997V8.29996C2 8.49316 2.15681 8.64997 2.35001 8.64997H4.45001C4.64321 8.64997 4.80002 8.49316 4.80002 8.29996C4.80002 8.10676 4.64321 7.94999 4.45001 7.94999Z" fill="#28AF4C" stroke="#28AF4C" stroke-width="0.3" />
-                  </svg>
-                </div>
-                <div>Транспортные средства юр.лиц</div>
-              </div>
-              <div class="dashboard-console__wrapper">
-                <div class="dashboard-console__content">
-                  <div class="dashboard-console__column">
-                    <h3>Долгов не найдено</h3>
-                    <p>Объектов: <span>0</span></p>
+              <div class="admins-schedule__content">
+                <div class="schedule">
+                  <div class="schedule__date">Последнее обновление: 22.10.2025 14:11</div>
+                  <div class="schedule__scroll">
+                    <table class="schedule__table">
+                      <thead>
+                        <tr>
+                          <th></th>
+                          <th class="col-active">Ваша дата</th>
+                          <th></th>
+                          <th></th>
+                          <th></th>
+                          <th></th>
+                          <th></th>
+                          <th></th>
+                        </tr>
+                        <tr>
+                          <th>Время<br />отправления</th>
+                          <th class="col-active">Вт<br />28 октября</th>
+                          <th>Ср<br />29 октября</th>
+                          <th>Чт<br />30 октября</th>
+                          <th>Пт<br />31 октября</th>
+                          <th>Сб<br />01 ноября</th>
+                          <th>Вс<br />02 ноября</th>
+                          <th>Пн<br />03 ноября</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>00:00 – 01:59</td>
+                          <td class="col-active">
+                            <span class="schedule__price">2 182 руб</span>
+                          </td>
+                          <td><span class="schedule__price">2 182 руб</span></td>
+                          <td><span class="schedule__price">2 182 руб</span></td>
+                          <td><span class="schedule__price">2 182 руб</span></td>
+                          <td><span class="schedule__price">2 182 руб</span></td>
+                          <td><span class="schedule__price">2 182 руб</span></td>
+                          <td><span class="schedule__price">2 182 руб</span></td>
+                        </tr>
+                        <tr>
+                          <td>02:00 – 03:59</td>
+                          <td class="col-active">
+                            <span class="schedule__price">2 182 руб</span>
+                          </td>
+                          <td><span class="schedule__price">2 182 руб</span></td>
+                          <td><span class="schedule__price">2 182 руб</span></td>
+                          <td><span class="schedule__price">2 182 руб</span></td>
+                          <td>
+                            <span class="schedule__price schedule__price--low">2 061 руб</span>
+                          </td>
+                          <td><span class="schedule__price">2 182 руб</span></td>
+                          <td><span class="schedule__price">2 182 руб</span></td>
+                        </tr>
+                        <tr>
+                          <td>04:00 – 05:59</td>
+                          <td class="col-active">
+                            <span class="schedule__price schedule__price--low">1 940 руб</span>
+                          </td>
+                          <td>
+                            <span class="schedule__price schedule__price--low">1 940 руб</span>
+                          </td>
+                          <td>
+                            <span class="schedule__price schedule__price--low">1 940 руб</span>
+                          </td>
+                          <td>
+                            <span class="schedule__price schedule__price--low">1 940 руб</span>
+                          </td>
+                          <td>
+                            <span class="schedule__price schedule__price--low">1 940 руб</span>
+                          </td>
+                          <td>
+                            <span class="schedule__price schedule__price--low">1 940 руб</span>
+                          </td>
+                          <td>
+                            <span class="schedule__price schedule__price--low">1 940 руб</span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>06:00 – 07:59</td>
+                          <td class="col-active">
+                            <span class="schedule__price">2 182 руб</span>
+                          </td>
+                          <td><span class="schedule__price">2 182 руб</span></td>
+                          <td><span class="schedule__price">2 182 руб</span></td>
+                          <td><span class="schedule__price">2 182 руб</span></td>
+                          <td><span class="schedule__price">2 182 руб</span></td>
+                          <td><span class="schedule__price">2 182 руб</span></td>
+                          <td><span class="schedule__price">2 182 руб</span></td>
+                        </tr>
+                        <tr>
+                          <td>08:00 – 09:59</td>
+                          <td class="col-active">
+                            <span class="schedule__price">2 182 руб</span>
+                          </td>
+                          <td><span class="schedule__price">2 182 руб</span></td>
+                          <td><span class="schedule__price">2 182 руб</span></td>
+                          <td><span class="schedule__price">2 182 руб</span></td>
+                          <td><span class="schedule__price">2 182 руб</span></td>
+                          <td><span class="schedule__price">2 182 руб</span></td>
+                          <td><span class="schedule__price">2 182 руб</span></td>
+                        </tr>
+                        <tr>
+                          <td>10:00 – 11:59</td>
+                          <td class="col-active">
+                            <span class="schedule__price">2 182 руб</span>
+                          </td>
+                          <td><span class="schedule__price">2 182 руб</span></td>
+                          <td><span class="schedule__price">2 182 руб</span></td>
+                          <td><span class="schedule__price">2 182 руб</span></td>
+                          <td><span class="schedule__price">2 182 руб</span></td>
+                          <td><span class="schedule__price">2 182 руб</span></td>
+                          <td><span class="schedule__price">2 182 руб</span></td>
+                        </tr>
+                        <tr>
+                          <td>12:00 – 13:59</td>
+                          <td class="col-active">
+                            <span class="schedule__price">2 182 руб</span>
+                          </td>
+                          <td><span class="schedule__price">2 182 руб</span></td>
+                          <td><span class="schedule__price">2 182 руб</span></td>
+                          <td><span class="schedule__price">2 182 руб</span></td>
+                          <td><span class="schedule__price">2 182 руб</span></td>
+                          <td><span class="schedule__price">2 182 руб</span></td>
+                          <td><span class="schedule__price">2 182 руб</span></td>
+                        </tr>
+                        <tr>
+                          <td>14:00 – 15:59</td>
+                          <td class="col-active"><span class="schedule__dash">–</span></td>
+                          <td><span class="schedule__dash">–</span></td>
+                          <td><span class="schedule__dash">–</span></td>
+                          <td><span class="schedule__dash">–</span></td>
+                          <td><span class="schedule__dash">–</span></td>
+                          <td><span class="schedule__dash">–</span></td>
+                          <td><span class="schedule__dash">–</span></td>
+                        </tr>
+                        <tr>
+                          <td>16:00 – 17:59</td>
+                          <td class="col-active">
+                            <span class="schedule__price">2 182 руб</span>
+                          </td>
+                          <td><span class="schedule__price">2 182 руб</span></td>
+                          <td><span class="schedule__price">2 182 руб</span></td>
+                          <td><span class="schedule__price">2 182 руб</span></td>
+                          <td><span class="schedule__price">2 182 руб</span></td>
+                          <td><span class="schedule__price">2 182 руб</span></td>
+                          <td><span class="schedule__price">2 182 руб</span></td>
+                        </tr>
+                        <tr>
+                          <td>18:00 – 19:59</td>
+                          <td class="col-active">
+                            <span class="schedule__price schedule__price--low">1 940 руб</span>
+                          </td>
+                          <td>
+                            <span class="schedule__price schedule__price--low">1 940 руб</span>
+                          </td>
+                          <td>
+                            <span class="schedule__price schedule__price--low">1 940 руб</span>
+                          </td>
+                          <td>
+                            <span class="schedule__price schedule__price--low">1 940 руб</span>
+                          </td>
+                          <td>
+                            <span class="schedule__price schedule__price--low">1 940 руб</span>
+                          </td>
+                          <td>
+                            <span class="schedule__price schedule__price--low">1 940 руб</span>
+                          </td>
+                          <td>
+                            <span class="schedule__price schedule__price--low">1 940 руб</span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>20:00 – 01:59</td>
+                          <td class="col-active">
+                            <span class="schedule__price">2 182 руб</span>
+                          </td>
+                          <td><span class="schedule__price">2 182 руб</span></td>
+                          <td><span class="schedule__price">2 182 руб</span></td>
+                          <td><span class="schedule__price">2 182 руб</span></td>
+                          <td><span class="schedule__price">2 182 руб</span></td>
+                          <td><span class="schedule__price">2 182 руб</span></td>
+                          <td><span class="schedule__price">2 182 руб</span></td>
+                        </tr>
+                        <tr>
+                          <td>22:00 – 23:59</td>
+                          <td class="col-active">
+                            <span class="schedule__price">2 182 руб</span>
+                          </td>
+                          <td><span class="schedule__price">2 182 руб</span></td>
+                          <td><span class="schedule__price">2 182 руб</span></td>
+                          <td><span class="schedule__price">2 182 руб</span></td>
+                          <td><span class="schedule__price">2 182 руб</span></td>
+                          <td><span class="schedule__price">2 182 руб</span></td>
+                          <td><span class="schedule__price">2 182 руб</span></td>
+                        </tr>
+                      </tbody>
+                    </table>
                   </div>
-                  <div class="dashboard-console__label">0</div>
-                </div>
-                <div class="dashboard-console__footer">
-                  <button class="btn--text" data-popup="#getPopupYrCar">
-                    Добавить профиль<svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M7.00033 12.8333C10.2087 12.8333 12.8337 10.2083 12.8337 6.99999C12.8337 3.79166 10.2087 1.16666 7.00033 1.16666C3.79199 1.16666 1.16699 3.79166 1.16699 6.99999C1.16699 10.2083 3.79199 12.8333 7.00033 12.8333Z" stroke="#2F94EF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                      <path d="M4.66699 7H9.33366" stroke="#2F94EF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                      <path d="M7 9.33332V4.66666" stroke="#2F94EF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                    </svg>
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div class="dashboard-console__item --blue">
-              <div class="dashboard-console__header">
-                <div class="dashboard-console__icon">
-                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12.75 15.75H5.25C2.25 15.75 1.5 15 1.5 12V6C1.5 3 2.25 2.25 5.25 2.25H12.75C15.75 2.25 16.5 3 16.5 6V12C16.5 15 15.75 15.75 12.75 15.75Z" stroke="#2F94EF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                    <path d="M10.5 6H14.25" stroke="#2F94EF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                    <path d="M11.25 9H14.25" stroke="#2F94EF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                    <path d="M12.75 12H14.25" stroke="#2F94EF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                    <path d="M6.37508 8.4675C7.1248 8.4675 7.73258 7.85973 7.73258 7.11C7.73258 6.36028 7.1248 5.7525 6.37508 5.7525C5.62535 5.7525 5.01758 6.36028 5.01758 7.11C5.01758 7.85973 5.62535 8.4675 6.37508 8.4675Z" stroke="#2F94EF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                    <path d="M9 12.2475C8.895 11.16 8.0325 10.305 6.945 10.2075C6.57 10.17 6.1875 10.17 5.805 10.2075C4.7175 10.3125 3.855 11.16 3.75 12.2475" stroke="#2F94EF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                  </svg>
-                </div>
-                <div>
-                  Штрафы на водительское <br />
-                  удостоверение
-                </div>
-              </div>
-              <div class="dashboard-console__wrapper">
-                <div class="dashboard-console__content">
-                  <div class="dashboard-console__column">
-                    <h3>Долгов найдено</h3>
-                    <p>Объектов: <span>3</span></p>
-                  </div>
-                  <div class="dashboard-console__label --full">12</div>
-                </div>
-                <div class="dashboard-console__footer">
-                  <button class="btn--text" data-popup="#getPopupPrava">
-                    Добавить профиль<svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M7.00033 12.8333C10.2087 12.8333 12.8337 10.2083 12.8337 6.99999C12.8337 3.79166 10.2087 1.16666 7.00033 1.16666C3.79199 1.16666 1.16699 3.79166 1.16699 6.99999C1.16699 10.2083 3.79199 12.8333 7.00033 12.8333Z" stroke="#2F94EF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                      <path d="M4.66699 7H9.33366" stroke="#2F94EF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                      <path d="M7 9.33332V4.66666" stroke="#2F94EF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                    </svg>
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div class="dashboard-console__item --green">
-              <div class="dashboard-console__header">
-                <div class="dashboard-console__icon">
-                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M8.06369 12.6453V14.1678C8.06369 15.4578 6.86368 16.5003 5.38618 16.5003C3.90868 16.5003 2.70117 15.4578 2.70117 14.1678V12.6453C2.70117 13.9353 3.90118 14.8503 5.38618 14.8503C6.86368 14.8503 8.06369 13.9278 8.06369 12.6453Z" stroke="#28AF4C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                    <path d="M8.06236 10.5825C8.06236 10.9575 7.95736 11.3025 7.77736 11.6025C7.33486 12.33 6.42735 12.7875 5.37735 12.7875C4.32735 12.7875 3.41984 12.3225 2.97734 11.6025C2.79734 11.3025 2.69238 10.9575 2.69238 10.5825C2.69238 9.93749 2.99237 9.35999 3.47237 8.93999C3.95987 8.51249 4.62734 8.25751 5.36984 8.25751C6.11234 8.25751 6.77986 8.51999 7.26736 8.93999C7.76236 9.35249 8.06236 9.93749 8.06236 10.5825Z" stroke="#28AF4C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                    <path d="M8.06369 10.5825V12.645C8.06369 13.935 6.86368 14.85 5.38618 14.85C3.90868 14.85 2.70117 13.9275 2.70117 12.645V10.5825C2.70117 9.29249 3.90118 8.25 5.38618 8.25C6.12868 8.25 6.79621 8.51248 7.28371 8.93248C7.76371 9.35248 8.06369 9.93749 8.06369 10.5825Z" stroke="#28AF4C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                    <path d="M16.5002 8.22749V9.77254C16.5002 10.185 16.1702 10.5225 15.7502 10.5375H14.2801C13.4701 10.5375 12.7277 9.94501 12.6602 9.13501C12.6152 8.66251 12.7951 8.22001 13.1101 7.91251C13.3876 7.62751 13.7701 7.46252 14.1901 7.46252H15.7502C16.1702 7.47752 16.5002 7.81499 16.5002 8.22749Z" stroke="#28AF4C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                    <path d="M1.5 7.875V6.375C1.5 4.335 2.73 2.91 4.6425 2.67C4.8375 2.64 5.04 2.625 5.25 2.625H12C12.195 2.625 12.3825 2.63249 12.5625 2.66249C14.4975 2.88749 15.75 4.32 15.75 6.375V7.46251H14.19C13.77 7.46251 13.3875 7.62749 13.11 7.91249C12.795 8.21999 12.615 8.66249 12.66 9.13499C12.7275 9.94499 13.47 10.5375 14.28 10.5375H15.75V11.625C15.75 13.875 14.25 15.375 12 15.375H10.125" stroke="#28AF4C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                  </svg>
-                </div>
-                <div>Налоговые задолженности</div>
-              </div>
-              <div class="dashboard-console__wrapper">
-                <div class="dashboard-console__content">
-                  <div class="dashboard-console__column">
-                    <h3>Долгов не найдено</h3>
-                    <p>Объектов: <span>0</span></p>
-                  </div>
-                  <div class="dashboard-console__label">0</div>
-                </div>
-                <div class="dashboard-console__footer">
-                  <button class="btn--text" data-popup="#getPopupInn">
-                    Добавить профиль<svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M7.00033 12.8333C10.2087 12.8333 12.8337 10.2083 12.8337 6.99999C12.8337 3.79166 10.2087 1.16666 7.00033 1.16666C3.79199 1.16666 1.16699 3.79166 1.16699 6.99999C1.16699 10.2083 3.79199 12.8333 7.00033 12.8333Z" stroke="#2F94EF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                      <path d="M4.66699 7H9.33366" stroke="#2F94EF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                      <path d="M7 9.33332V4.66666" stroke="#2F94EF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                    </svg>
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div class="dashboard-console__item --yellow">
-              <div class="dashboard-console__header">
-                <div class="dashboard-console__icon">
-                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M2.37793 5.58002L9.00042 9.41251L15.5779 5.60249" stroke="#E2A32E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                    <path d="M9 16.2075V9.40503" stroke="#E2A32E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                    <path d="M16.2079 9.62253V6.8775C16.2079 5.8425 15.4655 4.58252 14.558 4.08002L10.553 1.86C9.69796 1.38 8.30295 1.38 7.44795 1.86L3.44296 4.08002C2.53545 4.58252 1.79297 5.8425 1.79297 6.8775V11.1225C1.79297 12.1575 2.53545 13.4175 3.44296 13.92L7.44795 16.14C7.87545 16.38 8.43796 16.5 9.00046 16.5C9.56296 16.5 10.1255 16.38 10.553 16.14" stroke="#E2A32E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                    <path d="M14.4 16.05C15.7255 16.05 16.8 14.9755 16.8 13.65C16.8 12.3245 15.7255 11.25 14.4 11.25C13.0745 11.25 12 12.3245 12 13.65C12 14.9755 13.0745 16.05 14.4 16.05Z" stroke="#E2A32E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                    <path d="M17.25 16.5L16.5 15.75" stroke="#E2A32E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                  </svg>
-                </div>
-                <div>Посылки</div>
-              </div>
-              <div class="dashboard-console__wrapper">
-                <div class="dashboard-console__content">
-                  <div class="dashboard-console__column">
-                    <h3>Нет посылок</h3>
-                    <p>Объектов: <span>0</span></p>
-                  </div>
-                  <div class="dashboard-console__label">0</div>
-                </div>
-                <div class="dashboard-console__footer">
-                  <button class="btn--text" data-popup="#getPopupBox">
-                    Добавить трек-номер
-                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M7.00033 12.8333C10.2087 12.8333 12.8337 10.2083 12.8337 6.99999C12.8337 3.79166 10.2087 1.16666 7.00033 1.16666C3.79199 1.16666 1.16699 3.79166 1.16699 6.99999C1.16699 10.2083 3.79199 12.8333 7.00033 12.8333Z" stroke="#2F94EF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                      <path d="M4.66699 7H9.33366" stroke="#2F94EF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                      <path d="M7 9.33332V4.66666" stroke="#2F94EF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                    </svg>
-                  </button>
+
+                  <p class="schedule__note">
+                    Мы будет ежедневно отслеживать изменения в расписании, если мы увидим новые
+                    рейсы, мы отправим вам уведомление на электронную почту
+                  </p>
                 </div>
               </div>
             </div>
@@ -364,6 +433,7 @@
         </div>
       </div>
     </main>
+
     <footer class="dashboard-footer">
       <div class="dashboard-footer__container">
         <div class="dashboard-footer__menu">
