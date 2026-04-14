@@ -151,6 +151,7 @@
 @include media-mobile-horizontal {
   .dashboard-console {
     &__item {
+      flex: 1 1 auto;
       padding: 16px;
       gap: 24px;
     }

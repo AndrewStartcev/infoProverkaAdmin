@@ -135,6 +135,8 @@ img {
   display: flex;
   flex-direction: column;
   flex: 1 1 auto;
+  padding-left: 300px;
+  padding-top: 82px;
 }
 
 .dashboard-content {
@@ -181,9 +183,16 @@ img {
       letter-spacing: -0.48px;
     }
   }
+  .dashboard-wrapper {
+    padding-left: 0px;
+    padding-top: 86px;
+  }
 }
 
 @include media-mobile-horizontal {
+  .dashboard-wrapper {
+    padding-top: 74px;
+  }
   .dashboard-content {
     padding: 16px;
   }

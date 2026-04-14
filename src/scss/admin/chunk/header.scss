@@ -1,8 +1,13 @@
 .dashboard-header {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
+  padding-left: 300px;
   border-left: 1px solid rgba(15, 27, 51, 0.08);
   background: #fff;
   box-shadow: 0 6px 16px 0 rgba(15, 27, 51, 0.04);
+  z-index: 6;
   &__container {
     padding: 18px 24px;
     display: flex;
@@ -44,6 +49,9 @@
   }
 
   &__premium {
+    &.--mobele {
+      display: none;
+    }
   }
 
   &__premium-btn {
@@ -56,6 +64,21 @@
     font-size: 14px;
     font-weight: 500;
     line-height: 100%;
+  }
+
+  &__premium-good {
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    color: #28af4c;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 100%;
+    svg path {
+      stroke: #28af4c;
+    }
   }
 
   &__user {
@@ -99,10 +122,152 @@
       line-height: 120%;
     }
   }
+
+  &__user-wrapper {
+    position: relative;
+  }
+
+  &__user-menu {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: calc(100% + 8px);
+    padding: 16px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 6px 16px 0 rgba(15, 27, 51, 0.12);
+    width: 315px;
+  }
+
+  &__user-menu-top {
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(15, 27, 51, 0.08);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    align-self: stretch;
+  }
+
+  &__user-menu-avatar {
+    min-width: 44px;
+    img {
+      width: 44px;
+      height: 44px;
+      border-radius: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__user-menu-name {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 4px;
+    b {
+      color: #0f1b33;
+      font-size: 16px;
+      font-weight: bold;
+      line-height: 100%;
+    }
+    span {
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 1;
+      overflow: hidden;
+      color: rgba(15, 27, 51, 0.8);
+      text-overflow: ellipsis;
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 120%;
+    }
+  }
+
+  &__monitoring {
+    width: 100%;
+  }
+
+  &__monitoring-row {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+
+    margin-bottom: 20px;
+  }
+
+  &__monitoring-title {
+    color: #0f1b33;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 100%;
+  }
+
+  &__widget {
+    display: flex;
+    padding: 12px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    align-self: stretch;
+    border-radius: 8px;
+    background: rgba(15, 27, 51, 0.04);
+    h3 {
+      margin: 0;
+      color: #0f1b33;
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 100%;
+    }
+    p {
+      margin: 0;
+      font-size: 12px;
+      color: rgba(15, 27, 51, 0.7);
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 120%;
+    }
+    .btn {
+      width: 100%;
+    }
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    align-self: stretch;
+    margin-top: 20px;
+  }
+
+  &__item-link {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    span {
+      color: #0f1b33;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 120%;
+    }
+    &._red {
+      span {
+        color: #af2828;
+      }
+    }
+  }
 }
 
 @include media-tablet-horizontal {
   .dashboard-header {
+    padding-left: 0px;
     &__container {
       padding: 20px 16px;
     }
@@ -113,6 +278,14 @@
 
     &__title {
       display: none;
+    }
+
+    &__user {
+      &.--active {
+        .dashboard-header__user-avatar::after {
+          transform: rotate(180deg);
+        }
+      }
     }
 
     &__user-avatar {
@@ -135,6 +308,11 @@
     &__user-name {
       display: none;
     }
+    &__user-menu {
+      &.--show {
+        display: flex;
+      }
+    }
   }
 }
 
@@ -153,6 +331,9 @@
     }
     &__premium {
       display: none;
+      &.--mobele {
+        display: flex;
+      }
     }
 
     &__user-avatar {

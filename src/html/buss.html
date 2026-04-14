@@ -5,7 +5,308 @@
   <body>
     <div class="dashboard">
       <main class="dashboard-layout">
-        @@include("admin/chunk/sidebar.html")
+        <aside class="dashboard-sidebar">
+          <div class="dashboard-sidebar__header">
+            <div class="dashboard-sidebar__logo">
+              <img src="assets/img/dashboard/logo.svg" alt="" />
+            </div>
+
+            <button class="dashboard-sidebar__burger" type="button" aria-label="Закрыть меню">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path d="M6 18L18 6" stroke="#0F1B33" stroke-width="1.5" stroke-linecap="round" />
+                <path d="M6 6L18 18" stroke="#0F1B33" stroke-width="1.5" stroke-linecap="round" />
+              </svg>
+            </button>
+          </div>
+
+          <div class="dashboard-sidebar__content">
+            <div class="dashboard-sidebar__navbar">
+              <div class="dashboard-sidebar__item-row">
+                <a href="dashboard.html" class="dashboard-sidebar__item-link">
+                  <img src="assets/img/dashboard/menu/menu-1.svg" alt="" />
+                  <span>Обзор</span>
+                </a>
+              </div>
+              <div class="dashboard-sidebar__item-row">
+                <a href="gibdd.html" class="dashboard-sidebar__item-link">
+                  <img src="assets/img/dashboard/menu/menu-2.svg" alt="" />
+                  <span>Долги по базе ФССП</span>
+                </a>
+              </div>
+              <div class="dashboard-sidebar__item-row">
+                <a href="gibdd.html" class="dashboard-sidebar__item-link">
+                  <img src="assets/img/dashboard/menu/menu-3.svg" alt="" />
+                  <span>Штрафы ГИБДД</span>
+                </a>
+              </div>
+              <div class="dashboard-sidebar__item-row">
+                <a href="fns.html" class="dashboard-sidebar__item-link">
+                  <img src="assets/img/dashboard/menu/menu-4.svg" alt="" />
+                  <span>Долги по базе ФНС</span>
+                </a>
+              </div>
+              <div class="dashboard-sidebar__item-row">
+                <a href="package.html" class="dashboard-sidebar__item-link">
+                  <img src="assets/img/dashboard/menu/menu-5.svg" alt="" />
+                  <span>Посылки</span>
+                </a>
+              </div>
+              <div class="dashboard-sidebar__item-row">
+                <a href="package_price.html" class="dashboard-sidebar__item-link">
+                  <img src="assets/img/dashboard/menu/menu-6.svg" alt="" />
+                  <span>Стоимость посылок по России</span>
+                </a>
+              </div>
+              <div class="dashboard-sidebar__item-row">
+                <a href="package_price_world.html" class="dashboard-sidebar__item-link">
+                  <img src="assets/img/dashboard/menu/menu-7.svg" alt="" />
+                  <span>Стоимость посылок по миру</span>
+                </a>
+              </div>
+              <div class="dashboard-sidebar__item-row">
+                <a href="i\.html" class="dashboard-sidebar__item-link">
+                  <img src="assets/img/dashboard/menu/menu-8.svg" alt="" />
+                  <span>Почтовые индексы</span>
+                </a>
+              </div>
+
+              <!-- ВАЖНО: В каждой страницы сайдбар разный. Взависимости от страницы, меняется верстка в .dashboard-sidebar__item в беке это можно через if else сделать. Чтобы изначально не рендерить большой сайдбар -->
+              <div class="dashboard-sidebar__item">
+                <div class="dashboard-sidebar__item-row --current-page">
+                  <div class="dashboard-sidebar__item-link">
+                    <img src="assets/img/dashboard/menu/menu-9.svg" alt="" />
+                    <span>Автобусы</span>
+                    <a href="buss.html" class="dashboard-sidebar__item-add">
+                      <img src="assets/img/dashboard/menu/add.svg" alt="" />
+                    </a>
+                    <button class="dashboard-sidebar__item-menu">
+                      <svg
+                        width="7"
+                        height="15"
+                        viewBox="0 0 7 15"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M0.5 13.8333L6.33333 7.16667L0.5 0.5"
+                          stroke="#0F1B33"
+                          stroke-opacity="0.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+                <div class="dashboard-sidebar__submenu">
+                  <div class="dashboard-sidebar__submenu-header">
+                    <button class="dashboard-sidebar__submenu-back">
+                      <svg
+                        width="7"
+                        height="15"
+                        viewBox="0 0 7 15"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M6.33333 13.8333L0.5 7.16667L6.33333 0.5"
+                          stroke="#0F1B33"
+                          stroke-opacity="0.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </button>
+                    <h3 class="dashboard-sidebar__submenu-title">Автобусы</h3>
+                  </div>
+                  <div class="dashboard-sidebar__submenu-content">
+                    <!--ЗАМЕТКА: Если нет - то выводим <span class="--text-empty">Профиля нет</span> и кнопку которая в dashboard-sidebar__submenu-footer а .dashboard-sidebar__submenu-footer скрываем -->
+                    <div class="dashboard-sidebar__profile">
+                      <a href="#" class="dashboard-sidebar__profile-link">
+                        <div class="dashboard-sidebar__profile--title">
+                          <span>Маршрут 1</span>
+                          <div class="dashboard-sidebar__profile-status">
+                            Проверка не запускалась
+                          </div>
+                        </div>
+                      </a>
+                      <div class="dashboard-sidebar__profile-context">
+                        <button class="dashboard-sidebar__profile-context-btn">
+                          <img src="assets/img/dashboard/menu/more.svg" alt="" />
+                        </button>
+                        <div class="dashboard-sidebar__profile-context-menu">
+                          <button class="--edit">Редактировать</button>
+                          <button class="--delete" data-popup="#getDelet">Удалить</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="dashboard-sidebar__submenu-footer">
+                    <a class="btn" href="buss.html">
+                      Добавить профиль
+                      <svg
+                        width="14"
+                        height="14"
+                        viewBox="0 0 14 14"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M7.00033 12.8333C10.2087 12.8333 12.8337 10.2083 12.8337 6.99999C12.8337 3.79166 10.2087 1.16666 7.00033 1.16666C3.79199 1.16666 1.16699 3.79166 1.16699 6.99999C1.16699 10.2083 3.79199 12.8333 7.00033 12.8333Z"
+                          stroke="#ffffff"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M4.66699 7H9.33366"
+                          stroke="#ffffff"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M7 9.33332V4.66666"
+                          stroke="#ffffff"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="dashboard-sidebar__item-row">
+                <a href="avia.html" class="dashboard-sidebar__item-link">
+                  <img src="assets/img/dashboard/menu/menu-10.svg" alt="" />
+                  <span>Авиабилеты</span>
+                </a>
+              </div>
+              <div class="dashboard-sidebar__item-row">
+                <a href="zd.html" class="dashboard-sidebar__item-link">
+                  <img src="assets/img/dashboard/menu/menu-11.svg" alt="" />
+                  <span>ЖД билеты</span>
+                </a>
+              </div>
+              <div class="dashboard-sidebar__item-row">
+                <a href="financy.html" class="dashboard-sidebar__item-link">
+                  <img src="assets/img/dashboard/menu/menu-12.svg" alt="" />
+                  <span>Финансы</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="dashboard-sidebar__footer">
+              <div class="dashboard-sidebar__item">
+                <div class="dashboard-sidebar__item-row">
+                  <a href="settings.html" class="dashboard-sidebar__item-link">
+                    <svg
+                      width="20"
+                      height="20"
+                      viewBox="0 0 20 20"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M10 12.5C11.3807 12.5 12.5 11.3807 12.5 10C12.5 8.61929 11.3807 7.5 10 7.5C8.61929 7.5 7.5 8.61929 7.5 10C7.5 11.3807 8.61929 12.5 10 12.5Z"
+                        stroke="#0F1B33"
+                        stroke-miterlimit="10"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M1.66602 10.7334V9.26669C1.66602 8.40003 2.37435 7.68336 3.24935 7.68336C4.75768 7.68336 5.37435 6.6167 4.61602 5.30836C4.18268 4.55836 4.44102 3.58336 5.19935 3.15003L6.64102 2.32503C7.29935 1.93336 8.14935 2.1667 8.54102 2.82503L8.63268 2.98336C9.38268 4.2917 10.616 4.2917 11.3743 2.98336L11.466 2.82503C11.8577 2.1667 12.7077 1.93336 13.366 2.32503L14.8077 3.15003C15.566 3.58336 15.8243 4.55836 15.391 5.30836C14.6327 6.6167 15.2493 7.68336 16.7577 7.68336C17.6243 7.68336 18.341 8.39169 18.341 9.26669V10.7334C18.341 11.6 17.6327 12.3167 16.7577 12.3167C15.2493 12.3167 14.6327 13.3834 15.391 14.6917C15.8243 15.45 15.566 16.4167 14.8077 16.85L13.366 17.675C12.7077 18.0667 11.8577 17.8334 11.466 17.175L11.3743 17.0167C10.6243 15.7084 9.39102 15.7084 8.63268 17.0167L8.54102 17.175C8.14935 17.8334 7.29935 18.0667 6.64102 17.675L5.19935 16.85C4.44102 16.4167 4.18268 15.4417 4.61602 14.6917C5.37435 13.3834 4.75768 12.3167 3.24935 12.3167C2.37435 12.3167 1.66602 11.6 1.66602 10.7334Z"
+                        stroke="#0F1B33"
+                        stroke-miterlimit="10"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+
+                    <span>Настройки</span>
+                  </a>
+                </div>
+              </div>
+
+              <div class="dashboard-sidebar__item">
+                <div class="dashboard-sidebar__item-row">
+                  <a href="#" class="dashboard-sidebar__item-link _red">
+                    <svg
+                      width="20"
+                      height="20"
+                      viewBox="0 0 20 20"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M7.41602 6.30001C7.67435 3.30001 9.21602 2.07501 12.591 2.07501H12.6993C16.4243 2.07501 17.916 3.56668 17.916 7.29168V12.725C17.916 16.45 16.4243 17.9417 12.6993 17.9417H12.591C9.24102 17.9417 7.69935 16.7333 7.42435 13.7833"
+                        stroke="#AF2828"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M12.5009 10H3.01758"
+                        stroke="#AF2828"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M4.87565 7.20831L2.08398 9.99998L4.87565 12.7916"
+                        stroke="#AF2828"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                    <span>Выйти</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="dashboard-sidebar__monitoring">
+              <div class="dashboard-sidebar__monitoring-row">
+                <span class="dashboard-sidebar__monitoring-title">Мониторинг</span>
+
+                <label class="switch">
+                  <input type="checkbox" />
+                  <span class="switch__slider"></span>
+                </label>
+              </div>
+
+              <div class="dashboard-sidebar__widget">
+                <h3>Последнее обновление</h3>
+                <p>25.10.2025 09:05</p>
+
+                <button class="btn-white" type="button">
+                  Обновить сейчас
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M14.6663 7.99998C14.6663 11.68 11.6797 14.6666 7.99967 14.6666C4.31967 14.6666 2.07301 10.96 2.07301 10.96M2.07301 10.96H5.08634M2.07301 10.96V14.2933M1.33301 7.99998C1.33301 4.31998 4.29301 1.33331 7.99967 1.33331C12.4463 1.33331 14.6663 5.03998 14.6663 5.03998M14.6663 5.03998V1.70665M14.6663 5.03998H11.7063"
+                      stroke="#0F1B33"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </aside>
         <div class="dashboard-wrapper">
           @@include("admin/chunk/header.html", {"title": "Автобусы"})
           <div class="dashboard-content container">
