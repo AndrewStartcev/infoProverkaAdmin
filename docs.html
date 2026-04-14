@@ -1,0 +1,1344 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>infoProverka — Документация</title>
+<style>
+  :root {
+    --accent: #2f94ef;
+    --accent-dark: #1e7afd;
+    --navy: #0f1b33;
+    --green: #28af4c;
+    --red: #af2828;
+    --bg: #f4f7fb;
+    --card: #ffffff;
+    --border: rgba(15,27,51,0.10);
+    --text: #0f1b33;
+    --text-muted: rgba(15,27,51,0.5);
+    --radius: 14px;
+    --shadow: 0 2px 16px rgba(15,27,51,0.08);
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--bg); color: var(--text); font-size: 15px; line-height: 1.6; }
+
+  /* ── HEADER ── */
+  .site-header {
+    background: var(--navy);
+    color: #fff;
+    padding: 0 24px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,.25);
+  }
+  .site-header__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+    gap: 16px;
+  }
+  .site-header__logo { font-size: 18px; font-weight: 700; color: #fff; text-decoration: none; white-space: nowrap; }
+  .site-header__logo span { color: var(--accent); }
+  .site-header__nav { display: flex; gap: 4px; flex-wrap: wrap; }
+  .site-header__nav a {
+    color: rgba(255,255,255,.7);
+    text-decoration: none;
+    font-size: 13px;
+    padding: 5px 10px;
+    border-radius: 6px;
+    transition: background .2s, color .2s;
+    white-space: nowrap;
+  }
+  .site-header__nav a:hover { background: rgba(255,255,255,.12); color: #fff; }
+  .site-header__badge { background: var(--accent); color: #fff; font-size: 11px; font-weight: 600; padding: 3px 10px; border-radius: 20px; white-space: nowrap; }
+
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(135deg, var(--navy) 0%, #1a3a6e 100%);
+    color: #fff;
+    padding: 64px 24px 72px;
+    text-align: center;
+  }
+  .hero__tag { display: inline-block; background: rgba(47,148,239,.25); border: 1px solid rgba(47,148,239,.4); color: #7ec8ff; font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; padding: 5px 14px; border-radius: 20px; margin-bottom: 20px; }
+  .hero__title { font-size: clamp(28px, 5vw, 48px); font-weight: 800; line-height: 1.15; margin-bottom: 16px; }
+  .hero__title span { color: var(--accent); }
+  .hero__desc { font-size: clamp(14px, 2vw, 17px); color: rgba(255,255,255,.7); max-width: 600px; margin: 0 auto 32px; }
+  .hero__meta { display: flex; flex-wrap: wrap; justify-content: center; gap: 24px; }
+  .hero__meta-item { display: flex; align-items: center; gap: 8px; color: rgba(255,255,255,.6); font-size: 13px; }
+  .hero__meta-item svg { opacity: .8; }
+
+  /* ── LAYOUT ── */
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+  .section { padding: 48px 0; }
+  .section + .section { border-top: 1px solid var(--border); }
+  .section__header { margin-bottom: 28px; }
+  .section__title { font-size: clamp(18px, 3vw, 24px); font-weight: 700; margin-bottom: 6px; display: flex; align-items: center; gap: 10px; }
+  .section__title .icon { width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; }
+  .section__desc { color: var(--text-muted); font-size: 14px; }
+
+  /* ── CARDS GRID ── */
+  .grid { display: grid; gap: 16px; }
+  .grid--2 { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
+  .grid--3 { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px;
+    box-shadow: var(--shadow);
+    transition: box-shadow .2s, transform .2s;
+  }
+  .card:hover { box-shadow: 0 6px 28px rgba(15,27,51,0.13); transform: translateY(-2px); }
+  .card__head { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px; }
+  .card__icon { width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+  .card__title { font-size: 15px; font-weight: 700; margin-bottom: 2px; }
+  .card__file { font-size: 11px; color: var(--text-muted); font-family: monospace; }
+  .card__desc { font-size: 13px; color: var(--text-muted); margin-bottom: 14px; line-height: 1.55; }
+  .card__link {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 13px; font-weight: 600; color: var(--accent);
+    text-decoration: none; padding: 7px 14px;
+    border: 1.5px solid var(--accent); border-radius: 8px;
+    transition: background .2s, color .2s;
+  }
+  .card__link:hover { background: var(--accent); color: #fff; }
+  .card__tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+  .tag { font-size: 11px; font-weight: 600; padding: 3px 9px; border-radius: 6px; }
+  .tag--blue { background: #e6f3fd; color: #1a6cb5; }
+  .tag--green { background: #e3f6eb; color: #1a7a38; }
+  .tag--orange { background: #fff0e0; color: #a05a00; }
+  .tag--gray { background: rgba(15,27,51,.07); color: var(--text-muted); }
+  .tag--red { background: #fdeaea; color: #901c1c; }
+  .tag--purple { background: #f0e8ff; color: #6a1fa0; }
+
+  /* ── STATUS BADGE ── */
+  .status { display: inline-flex; align-items: center; gap: 5px; font-size: 12px; font-weight: 600; padding: 3px 9px; border-radius: 20px; }
+  .status::before { content: ''; width: 7px; height: 7px; border-radius: 50%; }
+  .status--public { background: #e3f6eb; color: #1a7a38; }
+  .status--public::before { background: var(--green); }
+  .status--auth { background: #e6f3fd; color: #1a6cb5; }
+  .status--auth::before { background: var(--accent); }
+  .status--admin { background: #fdeaea; color: #901c1c; }
+  .status--admin::before { background: var(--red); }
+
+  /* ── TABLE ── */
+  .table-wrap { overflow-x: auto; border-radius: var(--radius); box-shadow: var(--shadow); }
+  table { width: 100%; border-collapse: collapse; background: var(--card); font-size: 13.5px; }
+  thead th { background: var(--navy); color: #fff; font-weight: 600; padding: 13px 16px; text-align: left; white-space: nowrap; }
+  thead th:first-child { border-radius: var(--radius) 0 0 0; }
+  thead th:last-child { border-radius: 0 var(--radius) 0 0; }
+  tbody tr { border-bottom: 1px solid var(--border); transition: background .15s; }
+  tbody tr:last-child { border-bottom: none; }
+  tbody tr:hover { background: rgba(47,148,239,.04); }
+  td { padding: 11px 16px; vertical-align: top; }
+  td code, th code { font-family: monospace; background: rgba(15,27,51,.06); padding: 2px 6px; border-radius: 4px; font-size: 12px; }
+  td a { color: var(--accent); text-decoration: none; font-weight: 500; }
+  td a:hover { text-decoration: underline; }
+
+  /* ── COLOR SWATCHES ── */
+  .swatches { display: flex; flex-wrap: wrap; gap: 14px; }
+  .swatch { display: flex; align-items: center; gap: 10px; background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 10px 14px; box-shadow: var(--shadow); min-width: 180px; }
+  .swatch__dot { width: 36px; height: 36px; border-radius: 8px; flex-shrink: 0; border: 1px solid rgba(0,0,0,.08); }
+  .swatch__name { font-size: 13px; font-weight: 600; }
+  .swatch__hex { font-size: 11px; color: var(--text-muted); font-family: monospace; }
+
+  /* ── CODE BLOCK ── */
+  .code-block { background: #1a2236; color: #c8d8f0; border-radius: var(--radius); padding: 20px; font-family: monospace; font-size: 13px; line-height: 1.7; overflow-x: auto; }
+  .code-block .kw { color: #79b8ff; }
+  .code-block .str { color: #9ecbff; }
+  .code-block .cm { color: rgba(200,216,240,.4); }
+  .code-block .at { color: #ffab70; }
+  .code-block .fn { color: #b392f0; }
+
+  /* ── FORM FIELDS DEMO ── */
+  .field-list { display: flex; flex-direction: column; gap: 10px; }
+  .field-item { display: flex; align-items: flex-start; gap: 12px; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 10px; box-shadow: var(--shadow); }
+  .field-item__type { font-size: 11px; font-weight: 700; padding: 3px 8px; border-radius: 6px; background: var(--navy); color: #fff; white-space: nowrap; font-family: monospace; }
+  .field-item__info { flex: 1; }
+  .field-item__name { font-size: 13px; font-weight: 600; margin-bottom: 2px; }
+  .field-item__desc { font-size: 12px; color: var(--text-muted); }
+
+  /* ── FLOW STEPS ── */
+  .steps { display: flex; flex-direction: column; gap: 12px; }
+  .step { display: flex; gap: 14px; align-items: flex-start; }
+  .step__num { width: 32px; height: 32px; border-radius: 50%; background: var(--accent); color: #fff; font-weight: 700; font-size: 14px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+  .step__title { font-size: 14px; font-weight: 600; margin-bottom: 2px; }
+  .step__desc { font-size: 13px; color: var(--text-muted); }
+
+  /* ── ALERT ── */
+  .alert { padding: 14px 18px; border-radius: 10px; font-size: 13.5px; margin-bottom: 20px; border-left: 4px solid; }
+  .alert--info { background: #e6f3fd; border-color: var(--accent); color: #1a4e80; }
+  .alert--warn { background: #fff8e0; border-color: #e6a817; color: #7a5200; }
+  .alert--success { background: #e3f6eb; border-color: var(--green); color: #1a4a25; }
+
+  /* ── BASE URL BOX ── */
+  .url-box {
+    background: var(--card);
+    border: 1.5px dashed var(--accent);
+    border-radius: var(--radius);
+    padding: 18px 20px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+  }
+  .url-box__label { font-size: 12px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: .06em; white-space: nowrap; }
+  .url-box__value { font-family: monospace; font-size: 14px; color: var(--accent); font-weight: 600; word-break: break-all; }
+
+  /* ── POPUPS TABLE ── */
+  .popup-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px; box-shadow: var(--shadow); }
+  .popup-card__id { font-family: monospace; font-size: 13px; background: rgba(15,27,51,.06); padding: 4px 10px; border-radius: 6px; display: inline-block; margin-bottom: 10px; }
+  .popup-card__title { font-weight: 700; font-size: 15px; margin-bottom: 6px; }
+  .popup-card__desc { font-size: 13px; color: var(--text-muted); }
+
+  /* ── FOOTER ── */
+  .site-footer { background: var(--navy); color: rgba(255,255,255,.5); text-align: center; padding: 28px 24px; font-size: 13px; margin-top: 48px; }
+  .site-footer strong { color: #fff; }
+
+  /* ── SIDEBAR TOC ── */
+  @media (min-width: 1100px) {
+    .layout { display: grid; grid-template-columns: 220px 1fr; gap: 0; max-width: 1200px; margin: 0 auto; }
+    .toc {
+      position: sticky;
+      top: 60px;
+      height: calc(100vh - 60px);
+      overflow-y: auto;
+      padding: 28px 0 28px 24px;
+      border-right: 1px solid var(--border);
+    }
+    .toc__title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--text-muted); margin-bottom: 10px; padding: 0 8px; }
+    .toc__list { list-style: none; display: flex; flex-direction: column; gap: 2px; }
+    .toc__list a { display: block; font-size: 13px; color: var(--text-muted); text-decoration: none; padding: 5px 8px; border-radius: 6px; transition: background .15s, color .15s; }
+    .toc__list a:hover, .toc__list a.active { background: rgba(47,148,239,.1); color: var(--accent); }
+    .content { padding: 0 24px; }
+  }
+  @media (max-width: 1099px) {
+    .toc { display: none; }
+    .content { padding: 0 24px; }
+    .container { padding: 0 16px; }
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 600px) {
+    .hero { padding: 40px 16px 48px; }
+    .section { padding: 32px 0; }
+    .site-header__nav { display: none; }
+    .grid--2, .grid--3 { grid-template-columns: 1fr; }
+    .swatches { flex-direction: column; }
+    .swatch { min-width: 0; width: 100%; }
+    .hero__meta { flex-direction: column; align-items: center; gap: 10px; }
+    table { font-size: 12px; }
+    td, thead th { padding: 9px 10px; }
+  }
+
+  /* ── SCROLLBAR ── */
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: #f2f7fa; }
+  ::-webkit-scrollbar-thumb { background: rgba(15,27,51,.2); border-radius: 3px; }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="site-header__logo" href="#">info<span>Proverka</span></a>
+    <nav class="site-header__nav">
+      <a href="#pages">Страницы</a>
+      <a href="#navigation">Навигация</a>
+      <a href="#forms">Формы</a>
+      <a href="#popups">Попапы</a>
+      <a href="#colors">Стили</a>
+      <a href="#components">Компоненты</a>
+      <a href="#js">JavaScript</a>
+      <a href="#flow">Флоу</a>
+    </nav>
+    <span class="site-header__badge">v1.0 · 2025</span>
+  </div>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero__tag">Техническая документация</div>
+  <h1 class="hero__title">infoProverka<br><span>Frontend Documentation</span></h1>
+  <p class="hero__desc">Полное описание вёрстки: страницы, формы, попапы, компоненты, цвета и пользовательские сценарии. Для backend-разработчика и клиентского согласования.</p>
+  <div class="hero__meta">
+    <div class="hero__meta-item">
+      <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+      20 страниц
+    </div>
+    <div class="hero__meta-item">
+      <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>
+      4 модальных окна
+    </div>
+    <div class="hero__meta-item">
+      <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+      6 форм
+    </div>
+    <div class="hero__meta-item">
+      <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+      Дата: апрель 2025
+    </div>
+  </div>
+</div>
+
+<!-- LAYOUT WRAPPER -->
+<div class="layout">
+
+  <!-- TOC SIDEBAR -->
+  <nav class="toc">
+    <div class="toc__title">Содержание</div>
+    <ul class="toc__list">
+      <li><a href="#baseurl">Base URL</a></li>
+      <li><a href="#pages">Страницы</a></li>
+      <li><a href="#navigation">Навигация</a></li>
+      <li><a href="#forms">Формы</a></li>
+      <li><a href="#popups">Попапы</a></li>
+      <li><a href="#colors">Цвета</a></li>
+      <li><a href="#buttons">Кнопки</a></li>
+      <li><a href="#components">Компоненты</a></li>
+      <li><a href="#js">JavaScript</a></li>
+      <li><a href="#flow">Пользовательский флоу</a></li>
+      <li><a href="#payment">Оплата</a></li>
+      <li><a href="#backend">Для бекенда</a></li>
+    </ul>
+  </nav>
+
+  <!-- MAIN CONTENT -->
+  <main class="content">
+
+    <!-- BASE URL -->
+    <section class="section" id="baseurl">
+      <div class="section__header">
+        <h2 class="section__title">
+          <span class="icon" style="background:#e6f3fd;">🔗</span>
+          Базовый URL
+        </h2>
+      </div>
+      <div class="url-box">
+        <span class="url-box__label">Base URL</span>
+        <span class="url-box__value">https://andrewstartcev.github.io/info-proverka/infoProverkaAdmin/public</span>
+      </div>
+      <div class="alert alert--info">Все ссылки ниже формируются как <strong>Base URL + /имя-файла.html</strong>. Например, страница авторизации: <code>…/public/auth.html</code></div>
+    </section>
+
+    <!-- PAGES -->
+    <section class="section" id="pages">
+      <div class="section__header">
+        <h2 class="section__title">
+          <span class="icon" style="background:#e6f3fd;">📄</span>
+          Все страницы
+        </h2>
+        <p class="section__desc">Полный список страниц с описанием, типом доступа и прямыми ссылками для проверки.</p>
+      </div>
+
+      <h3 style="font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text-muted);margin-bottom:14px;">Публичные страницы (без авторизации)</h3>
+      <div class="grid grid--2" style="margin-bottom:32px;">
+
+        <div class="card">
+          <div class="card__head">
+            <div class="card__icon" style="background:#e6f3fd;">🏠</div>
+            <div>
+              <div class="card__title">Главная страница</div>
+              <div class="card__file">index.html</div>
+            </div>
+          </div>
+          <p class="card__desc">Лендинг платформы. Hero с CTA, секция мониторинга, преимущества, процесс работы, рекомендации, аккордеон «важно знать», финальный CTA.</p>
+          <div class="card__tags">
+            <span class="status status--public">Публичная</span>
+            <span class="tag tag--blue">Лендинг</span>
+          </div>
+          <div style="margin-top:14px;">
+            <a class="card__link" href="https://andrewstartcev.github.io/info-proverka/infoProverkaAdmin/public/index.html" target="_blank">
+              <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              Открыть страницу
+            </a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card__head">
+            <div class="card__icon" style="background:#fff0e0;">🔑</div>
+            <div>
+              <div class="card__title">Авторизация</div>
+              <div class="card__file">auth.html</div>
+            </div>
+          </div>
+          <p class="card__desc">Форма входа: номер телефона, пароль, «запомнить меня», «забыли пароль», ссылка на регистрацию.</p>
+          <div class="card__tags">
+            <span class="status status--public">Публичная</span>
+            <span class="tag tag--orange">Форма</span>
+          </div>
+          <div style="margin-top:14px;">
+            <a class="card__link" href="https://andrewstartcev.github.io/info-proverka/infoProverkaAdmin/public/auth.html" target="_blank">
+              <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              Открыть страницу
+            </a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card__head">
+            <div class="card__icon" style="background:#e3f6eb;">✍️</div>
+            <div>
+              <div class="card__title">Регистрация</div>
+              <div class="card__file">registration.html</div>
+            </div>
+          </div>
+          <p class="card__desc">Форма регистрации: номер телефона, согласие на обработку данных и правила сервиса, ссылка на вход.</p>
+          <div class="card__tags">
+            <span class="status status--public">Публичная</span>
+            <span class="tag tag--orange">Форма</span>
+          </div>
+          <div style="margin-top:14px;">
+            <a class="card__link" href="https://andrewstartcev.github.io/info-proverka/infoProverkaAdmin/public/registration.html" target="_blank">
+              <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              Открыть страницу
+            </a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card__head">
+            <div class="card__icon" style="background:#f0e8ff;">💎</div>
+            <div>
+              <div class="card__title">Премиум-подписка</div>
+              <div class="card__file">premium.html</div>
+            </div>
+          </div>
+          <p class="card__desc">Страница оформления подписки: оплата со счёта мобильного (МТС 50₽/сут, Мегафон 35₽/сут) и банковской картой (5₽ на 5 дней, затем 399₽/мес или 99₽/нед).</p>
+          <div class="card__tags">
+            <span class="status status--public">Публичная</span>
+            <span class="tag tag--purple">Оплата</span>
+          </div>
+          <div style="margin-top:14px;">
+            <a class="card__link" href="https://andrewstartcev.github.io/info-proverka/infoProverkaAdmin/public/premium.html" target="_blank">
+              <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              Открыть страницу
+            </a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card__head">
+            <div class="card__icon" style="background:#e6f3fd;">💬</div>
+            <div>
+              <div class="card__title">Служба поддержки</div>
+              <div class="card__file">support.html</div>
+            </div>
+          </div>
+          <p class="card__desc">Страница поддержки с кнопкой открытия попапа формы обращения.</p>
+          <div class="card__tags">
+            <span class="status status--public">Публичная</span>
+            <span class="tag tag--blue">Попап</span>
+          </div>
+          <div style="margin-top:14px;">
+            <a class="card__link" href="https://andrewstartcev.github.io/info-proverka/infoProverkaAdmin/public/support.html" target="_blank">
+              <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              Открыть страницу
+            </a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card__head">
+            <div class="card__icon" style="background:#fdeaea;">❌</div>
+            <div>
+              <div class="card__title">Отмена подписки</div>
+              <div class="card__file">subscription-off.html</div>
+            </div>
+          </div>
+          <p class="card__desc">Форма отмены подписки с номером телефона, инструкцией по отмене для CloudPayments и информацией о мобильных операторах.</p>
+          <div class="card__tags">
+            <span class="status status--public">Публичная</span>
+            <span class="tag tag--red">Отписка</span>
+          </div>
+          <div style="margin-top:14px;">
+            <a class="card__link" href="https://andrewstartcev.github.io/info-proverka/infoProverkaAdmin/public/subscription-off.html" target="_blank">
+              <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              Открыть страницу
+            </a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card__head">
+            <div class="card__icon" style="background:#fff0e0;">🚫</div>
+            <div>
+              <div class="card__title">404 — Страница не найдена</div>
+              <div class="card__file">404.html</div>
+            </div>
+          </div>
+          <p class="card__desc">Страница ошибки с иллюстрацией и кнопкой возврата на главную.</p>
+          <div class="card__tags">
+            <span class="status status--public">Публичная</span>
+            <span class="tag tag--gray">Error</span>
+          </div>
+          <div style="margin-top:14px;">
+            <a class="card__link" href="https://andrewstartcev.github.io/info-proverka/infoProverkaAdmin/public/404.html" target="_blank">
+              <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              Открыть страницу
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <h3 style="font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text-muted);margin-bottom:14px;">Личный кабинет (авторизованные пользователи)</h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Страница</th>
+              <th>Файл</th>
+              <th>Описание</th>
+              <th>Ссылка</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Обзор / Дашборд</strong></td>
+              <td><code>dashboard.html</code></td>
+              <td>Главный экран кабинета. Виджет мониторинга (вкл/выкл), дата последнего обновления, кнопка «обновить сейчас».</td>
+              <td><a href="https://andrewstartcev.github.io/info-proverka/infoProverkaAdmin/public/dashboard.html" target="_blank">↗ Открыть</a></td>
+            </tr>
+            <tr>
+              <td><strong>Долги ФССП</strong></td>
+              <td><code>dolg.html</code></td>
+              <td>Мониторинг задолженностей по базе Федеральной службы судебных приставов.</td>
+              <td><a href="https://andrewstartcev.github.io/info-proverka/infoProverkaAdmin/public/dolg.html" target="_blank">↗ Открыть</a></td>
+            </tr>
+            <tr>
+              <td><strong>Штрафы ГИБДД</strong></td>
+              <td><code>gibdd.html</code></td>
+              <td>Проверка и отслеживание штрафов ГИБДД.</td>
+              <td><a href="https://andrewstartcev.github.io/info-proverka/infoProverkaAdmin/public/gibdd.html" target="_blank">↗ Открыть</a></td>
+            </tr>
+            <tr>
+              <td><strong>Долги ФНС</strong></td>
+              <td><code>fns.html</code></td>
+              <td>Задолженности по базе Федеральной налоговой службы.</td>
+              <td><a href="https://andrewstartcev.github.io/info-proverka/infoProverkaAdmin/public/fns.html" target="_blank">↗ Открыть</a></td>
+            </tr>
+            <tr>
+              <td><strong>Посылки</strong></td>
+              <td><code>package.html</code></td>
+              <td>Трекинг посылок: добавление трекера, список отслеживаемых посылок, статус и история перемещений.</td>
+              <td><a href="https://andrewstartcev.github.io/info-proverka/infoProverkaAdmin/public/package.html" target="_blank">↗ Открыть</a></td>
+            </tr>
+            <tr>
+              <td><strong>Стоимость посылок (РФ)</strong></td>
+              <td><code>package_price.html</code></td>
+              <td>Калькулятор / таблица стоимости доставки по России.</td>
+              <td><a href="https://andrewstartcev.github.io/info-proverka/infoProverkaAdmin/public/package_price.html" target="_blank">↗ Открыть</a></td>
+            </tr>
+            <tr>
+              <td><strong>Стоимость посылок (мир)</strong></td>
+              <td><code>package_price_world.html</code></td>
+              <td>Тарифы международной доставки.</td>
+              <td><a href="https://andrewstartcev.github.io/info-proverka/infoProverkaAdmin/public/package_price_world.html" target="_blank">↗ Открыть</a></td>
+            </tr>
+            <tr>
+              <td><strong>Почтовые индексы</strong></td>
+              <td><code>index_box.html</code></td>
+              <td>Поиск почтовых индексов.</td>
+              <td><a href="https://andrewstartcev.github.io/info-proverka/infoProverkaAdmin/public/index_box.html" target="_blank">↗ Открыть</a></td>
+            </tr>
+            <tr>
+              <td><strong>Авиабилеты</strong></td>
+              <td><code>avia.html</code></td>
+              <td>Расписание и информация по авиарейсам.</td>
+              <td><a href="https://andrewstartcev.github.io/info-proverka/infoProverkaAdmin/public/avia.html" target="_blank">↗ Открыть</a></td>
+            </tr>
+            <tr>
+              <td><strong>Автобусы</strong></td>
+              <td><code>buss.html</code></td>
+              <td>Расписание автобусных маршрутов.</td>
+              <td><a href="https://andrewstartcev.github.io/info-proverka/infoProverkaAdmin/public/buss.html" target="_blank">↗ Открыть</a></td>
+            </tr>
+            <tr>
+              <td><strong>ЖД билеты</strong></td>
+              <td><code>zd.html</code></td>
+              <td>Расписание поездов, информация о ЖД-билетах.</td>
+              <td><a href="https://andrewstartcev.github.io/info-proverka/infoProverkaAdmin/public/zd.html" target="_blank">↗ Открыть</a></td>
+            </tr>
+            <tr>
+              <td><strong>Финансы</strong></td>
+              <td><code>financy.html</code></td>
+              <td>Финансовые инструменты и информация.</td>
+              <td><a href="https://andrewstartcev.github.io/info-proverka/infoProverkaAdmin/public/financy.html" target="_blank">↗ Открыть</a></td>
+            </tr>
+            <tr>
+              <td><strong>Настройки</strong></td>
+              <td><code>settings.html</code></td>
+              <td>Настройки профиля пользователя, управление аккаунтом.</td>
+              <td><a href="https://andrewstartcev.github.io/info-proverka/infoProverkaAdmin/public/settings.html" target="_blank">↗ Открыть</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- NAVIGATION -->
+    <section class="section" id="navigation">
+      <div class="section__header">
+        <h2 class="section__title">
+          <span class="icon" style="background:#e3f6eb;">🧭</span>
+          Навигация
+        </h2>
+        <p class="section__desc">Структура меню на публичных страницах и в личном кабинете.</p>
+      </div>
+
+      <div class="grid grid--2">
+        <div class="card">
+          <div class="card__head">
+            <div class="card__icon" style="background:#e6f3fd;">🔝</div>
+            <div><div class="card__title">Шапка (Header)</div><div class="card__file">chunk/header.html</div></div>
+          </div>
+          <p class="card__desc">Логотип → ссылки меню → кнопки «Регистрация» (outline) и «Войти». На мобильных — бургер-кнопка с выезжающим боковым меню.</p>
+          <div class="field-list" style="margin-top:10px;">
+            <div class="field-item">
+              <span class="field-item__type">link</span>
+              <div class="field-item__info"><div class="field-item__name">Долги ФССП</div></div>
+            </div>
+            <div class="field-item">
+              <span class="field-item__type">link</span>
+              <div class="field-item__info"><div class="field-item__name">Штрафы ГИБДД</div></div>
+            </div>
+            <div class="field-item">
+              <span class="field-item__type">link</span>
+              <div class="field-item__info"><div class="field-item__name">Долги ФНС</div></div>
+            </div>
+            <div class="field-item">
+              <span class="field-item__type">link</span>
+              <div class="field-item__info"><div class="field-item__name">Посылки</div></div>
+            </div>
+            <div class="field-item">
+              <span class="field-item__type">link</span>
+              <div class="field-item__info"><div class="field-item__name">Расписания</div></div>
+            </div>
+            <div class="field-item">
+              <span class="field-item__type">link</span>
+              <div class="field-item__info"><div class="field-item__name">Финансы</div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card__head">
+            <div class="card__icon" style="background:#e3f6eb;">📌</div>
+            <div><div class="card__title">Сайдбар (Dashboard)</div><div class="card__file">admin/chunk/sidebar.html</div></div>
+          </div>
+          <p class="card__desc">Вертикальное меню личного кабинета с иконками. Виджет мониторинга в нижней части (toggle вкл/выкл + время обновления).</p>
+          <div class="field-list" style="margin-top:10px;">
+            <div class="field-item"><span class="field-item__type">link</span><div class="field-item__info"><div class="field-item__name">Обзор (Dashboard)</div></div></div>
+            <div class="field-item"><span class="field-item__type">link</span><div class="field-item__info"><div class="field-item__name">Долги ФССП / ГИБДД / ФНС</div></div></div>
+            <div class="field-item"><span class="field-item__type">link</span><div class="field-item__info"><div class="field-item__name">Посылки + подменю</div></div></div>
+            <div class="field-item"><span class="field-item__type">link</span><div class="field-item__info"><div class="field-item__name">Индексы / Авиа / Автобусы / ЖД</div></div></div>
+            <div class="field-item"><span class="field-item__type">link</span><div class="field-item__info"><div class="field-item__name">Финансы / Настройки</div></div></div>
+            <div class="field-item"><span class="field-item__type" style="background:var(--red);">exit</span><div class="field-item__info"><div class="field-item__name">Выйти</div></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:20px;" class="card">
+        <div class="card__head">
+          <div class="card__icon" style="background:#fff0e0;">👣</div>
+          <div><div class="card__title">Подвал (Footer)</div><div class="card__file">chunk/footer.html</div></div>
+        </div>
+        <div class="grid grid--3" style="margin-top:10px;gap:16px;">
+          <div>
+            <div style="font-size:12px;font-weight:700;color:var(--text-muted);text-transform:uppercase;margin-bottom:8px;">Услуги</div>
+            <div class="field-list">
+              <div class="field-item"><span class="field-item__type">link</span><div class="field-item__info"><div class="field-item__name">Долги ФССП / ГИБДД / ФНС</div></div></div>
+              <div class="field-item"><span class="field-item__type">link</span><div class="field-item__info"><div class="field-item__name">Посылки / Расписания / Финансы</div></div></div>
+            </div>
+          </div>
+          <div>
+            <div style="font-size:12px;font-weight:700;color:var(--text-muted);text-transform:uppercase;margin-bottom:8px;">О сервисе</div>
+            <div class="field-list">
+              <div class="field-item"><span class="field-item__type">link</span><div class="field-item__info"><div class="field-item__name">Премиум / Поддержка</div></div></div>
+              <div class="field-item"><span class="field-item__type">link</span><div class="field-item__info"><div class="field-item__name">Описание функциональных характеристик</div></div></div>
+              <div class="field-item"><span class="field-item__type">link</span><div class="field-item__info"><div class="field-item__name">Отмена подписки (мобильные / карты)</div></div></div>
+            </div>
+          </div>
+          <div>
+            <div style="font-size:12px;font-weight:700;color:var(--text-muted);text-transform:uppercase;margin-bottom:8px;">Контакты</div>
+            <div class="field-list">
+              <div class="field-item"><span class="field-item__type">tel</span><div class="field-item__info"><div class="field-item__name">8-499-999-99-99</div></div></div>
+              <div class="field-item"><span class="field-item__type">mail</span><div class="field-item__info"><div class="field-item__name">support@infoproverka.me</div></div></div>
+              <div class="field-item"><span class="field-item__type">copy</span><div class="field-item__info"><div class="field-item__name">© 2025</div></div></div>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:14px;padding-top:12px;border-top:1px solid var(--border);font-size:12px;color:var(--text-muted);">
+          Нижние ссылки: <strong>Правила оказания услуг</strong> · <strong>Политика конфиденциальности</strong> · <strong>Согласие на обработку персональных данных</strong>
+        </div>
+      </div>
+    </section>
+
+    <!-- FORMS -->
+    <section class="section" id="forms">
+      <div class="section__header">
+        <h2 class="section__title">
+          <span class="icon" style="background:#fff0e0;">📝</span>
+          Формы
+        </h2>
+        <p class="section__desc">Все формы сайта: поля, типы, валидация, действие (action).</p>
+      </div>
+
+      <div class="alert alert--warn">Все формы сейчас имеют пустой <code>action=""</code>. Бекендеру необходимо задать конечные точки API для каждой формы.</div>
+
+      <div class="grid grid--2">
+
+        <div class="card">
+          <div class="card__head">
+            <div class="card__icon" style="background:#fff0e0;">🔑</div>
+            <div><div class="card__title">Форма входа</div><div class="card__file">auth.html</div></div>
+          </div>
+          <div class="field-list">
+            <div class="field-item">
+              <span class="field-item__type">tel</span>
+              <div class="field-item__info">
+                <div class="field-item__name">Номер телефона</div>
+                <div class="field-item__desc">name="surname" · type="tel" · required · placeholder="Номер телефона*"</div>
+              </div>
+            </div>
+            <div class="field-item">
+              <span class="field-item__type">password</span>
+              <div class="field-item__info">
+                <div class="field-item__name">Пароль</div>
+                <div class="field-item__desc">name="surname" · type="password" · required</div>
+              </div>
+            </div>
+            <div class="field-item">
+              <span class="field-item__type">checkbox</span>
+              <div class="field-item__info">
+                <div class="field-item__name">Запомнить меня</div>
+                <div class="field-item__desc">id="fiz-policy" · name="policy" · value="1"</div>
+              </div>
+            </div>
+          </div>
+          <div style="margin-top:12px;" class="card__tags">
+            <span class="tag tag--blue">POST /auth</span>
+            <span class="tag tag--gray">method="post"</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card__head">
+            <div class="card__icon" style="background:#e3f6eb;">✍️</div>
+            <div><div class="card__title">Форма регистрации</div><div class="card__file">registration.html</div></div>
+          </div>
+          <div class="field-list">
+            <div class="field-item">
+              <span class="field-item__type">tel</span>
+              <div class="field-item__info">
+                <div class="field-item__name">Номер телефона</div>
+                <div class="field-item__desc">name="surname" · type="tel" · required</div>
+              </div>
+            </div>
+            <div class="field-item">
+              <span class="field-item__type">checkbox</span>
+              <div class="field-item__info">
+                <div class="field-item__name">Согласие на обработку данных</div>
+                <div class="field-item__desc">id="fiz-policy" · required · ссылки на Политику и Правила</div>
+              </div>
+            </div>
+          </div>
+          <div style="margin-top:12px;" class="card__tags">
+            <span class="tag tag--blue">POST /register</span>
+            <span class="tag tag--gray">method="post"</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card__head">
+            <div class="card__icon" style="background:#f0e8ff;">📱</div>
+            <div><div class="card__title">Оплата с мобильного</div><div class="card__file">premium.html</div></div>
+          </div>
+          <p class="card__desc">МТС 50₽/сут, Мегафон 35₽/сут. Одна форма с выбором оператора.</p>
+          <div class="field-list">
+            <div class="field-item">
+              <span class="field-item__type">tel</span>
+              <div class="field-item__info">
+                <div class="field-item__name">Номер телефона</div>
+                <div class="field-item__desc">name="surname" · type="tel" · required</div>
+              </div>
+            </div>
+            <div class="field-item">
+              <span class="field-item__type">checkbox</span>
+              <div class="field-item__info">
+                <div class="field-item__name">Согласие (полный текст)</div>
+                <div class="field-item__desc">id="sim-policy" · required</div>
+              </div>
+            </div>
+          </div>
+          <div style="margin-top:12px;" class="card__tags">
+            <span class="tag tag--purple">POST /payment/mobile</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card__head">
+            <div class="card__icon" style="background:#e6f3fd;">💳</div>
+            <div><div class="card__title">Оплата картой</div><div class="card__file">premium.html</div></div>
+          </div>
+          <p class="card__desc">5₽ на 5 дней, затем 399₽/мес или 99₽/нед. Интеграция CloudPayments.</p>
+          <div class="field-list">
+            <div class="field-item">
+              <span class="field-item__type">tel</span>
+              <div class="field-item__info">
+                <div class="field-item__name">Номер телефона</div>
+                <div class="field-item__desc">name="surname" · type="tel" · required</div>
+              </div>
+            </div>
+            <div class="field-item">
+              <span class="field-item__type">checkbox</span>
+              <div class="field-item__info">
+                <div class="field-item__name">Согласие с тарифом и рекуррентными платежами</div>
+                <div class="field-item__desc">id="cards-policy" · required</div>
+              </div>
+            </div>
+          </div>
+          <div style="margin-top:12px;" class="card__tags">
+            <span class="tag tag--purple">POST /payment/card</span>
+            <span class="tag tag--blue">CloudPayments</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card__head">
+            <div class="card__icon" style="background:#fdeaea;">❌</div>
+            <div><div class="card__title">Отмена подписки</div><div class="card__file">subscription-off.html</div></div>
+          </div>
+          <div class="field-list">
+            <div class="field-item">
+              <span class="field-item__type">tel</span>
+              <div class="field-item__info">
+                <div class="field-item__name">Номер телефона</div>
+                <div class="field-item__desc">name="surname" · type="tel" · required</div>
+              </div>
+            </div>
+          </div>
+          <div style="margin-top:12px;" class="card__tags">
+            <span class="tag tag--red">POST /subscription/cancel</span>
+            <span class="tag tag--gray">method="post"</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card__head">
+            <div class="card__icon" style="background:#e3f6eb;">📦</div>
+            <div><div class="card__title">Добавить трекер посылки</div><div class="card__file">package.html (popup)</div></div>
+          </div>
+          <div class="field-list">
+            <div class="field-item">
+              <span class="field-item__type">text</span>
+              <div class="field-item__info">
+                <div class="field-item__name">Название посылки</div>
+                <div class="field-item__desc">name="patronymic" · required · placeholder="Название посылки*"</div>
+              </div>
+            </div>
+            <div class="field-item">
+              <span class="field-item__type">text</span>
+              <div class="field-item__info">
+                <div class="field-item__name">Номер отслеживания</div>
+                <div class="field-item__desc">name="patronymic" · required · placeholder="Номер отслеживаемой посылки*"</div>
+              </div>
+            </div>
+            <div class="field-item">
+              <span class="field-item__type">checkbox</span>
+              <div class="field-item__info">
+                <div class="field-item__name">Согласие на обработку данных</div>
+                <div class="field-item__desc">id="fiz-policy"</div>
+              </div>
+            </div>
+            <div class="field-item">
+              <span class="field-item__type">checkbox</span>
+              <div class="field-item__info">
+                <div class="field-item__name">Согласие получать чеки на почту</div>
+                <div class="field-item__desc">id="box-policy"</div>
+              </div>
+            </div>
+          </div>
+          <div style="margin-top:12px;" class="card__tags">
+            <span class="tag tag--blue">POST /tracker/add</span>
+            <span class="tag tag--gray">method="post"</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Support form separate -->
+      <div style="margin-top:16px;" class="card">
+        <div class="card__head">
+          <div class="card__icon" style="background:#e6f3fd;">💬</div>
+          <div><div class="card__title">Форма обращения в поддержку</div><div class="card__file">chunk/popup.html · #getSupport</div></div>
+        </div>
+        <div class="grid grid--2" style="margin-top:10px;gap:12px;">
+          <div class="field-list">
+            <div class="field-item">
+              <span class="field-item__type">text</span>
+              <div class="field-item__info"><div class="field-item__name">ФИО</div><div class="field-item__desc">name="patronymic" · required</div></div>
+            </div>
+            <div class="field-item">
+              <span class="field-item__type">tel</span>
+              <div class="field-item__info"><div class="field-item__name">Телефон</div><div class="field-item__desc">required</div></div>
+            </div>
+            <div class="field-item">
+              <span class="field-item__type">email</span>
+              <div class="field-item__info"><div class="field-item__name">Эл. почта</div><div class="field-item__desc">required</div></div>
+            </div>
+          </div>
+          <div class="field-list">
+            <div class="field-item">
+              <span class="field-item__type">text</span>
+              <div class="field-item__info"><div class="field-item__name">Тема письма</div><div class="field-item__desc">required</div></div>
+            </div>
+            <div class="field-item">
+              <span class="field-item__type">textarea</span>
+              <div class="field-item__info"><div class="field-item__name">Содержание обращения</div><div class="field-item__desc">required</div></div>
+            </div>
+            <div class="field-item">
+              <span class="field-item__type">checkbox</span>
+              <div class="field-item__info"><div class="field-item__name">Согласие на обработку данных</div></div>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:12px;" class="card__tags">
+          <span class="tag tag--blue">POST /support/send</span>
+          <span class="tag tag--gray">method="post"</span>
+          <span class="tag tag--green">→ popup #formSuccess</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- POPUPS -->
+    <section class="section" id="popups">
+      <div class="section__header">
+        <h2 class="section__title">
+          <span class="icon" style="background:#f0e8ff;">🪟</span>
+          Модальные окна (Попапы)
+        </h2>
+        <p class="section__desc">Все попапы из <code>chunk/popup.html</code>. Открываются через атрибут <code>data-popup="#id"</code> на любом элементе.</p>
+      </div>
+
+      <div class="grid grid--2">
+        <div class="popup-card">
+          <div class="popup-card__id">#getTarifs</div>
+          <div class="popup-card__title">Тарифный план</div>
+          <p class="popup-card__desc">Большой попап (max-width: 968px, класс <code>--big</code>). Подробное описание тарифа: 5₽ / 5 дней пробного периода, далее 399₽/месяц или 99₽/неделю. Инструкция по отмене подписки. Ссылка на форму поддержки.</p>
+          <div style="margin-top:10px;" class="card__tags"><span class="tag tag--purple">--big</span><span class="tag tag--gray">Информационный</span></div>
+        </div>
+        <div class="popup-card">
+          <div class="popup-card__id">#getSupport</div>
+          <div class="popup-card__title">Форма поддержки</div>
+          <p class="popup-card__desc">Стандартный попап (max-width: 640px). Содержит полную форму обращения: ФИО, телефон, email, тема, сообщение, два чекбокса. После отправки → открывает <code>#formSuccess</code>.</p>
+          <div style="margin-top:10px;" class="card__tags"><span class="tag tag--orange">Форма</span><span class="tag tag--blue">POST</span></div>
+        </div>
+        <div class="popup-card">
+          <div class="popup-card__id">#formSuccess</div>
+          <div class="popup-card__title">Успешная отправка</div>
+          <p class="popup-card__desc">Попап-уведомление. Иконка успеха, заголовок «Запрос отправлен», подпись «Спасибо, что обратились к нам за помощью…», кнопка возврата на главную.</p>
+          <div style="margin-top:10px;" class="card__tags"><span class="tag tag--green">Success</span><span class="tag tag--gray">Уведомление</span></div>
+        </div>
+        <div class="popup-card">
+          <div class="popup-card__id">#getPopupBoxTracker</div>
+          <div class="popup-card__title">Добавление трекера посылки</div>
+          <p class="popup-card__desc">Попап на странице <code>package.html</code>. Иконка посылки, заголовок «Вы успешно зарегистрировались!», форма с названием посылки, трек-номером, двумя чекбоксами. Кнопки: «Отмена» (data-close) и «Сохранить».</p>
+          <div style="margin-top:10px;" class="card__tags"><span class="tag tag--blue">Форма</span><span class="tag tag--gray">Личный кабинет</span></div>
+        </div>
+      </div>
+
+      <div style="margin-top:24px;" class="card">
+        <div class="card__title" style="margin-bottom:12px;">Управление попапами (JS API)</div>
+        <div class="code-block"><span class="cm">// Открыть попап через атрибут в HTML:</span>
+&lt;<span class="kw">button</span> <span class="at">data-popup</span>=<span class="str">"#getSupport"</span>&gt;Открыть&lt;/<span class="kw">button</span>&gt;
+
+<span class="cm">// Закрыть кнопкой внутри попапа:</span>
+&lt;<span class="kw">button</span> <span class="at">class</span>=<span class="str">"popup__close"</span>&gt;×&lt;/<span class="kw">button</span>&gt;
+&lt;<span class="kw">button</span> <span class="at">data-close</span>&gt;Отмена&lt;/<span class="kw">button</span>&gt;
+
+<span class="cm">// Закрытие также по: клику на оверлей, клавише Escape</span>
+<span class="cm">// При открытии: body получает класс --lock (блокировка скролла)</span></div>
+      </div>
+    </section>
+
+    <!-- COLORS -->
+    <section class="section" id="colors">
+      <div class="section__header">
+        <h2 class="section__title">
+          <span class="icon" style="background:#fff0e0;">🎨</span>
+          Цветовая палитра
+        </h2>
+        <p class="section__desc">CSS-переменные из <code>src/scss/common/global.scss</code> и <code>ui-kit/colors.scss</code>.</p>
+      </div>
+      <div class="swatches">
+        <div class="swatch">
+          <div class="swatch__dot" style="background:#2f94ef;"></div>
+          <div><div class="swatch__name">Акцент</div><div class="swatch__hex">--accent: #2f94ef</div></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch__dot" style="background:#0f1b33;"></div>
+          <div><div class="swatch__name">Основной текст</div><div class="swatch__hex">--text: #0f1b33</div></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch__dot" style="background:#ffffff;border:1px solid #ddd;"></div>
+          <div><div class="swatch__name">Фон</div><div class="swatch__hex">--bg: #ffffff</div></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch__dot" style="background:#28af4c;"></div>
+          <div><div class="swatch__name">Успех / Активно</div><div class="swatch__hex">#28af4c</div></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch__dot" style="background:#af2828;"></div>
+          <div><div class="swatch__name">Ошибка / Выход</div><div class="swatch__hex">#af2828</div></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch__dot" style="background:#1e7afd;"></div>
+          <div><div class="swatch__name">Ссылка активная</div><div class="swatch__hex">#1e7afd</div></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch__dot" style="background:#f2f7fa;"></div>
+          <div><div class="swatch__name">Скролл / Трек</div><div class="swatch__hex">--scroll-track: #f2f7fa</div></div>
+        </div>
+      </div>
+
+      <div style="margin-top:24px;">
+        <div class="card">
+          <div class="card__title" style="margin-bottom:12px;">Семантика цветов</div>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Контекст</th><th>Цвет</th><th>Применение</th></tr></thead>
+              <tbody>
+                <tr><td>Кнопки (Primary)</td><td><code>#2f94ef → #91c6f6</code></td><td>Градиент сверху вниз, белый текст</td></tr>
+                <tr><td>Кнопки (Outline)</td><td><code>#0f1b33</code></td><td>Белый фон, тёмная рамка и текст</td></tr>
+                <tr><td>Hover кнопки</td><td><code>#2780d0</code></td><td>Darker blue</td></tr>
+                <tr><td>Поля ввода</td><td><code>rgba(15,27,51,0.08)</code></td><td>Бордер; фон rgba(15,27,51,0.04)</td></tr>
+                <tr><td>Поле в фокусе</td><td><code>#0f1b33</code></td><td>Белый фон, тёмный бордер</td></tr>
+                <tr><td>Чекбокс (checked)</td><td><code>#28af4c</code></td><td>Зелёный, border-radius 6px</td></tr>
+                <tr><td>Плейсхолдер</td><td><code>rgba(15,27,51,0.5)</code></td><td>Полупрозрачный тёмный</td></tr>
+                <tr><td>Оверлей попапа</td><td><code>rgba(0,0,0,0.4)</code></td><td>Полупрозрачный чёрный</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BUTTONS -->
+    <section class="section" id="buttons">
+      <div class="section__header">
+        <h2 class="section__title">
+          <span class="icon" style="background:#e3f6eb;">🔘</span>
+          Кнопки
+        </h2>
+        <p class="section__desc">Все варианты из <code>src/scss/common/controls.scss</code>.</p>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Класс</th><th>Внешний вид</th><th>Применение</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><code>.btn</code></td>
+              <td>Синий градиент, белый текст</td>
+              <td>Основное действие: «Войти», «Зарегистрироваться», «Отправить»</td>
+            </tr>
+            <tr>
+              <td><code>.btn-outline</code></td>
+              <td>Белый фон, тёмная рамка</td>
+              <td>Второстепенное действие: «Регистрация» в хедере</td>
+            </tr>
+            <tr>
+              <td><code>.btn-white</code></td>
+              <td>Белый фон, синий текст</td>
+              <td>На тёмном фоне</td>
+            </tr>
+            <tr>
+              <td><code>.btn-gray</code></td>
+              <td>Серый фон</td>
+              <td>Нейтральное действие: «Отмена» в попапе</td>
+            </tr>
+            <tr>
+              <td><code>.w-100</code></td>
+              <td>width: 100%</td>
+              <td>Кнопка на всю ширину формы</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- COMPONENTS -->
+    <section class="section" id="components">
+      <div class="section__header">
+        <h2 class="section__title">
+          <span class="icon" style="background:#e6f3fd;">🧩</span>
+          Компоненты UI
+        </h2>
+        <p class="section__desc">Переиспользуемые блоки вёрстки.</p>
+      </div>
+      <div class="grid grid--2">
+        <div class="card">
+          <div class="card__head"><div class="card__icon" style="background:#e6f3fd;">🔁</div><div><div class="card__title">Аккордеон</div><div class="card__file">common/accordion.scss</div></div></div>
+          <p class="card__desc">Раскрывающиеся блоки. Используется в секции «Важно знать» на главной странице (риски ФССП и ГИБДД).</p>
+        </div>
+        <div class="card">
+          <div class="card__head"><div class="card__icon" style="background:#e3f6eb;">🔀</div><div><div class="card__title">Переключатель (Switch)</div><div class="card__file">common/form.scss</div></div></div>
+          <p class="card__desc">Toggle-свитч для включения/отключения мониторинга на дашборде и в настройках уведомлений.</p>
+        </div>
+        <div class="card">
+          <div class="card__head"><div class="card__icon" style="background:#fff0e0;">📅</div><div><div class="card__title">Datepicker</div><div class="card__file">common/form.scss</div></div></div>
+          <p class="card__desc">Поле выбора даты в формах кабинета и фильтрах.</p>
+        </div>
+        <div class="card">
+          <div class="card__head"><div class="card__icon" style="background:#f0e8ff;">📋</div><div><div class="card__title">Контент-блок</div><div class="card__file">common/content.scss</div></div></div>
+          <p class="card__desc">Универсальный блок для вывода информации: заголовок, параграф, таблица данных.</p>
+        </div>
+      </div>
+
+      <div style="margin-top:20px;">
+        <h3 style="font-size:14px;font-weight:700;margin-bottom:12px;">Блоки главной страницы</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Блок</th><th>SCSS файл</th><th>Описание</th></tr></thead>
+            <tbody>
+              <tr><td>Hero</td><td><code>blocks/hero.scss</code></td><td>Главный экран с заголовком, описанием и двумя CTA-кнопками</td></tr>
+              <tr><td>Мониторинг</td><td><code>blocks/monitoring.scss</code></td><td>3 карточки с иконками (ФССП, ГИБДД, ФНС)</td></tr>
+              <tr><td>Преимущества</td><td><code>blocks/features.scss</code></td><td>4 карточки с изображениями и текстом</td></tr>
+              <tr><td>Процесс</td><td><code>blocks/procces.scss</code></td><td>6 шагов: регистрация → отчёт → оплата → уведомления</td></tr>
+              <tr><td>Рекомендации</td><td><code>blocks/recomend.scss</code></td><td>Секция с CTA и изображением</td></tr>
+              <tr><td>Важно знать</td><td><code>blocks/know.scss</code></td><td>Аккордеон с информацией о рисках ФССП/ГИБДД</td></tr>
+              <tr><td>Result / CTA</td><td><code>blocks/result.scss</code></td><td>Финальная секция призыва к действию</td></tr>
+              <tr><td>404</td><td><code>blocks/404.scss</code></td><td>Страница ошибки с иллюстрацией</td></tr>
+              <tr><td>Premium</td><td><code>blocks/premium.scss</code></td><td>Страница подписки с вариантами оплаты</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- JAVASCRIPT -->
+    <section class="section" id="js">
+      <div class="section__header">
+        <h2 class="section__title">
+          <span class="icon" style="background:#fff8e0;">⚡</span>
+          JavaScript
+        </h2>
+        <p class="section__desc">Функционал из <code>src/assets/js/main.js</code>.</p>
+      </div>
+
+      <div class="grid grid--2" style="margin-bottom:20px;">
+        <div class="card">
+          <div class="card__head"><div class="card__icon" style="background:#fff8e0;">🪟</div><div><div class="card__title">Класс Popup</div></div></div>
+          <p class="card__desc">Управление всеми модальными окнами. Открытие через <code>data-popup</code>, закрытие через <code>.popup__close</code>, <code>data-close</code>, Escape или клик на оверлей.</p>
+          <div class="code-block" style="margin-top:10px;font-size:12px;"><span class="fn">class</span> <span class="kw">Popup</span> {
+  <span class="fn">_init</span>()       <span class="cm">// слушатели событий</span>
+  <span class="fn">_lock</span>()      <span class="cm">// блок прокрутки body</span>
+  <span class="fn">_unlock</span>()    <span class="cm">// разблок прокрутки</span>
+  <span class="fn">open</span>(id)     <span class="cm">// открыть по ID</span>
+  <span class="fn">closeAll</span>()   <span class="cm">// закрыть все</span>
+  <span class="fn">showSuccess</span>() <span class="cm">// показать #formSuccess</span>
+}</div>
+        </div>
+        <div class="card">
+          <div class="card__head"><div class="card__icon" style="background:#e6f3fd;">☰</div><div><div class="card__title">Мобильное меню</div></div></div>
+          <p class="card__desc">Бургер-кнопка открывает боковое меню. Закрытие: кнопка «×», клик на оверлей, Escape. Блокирует прокрутку страницы.</p>
+          <div class="code-block" style="margin-top:10px;font-size:12px;"><span class="cm">// Классы при открытии:</span>
+menu.<span class="fn">classList</span>.add(<span class="str">'is-open'</span>)
+overlay.<span class="fn">classList</span>.add(<span class="str">'is-visible'</span>)
+body.style.<span class="at">overflow</span> = <span class="str">'hidden'</span></div>
+        </div>
+      </div>
+
+      <div class="alert alert--info">Все формы при сабмите должны вызывать <code>popup.showSuccess()</code> для показа попапа успеха <code>#formSuccess</code>, либо обрабатываться бекендом с редиректом.</div>
+    </section>
+
+    <!-- USER FLOW -->
+    <section class="section" id="flow">
+      <div class="section__header">
+        <h2 class="section__title">
+          <span class="icon" style="background:#e3f6eb;">🔄</span>
+          Пользовательские сценарии
+        </h2>
+      </div>
+      <div class="grid grid--2">
+        <div class="card">
+          <div class="card__title" style="margin-bottom:14px;">Регистрация и вход</div>
+          <div class="steps">
+            <div class="step"><div class="step__num">1</div><div><div class="step__title">index.html</div><div class="step__desc">Пользователь попадает на главную → кликает «Зарегистрироваться»</div></div></div>
+            <div class="step"><div class="step__num">2</div><div><div class="step__title">registration.html</div><div class="step__desc">Вводит телефон, принимает условия → отправляет форму</div></div></div>
+            <div class="step"><div class="step__num">3</div><div><div class="step__title">auth.html</div><div class="step__desc">Вводит телефон + пароль → входит в систему</div></div></div>
+            <div class="step"><div class="step__num">4</div><div><div class="step__title">dashboard.html</div><div class="step__desc">Попадает в личный кабинет</div></div></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card__title" style="margin-bottom:14px;">Оформление подписки</div>
+          <div class="steps">
+            <div class="step"><div class="step__num">1</div><div><div class="step__title">premium.html</div><div class="step__desc">Выбирает способ оплаты: мобильный или карта</div></div></div>
+            <div class="step"><div class="step__num">2</div><div><div class="step__title">Форма оплаты</div><div class="step__desc">Вводит номер телефона, принимает условия тарифа</div></div></div>
+            <div class="step"><div class="step__num">3</div><div><div class="step__title">CloudPayments / МТС / Мегафон</div><div class="step__desc">Проходит процедуру оплаты на стороне провайдера</div></div></div>
+            <div class="step"><div class="step__num">4</div><div><div class="step__title">dashboard.html</div><div class="step__desc">Получает доступ к полному функционалу</div></div></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card__title" style="margin-bottom:14px;">Трекинг посылки</div>
+          <div class="steps">
+            <div class="step"><div class="step__num">1</div><div><div class="step__title">package.html</div><div class="step__desc">Нажимает «Добавить трекер»</div></div></div>
+            <div class="step"><div class="step__num">2</div><div><div class="step__title">Попап #getPopupBoxTracker</div><div class="step__desc">Вводит название посылки и трек-номер</div></div></div>
+            <div class="step"><div class="step__num">3</div><div><div class="step__title">package.html</div><div class="step__desc">Посылка появляется в списке, отображается статус и история перемещений</div></div></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card__title" style="margin-bottom:14px;">Отмена подписки</div>
+          <div class="steps">
+            <div class="step"><div class="step__num">1</div><div><div class="step__title">subscription-off.html</div><div class="step__desc">Переходит по ссылке из футера или настроек</div></div></div>
+            <div class="step"><div class="step__num">2</div><div><div class="step__title">Форма отмены</div><div class="step__desc">Вводит номер телефона → нажимает «Отмена подписки»</div></div></div>
+            <div class="step"><div class="step__num">3</div><div><div class="step__title">Подтверждение</div><div class="step__desc">Для карт: инструкция в попапе. Для мобильных: SMS-команда оператору</div></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAYMENT -->
+    <section class="section" id="payment">
+      <div class="section__header">
+        <h2 class="section__title">
+          <span class="icon" style="background:#f0e8ff;">💳</span>
+          Система оплаты
+        </h2>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Способ</th><th>Оператор</th><th>Стоимость</th><th>Интеграция</th></tr></thead>
+          <tbody>
+            <tr>
+              <td>Мобильный счёт</td>
+              <td>МТС</td>
+              <td>50₽/сутки</td>
+              <td>SMS-подтверждение, телефонный номер</td>
+            </tr>
+            <tr>
+              <td>Мобильный счёт</td>
+              <td>Мегафон</td>
+              <td>35₽/сутки</td>
+              <td>SMS-подтверждение, телефонный номер</td>
+            </tr>
+            <tr>
+              <td>Банковская карта</td>
+              <td>CloudPayments</td>
+              <td>5₽ / 5 дней → 399₽/мес или 99₽/нед</td>
+              <td>Рекуррентные платежи Visa / MasterCard / Мир</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert--warn" style="margin-top:16px;">Рекуррентные платежи по карте подключаются автоматически. Пользователь видит полный текст условий в попапе <code>#getTarifs</code> перед оплатой.</div>
+    </section>
+
+    <!-- BACKEND NOTES -->
+    <section class="section" id="backend">
+      <div class="section__header">
+        <h2 class="section__title">
+          <span class="icon" style="background:#fdeaea;">🛠</span>
+          Заметки для бекенд-разработчика
+        </h2>
+      </div>
+      <div class="grid grid--2">
+        <div class="card">
+          <div class="card__title" style="margin-bottom:10px;">Требуемые API-эндпоинты</div>
+          <div class="field-list">
+            <div class="field-item"><span class="field-item__type" style="background:#28af4c;">POST</span><div class="field-item__info"><div class="field-item__name">/auth</div><div class="field-item__desc">phone, password → JWT/сессия</div></div></div>
+            <div class="field-item"><span class="field-item__type" style="background:#28af4c;">POST</span><div class="field-item__info"><div class="field-item__name">/register</div><div class="field-item__desc">phone, policy → создание пользователя</div></div></div>
+            <div class="field-item"><span class="field-item__type" style="background:#28af4c;">POST</span><div class="field-item__info"><div class="field-item__name">/support/send</div><div class="field-item__desc">fio, phone, email, subject, message</div></div></div>
+            <div class="field-item"><span class="field-item__type" style="background:#28af4c;">POST</span><div class="field-item__info"><div class="field-item__name">/payment/mobile</div><div class="field-item__desc">phone, operator → initiate mobile payment</div></div></div>
+            <div class="field-item"><span class="field-item__type" style="background:#28af4c;">POST</span><div class="field-item__info"><div class="field-item__name">/payment/card</div><div class="field-item__desc">phone → CloudPayments widget init</div></div></div>
+            <div class="field-item"><span class="field-item__type" style="background:var(--red);">POST</span><div class="field-item__info"><div class="field-item__name">/subscription/cancel</div><div class="field-item__desc">phone → отмена подписки</div></div></div>
+            <div class="field-item"><span class="field-item__type" style="background:#28af4c;">POST</span><div class="field-item__info"><div class="field-item__name">/tracker/add</div><div class="field-item__desc">name, tracking_number → добавить посылку</div></div></div>
+            <div class="field-item"><span class="field-item__type" style="background:var(--accent);">POST</span><div class="field-item__info"><div class="field-item__name">/monitoring/toggle</div><div class="field-item__desc">enabled: boolean → вкл/выкл мониторинг</div></div></div>
+            <div class="field-item"><span class="field-item__type" style="background:var(--accent);">POST</span><div class="field-item__info"><div class="field-item__name">/monitoring/refresh</div><div class="field-item__desc">→ принудительное обновление данных</div></div></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card__title" style="margin-bottom:10px;">Внешние API (государственные базы)</div>
+          <div class="field-list">
+            <div class="field-item"><span class="field-item__type" style="background:#0f1b33;">ФССП</span><div class="field-item__info"><div class="field-item__name">Федеральная служба судебных приставов</div><div class="field-item__desc">Долги и исполнительные производства</div></div></div>
+            <div class="field-item"><span class="field-item__type" style="background:#0f1b33;">ГИБДД</span><div class="field-item__info"><div class="field-item__name">Штрафы ГИБДД</div><div class="field-item__desc">Нарушения ПДД и штрафы</div></div></div>
+            <div class="field-item"><span class="field-item__type" style="background:#0f1b33;">ФНС</span><div class="field-item__info"><div class="field-item__name">Федеральная налоговая служба</div><div class="field-item__desc">Налоговые задолженности</div></div></div>
+            <div class="field-item"><span class="field-item__type" style="background:#0f1b33;">Почта</span><div class="field-item__info"><div class="field-item__name">Почта России / EMS</div><div class="field-item__desc">Трекинг посылок, индексы</div></div></div>
+            <div class="field-item"><span class="field-item__type" style="background:#0f1b33;">Транспорт</span><div class="field-item__info"><div class="field-item__name">Расписания</div><div class="field-item__desc">Авиа, ЖД, автобусы</div></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:20px;" class="card">
+        <div class="card__title" style="margin-bottom:10px;">Важные замечания по вёрстке</div>
+        <div class="steps">
+          <div class="step">
+            <div class="step__num" style="background:var(--red);">!</div>
+            <div><div class="step__title">Атрибут name у полей</div><div class="step__desc">Некоторые поля форм используют name="surname" и name="patronymic" вместо семантических имён. При интеграции с бекендом необходимо исправить name на корректные: phone, password, fio, email, subject, message, tracking_number и т.д.</div></div>
+          </div>
+          <div class="step">
+            <div class="step__num" style="background:var(--red);">!</div>
+            <div><div class="step__title">Action форм пустой</div><div class="step__desc">Все формы имеют <code>action=""</code>. Необходимо задать URL API-эндпоинтов при интеграции.</div></div>
+          </div>
+          <div class="step">
+            <div class="step__num" style="background:var(--accent);">i</div>
+            <div><div class="step__title">Попап после успешной отправки</div><div class="step__desc">Форма поддержки при успехе должна открывать попап <code>#formSuccess</code> через JS: <code>popup.showSuccess()</code>.</div></div>
+          </div>
+          <div class="step">
+            <div class="step__num" style="background:var(--accent);">i</div>
+            <div><div class="step__title">Авторизация и редирект</div><div class="step__desc">После успешного входа (<code>auth.html</code>) — редирект на <code>dashboard.html</code>. После регистрации — редирект на <code>auth.html</code> или <code>premium.html</code>.</div></div>
+          </div>
+          <div class="step">
+            <div class="step__num" style="background:var(--accent);">i</div>
+            <div><div class="step__title">Мониторинг виджет</div><div class="step__desc">Toggle-свитч на дашборде должен отправлять AJAX-запрос для сохранения состояния. Поле «Последнее обновление» должно заполняться с бекенда.</div></div>
+          </div>
+          <div class="step">
+            <div class="step__num" style="background:var(--green);">✓</div>
+            <div><div class="step__title">Адаптивность</div><div class="step__desc">Вёрстка полностью адаптивна. Брейкпоинты в <code>ui-kit/media.scss</code>. Мобильное меню работает через JS.</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <strong>infoProverka</strong> — Frontend Documentation &nbsp;·&nbsp; Сгенерировано апрель 2025 &nbsp;·&nbsp; Все права защищены
+</footer>
+
+<script>
+  // Active TOC link on scroll
+  (function() {
+    var sections = document.querySelectorAll('section[id]');
+    var links = document.querySelectorAll('.toc__list a');
+    if (!links.length) return;
+
+    function onScroll() {
+      var scrollY = window.scrollY + 80;
+      var current = '';
+      sections.forEach(function(s) {
+        if (s.offsetTop <= scrollY) current = s.id;
+      });
+      links.forEach(function(a) {
+        a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+      });
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  })();
+</script>
+</body>
+</html>
