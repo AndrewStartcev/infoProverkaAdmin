@@ -1,12 +1,223 @@
 <!doctype html>
 <html lang="Ru-ru">
-  @@include("chunk/head.html", {"title": "Аргоков Интернет-решения",})
+  @@include("chunk/head.html", {"title": "Платформа для сбора и анализа данных",})
 
   <body>
     <div class="page">
       @@include("chunk/header.html")
 
-      <main class="main"></main>
+      <main class="main">
+        <section class="hero">
+          <div class="hero__container">
+            <div class="hero__content">
+              <div class="hero__label">
+                <img src="assets/img/refresh.svg" alt="" />
+                Автоматизированная
+              </div>
+              <h1>Платформа для сбора и анализа данных</h1>
+              <p>
+                Автоматизированный процесс проверки наличия новых исполнительных производств в базе
+                Федеральной службы судебных приставов (ФССП), штрафов ГИБДД, а также задолженностей
+                по налогам в базе Федеральной налоговой службы (ФНС). Включает в себя отслеживание
+                статуса почтовых отправлений и мониторинг изменений в расписаниях движения
+                транспорта.
+              </p>
+              <div class="hero__btns">
+                <a href="#" class="btn">Зарегистрироваться</a>
+                <a href="#" class="btn-outline">Как работает сервис</a>
+              </div>
+            </div>
+            <div class="hero__image">
+              <img src="assets/img/kanban.svg" alt="" />
+            </div>
+            <div class="hero__cursors">
+              <img src="assets/img/cursor-1.svg" alt="" />
+              <img src="assets/img/cursor-2.svg" alt="" />
+              <img src="assets/img/cursor-3.svg" alt="" />
+              <img src="assets/img/cursor-4.svg" alt="" />
+            </div>
+          </div>
+        </section>
+        <section class="monitoring">
+          <div class="monitoring__container">
+            <div class="monitoring__header">
+              <div class="monitoring__label">
+                <img src="assets/img/refresh.svg" alt="" />
+                Возможности
+              </div>
+              <h2>Полный финансовый и правовой мониторинг</h2>
+              <p>
+                Контролируйте все ваши обязательства перед государством в одном сервисе. Работает
+                автоматически
+              </p>
+            </div>
+            <div class="monitoring__wrapper">
+              <div class="monitoring__item">
+                <div class="monitoring__content">
+                  <img src="assets/img/monitoring_icon-1.svg" alt="" />
+                  <h3>Контроль исполнительных производств через базу ФССП</h3>
+                </div>
+                <p>
+                  Наш сервис выявляет все открытые дела, возбуждённые судебными приставами
+                  в отношении граждан и компаний
+                </p>
+              </div>
+              <div class="monitoring__item">
+                <div class="monitoring__content">
+                  <img src="assets/img/monitoring_icon-2.svg" alt="" />
+                  <h3>Проверка санкций и ограничений в базе ГИБДД</h3>
+                </div>
+                <p>
+                  Мы оперативно находим все действующие штрафы за нарушения ПДД, а также информацию
+                  о наложенных ограничениях
+                </p>
+              </div>
+              <div class="monitoring__item">
+                <div class="monitoring__content">
+                  <img src="assets/img/monitoring_icon-3.svg" alt="" />
+                  <h3>Мониторинг задолженностей в ФНС</h3>
+                </div>
+                <p>
+                  Система отслеживает и сообщает о любых невыплаченных налоговых сборах
+                  и обязательствах как для физ. и юр. лиц
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="features">
+          <div class="features__container">
+            <div class="features__label">
+              <img src="assets/img/refresh.svg" alt="" />
+              Почему мы
+            </div>
+            <div class="features__header">
+              <h2>Главные преимущества нашего сервиса</h2>
+              <p>
+                Мы создали наш сервис для вашего максимального удобства и экономии времени.
+                Вот ключевые причины, почему пользователи выбирают именно нас для контроля своих
+                обязательств.
+              </p>
+            </div>
+            <div class="features__wrapper">
+              <div class="features__card">
+                <div class="features__cover">
+                  <img src="assets/img/features-1.jpg" alt="" />
+                </div>
+                <div class="features__content">
+                  <h3>Централизованная проверка данных</h3>
+                  <p>
+                    Вся информация о ваших обязательствах собирается из официальных источников:
+                    баз ФССП, ГИБДД и ФНС России
+                  </p>
+                </div>
+              </div>
+              <div class="features__card">
+                <div class="features__cover">
+                  <img src="assets/img/features-2.jpg" alt="" />
+                </div>
+                <div class="features__content">
+                  <h3>Своевременные оповещения</h3>
+                  <p>
+                    Вы моментально получаете уведомление, как только в системе обнаруживается новая
+                    задолженность или неоплаченный штраф
+                  </p>
+                </div>
+              </div>
+              <div class="features__card">
+                <div class="features__cover">
+                  <img src="assets/img/features-3.jpg" alt="" />
+                </div>
+                <div class="features__content">
+                  <h3>Непрерывный автоматизированный контроль</h3>
+                  <p>
+                    Наша система регулярно отслеживает все добавленные вами объекты на предмет
+                    появления новых долгов и штрафов
+                  </p>
+                </div>
+              </div>
+              <div class="features__card">
+                <div class="features__cover">
+                  <img src="assets/img/features-4.jpg" alt="" />
+                </div>
+                <div class="features__content">
+                  <h3>Удобное онлайн-погашение</h3>
+                  <p>
+                    Оплачивайте любые обнаруженные задолженности прямо в личном кабинете с помощью
+                    банковской карты без комиссии
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="procces">
+          <div class="procces__container">
+            <div class="procces__header">
+              <div class="procces__label">
+                <img src="assets/img/refresh.svg" alt="" />
+                Почему мы
+              </div>
+              <h2>Процесс работы сервиса</h2>
+              <p>
+                Взаимодействие с платформой построено просто и интуитивно понятно. Весь путь
+                от регистрации до полного контроля над вашими платежами займёт всего несколько
+                минут.
+              </p>
+            </div>
+            <div class="procces__wrapper">
+              <div class="procces__card">
+                <h3>
+                  Быстрая <br />
+                  регистрация
+                </h3>
+                <p>
+                  Создайте свой аккаунт на платформе за пару минут, указав номер мобильного
+                  телефона.
+                </p>
+                <div class="procces__numbers">01</div>
+              </div>
+              <div class="procces__card">
+                <h3>Введите данные для проверки</h3>
+                <p>Добавьте в личном кабинете информацию, необходимую для мониторинга</p>
+                <div class="procces__numbers">02</div>
+              </div>
+              <div class="procces__card">
+                <h3>Полный отчёт по задолженностям</h3>
+                <p>После завершения сканирования баз вы получите детализированную информацию</p>
+                <div class="procces__numbers">03</div>
+              </div>
+              <div class="procces__card">
+                <h3>
+                  Удобное погашение <br />
+                  онлайн
+                </h3>
+                <p>
+                  Оперативно закрывайте найденные задолженности непосредственно в сервисе с помощью
+                  банковской карты
+                </p>
+                <div class="procces__numbers">04</div>
+              </div>
+              <div class="procces__card">
+                <h3>Персонализируйте оповещения</h3>
+                <p>
+                  Укажите ваш email и настройте, как часто вы хотите получать отчёты: ежедневно
+                  и еженедельно
+                </p>
+                <div class="procces__numbers">05</div>
+              </div>
+              <div class="procces__card">
+                <h3>Контроль над новыми начислениями</h3>
+                <p>
+                  Как только у вас появится новый долг, вы сразу же получите автоматическое
+                  оповещение на электронную почту
+                </p>
+                <div class="procces__numbers">06</div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
 
       @@include("chunk/footer.html")
       <!--  -->

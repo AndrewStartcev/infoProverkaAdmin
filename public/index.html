@@ -4,22 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-
-  <title>Аргоков Интернет-решения</title>
-
-  <meta name="format-detection" content="telephone=no" />
-  <meta name="theme-color" content="#3289D9" />
-  <meta name="color-scheme" content="light" />
-
-  <!-- dev -->
-  <meta name="robots" content="noindex, nofollow" />
-
-  <link rel="preload" href="/assets/font/inter-Regular.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="/assets/font/rubik-Medium.woff2" as="font" type="font/woff2" crossorigin />
-
-  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml" />
-  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png" />
-
+  <title>Платформа для сбора и анализа данных</title>
   <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 
@@ -27,178 +12,302 @@
 <body>
   <div class="page">
     <header class="header">
-      <div class="header-top">
-        <div class="header-top__container">
-          <div class="header-top__label">Работаем удалённо · по всей России</div>
-          <div class="header-top__links">
-            <a href="tel:+79647482913" class="header-top__link">+7 (964) 748-29-13</a>
-            <nav class="header-top__social" aria-label="Социальные сети">
-              <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
-                <img src="assets/img/wp/telegram.svg" alt="" />
-              </a>
-              <a href="#" target="_blank" rel="noopener noreferrer" aria-label="ВКонтакте">
-                <img src="assets/img/wp/vk.svg" alt="" />
-              </a>
-              <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Email">
-                <img src="assets/img/wp/mail.svg" alt="" />
-              </a>
-            </nav>
-          </div>
+      <div class="header__container">
+        <div class="header__logo">
+          <img src="assets/img/dashboard/logo.svg" alt="" />
         </div>
-      </div>
-      <div class="header-main">
-        <div class="header-main__container">
-          <a href="/" class="header-main__logo" aria-label="Аргоков — на главную">
-            <img src="assets/img/wp/logo.svg" alt="Аргоков" />
-            <span class="--column">
-              <span class="--name">Аргоков</span>
-              <span class="--description">Интернет-решения</span>
-            </span>
+        <div class="header__menu">
+          <a href="#">Долги ФССП</a>
+          <a href="#">Штрафы ГИБДД</a>
+          <a href="#">Долги ФНС</a>
+          <a href="#">Посылки</a>
+          <a href="#">Расписания</a>
+          <a href="#">Финансы</a>
+        </div>
+        <div class="header__action">
+          <a href="#" class="btn-outline">Регистрация</a>
+          <a href="#" class="btn">
+            Войти
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M5.93335 5.04C6.14002 2.64 7.37335 1.66 10.0733 1.66H10.16C13.14 1.66 14.3334 2.85333 14.3334 5.83333V10.18C14.3334 13.16 13.14 14.3533 10.16 14.3533H10.0733C7.39335 14.3533 6.16002 13.3867 5.94002 11.0267" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M1.33337 8H9.92004" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M8.43335 5.76667L10.6667 8L8.43335 10.2333" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
           </a>
-          <nav class="header-main__menu" aria-label="Главное меню">
-            <ul>
-              <li><a href="#">Услуги</a></li>
-              <li><a href="#">О нас</a></li>
-              <li><a href="#">Портфолио</a></li>
-              <li><a href="#">Отзывы</a></li>
-              <li><a href="#">Блог</a></li>
-              <li><a href="#">Контакты</a></li>
-            </ul>
-          </nav>
-          <div class="header-main__right">
-            <button class="btn" data-popup="#getCallPopup">Обсудить задачу</button>
-            <button class="header-main__burger"><span></span><span></span><span></span></button>
-          </div>
         </div>
+        <button class="header__burger">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 9.33333H28" stroke="#0F1B33" stroke-width="1.5" stroke-linecap="round" />
+            <path d="M4 16H28" stroke="#0F1B33" stroke-width="1.5" stroke-linecap="round" />
+            <path d="M4 22.6667H28" stroke="#0F1B33" stroke-width="1.5" stroke-linecap="round" />
+          </svg>
+        </button>
       </div>
     </header>
 
 
-    <main class="main"></main>
-
-    <footer class="footer">
-      <div class="footer-main">
-        <div class="footer-main__container">
-          <div class="footer-main__colum --main">
-            <a href="/" class="footer-main__logo" aria-label="Аргоков — на главную">
-              <img src="assets/img/wp/logo.svg" alt="Аргоков" />
-              <span class="--column">
-                <span class="--name">Аргоков</span>
-                <span class="--description">Интернет-решения</span>
-              </span>
-            </a>
-
+    <main class="main">
+      <section class="hero">
+        <div class="hero__container">
+          <div class="hero__content">
+            <div class="hero__label">
+              <img src="assets/img/refresh.svg" alt="" />
+              Автоматизированная
+            </div>
+            <h1>Платформа для сбора и анализа данных</h1>
             <p>
-              Разработка и техническая поддержка сайтов. <br />
-              Работаем удалённо по всей России.
+              Автоматизированный процесс проверки наличия новых исполнительных производств в базе
+              Федеральной службы судебных приставов (ФССП), штрафов ГИБДД, а также задолженностей
+              по налогам в базе Федеральной налоговой службы (ФНС). Включает в себя отслеживание
+              статуса почтовых отправлений и мониторинг изменений в расписаниях движения
+              транспорта.
             </p>
+            <div class="hero__btns">
+              <a href="#" class="btn">Зарегистрироваться</a>
+              <a href="#" class="btn-outline">Как работает сервис</a>
+            </div>
           </div>
-          <div class="footer-main__colum --menu">
-            <nav class="footer-main__menu">
-              <div class="footer-main__name">Меню</div>
-              <ul>
-                <li><a href="#">Услуги</a></li>
-                <li><a href="#">О нас</a></li>
-                <li><a href="#">Портфолио</a></li>
-                <li><a href="#">Отзывы</a></li>
-                <li><a href="#">Блог</a></li>
-                <li><a href="#">Контакты</a></li>
-              </ul>
-            </nav>
-            <nav class="footer-main__menu">
-              <div class="footer-main__name">Документы</div>
-              <ul>
-                <li><a href="#">Реквизиты</a></li>
-                <li><a href="#">Политика конфиденциальности</a></li>
-                <li><a href="#">Согласие на обработку персональных данных</a></li>
-                <li><a href="#">Подтверждение права на обработку заявок</a></li>
-              </ul>
-            </nav>
+          <div class="hero__image">
+            <img src="assets/img/kanban.svg" alt="" />
           </div>
-          <div class="footer-main__colum --contacts">
-            <div class="footer-main__name">ИП Старцев Андрей Геннадьевич</div>
-            <p>ИНН/КПП: 12345678 / 1234567</p>
-            <a href="#">info@starcev-agency.ru</a>
-            <a href="#">+7 (964) 748-29-13</a>
-
-            <button class="btn btn--outline" data-popup="#getCallPopup">Связаться с нами</button>
+          <div class="hero__cursors">
+            <img src="assets/img/cursor-1.svg" alt="" />
+            <img src="assets/img/cursor-2.svg" alt="" />
+            <img src="assets/img/cursor-3.svg" alt="" />
+            <img src="assets/img/cursor-4.svg" alt="" />
           </div>
         </div>
-      </div>
-      <div class="footer-bottom">
-        <div class="footer-bottom__container">
-          <div class="footer-bottom__copy">© 2026 Аргоков. Все права защищены.</div>
-          <nav class="footer-bottom__social" aria-label="Социальные сети">
-            <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
-              <img src="assets/img/wp/telegram.svg" alt="" />
-            </a>
-            <a href="#" target="_blank" rel="noopener noreferrer" aria-label="ВКонтакте">
-              <img src="assets/img/wp/vk.svg" alt="" />
-            </a>
-            <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Email">
-              <img src="assets/img/wp/mail.svg" alt="" />
-            </a>
-          </nav>
+      </section>
+      <section class="monitoring">
+        <div class="monitoring__container">
+          <div class="monitoring__header">
+            <div class="monitoring__label">
+              <img src="assets/img/refresh.svg" alt="" />
+              Возможности
+            </div>
+            <h2>Полный финансовый и правовой мониторинг</h2>
+            <p>
+              Контролируйте все ваши обязательства перед государством в одном сервисе. Работает
+              автоматически
+            </p>
+          </div>
+          <div class="monitoring__wrapper">
+            <div class="monitoring__item">
+              <div class="monitoring__content">
+                <img src="assets/img/monitoring_icon-1.svg" alt="" />
+                <h3>Контроль исполнительных производств через базу ФССП</h3>
+              </div>
+              <p>
+                Наш сервис выявляет все открытые дела, возбуждённые судебными приставами
+                в отношении граждан и компаний
+              </p>
+            </div>
+            <div class="monitoring__item">
+              <div class="monitoring__content">
+                <img src="assets/img/monitoring_icon-2.svg" alt="" />
+                <h3>Проверка санкций и ограничений в базе ГИБДД</h3>
+              </div>
+              <p>
+                Мы оперативно находим все действующие штрафы за нарушения ПДД, а также информацию
+                о наложенных ограничениях
+              </p>
+            </div>
+            <div class="monitoring__item">
+              <div class="monitoring__content">
+                <img src="assets/img/monitoring_icon-3.svg" alt="" />
+                <h3>Мониторинг задолженностей в ФНС</h3>
+              </div>
+              <p>
+                Система отслеживает и сообщает о любых невыплаченных налоговых сборах
+                и обязательствах как для физ. и юр. лиц
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="features">
+        <div class="features__container">
+          <div class="features__label">
+            <img src="assets/img/refresh.svg" alt="" />
+            Почему мы
+          </div>
+          <div class="features__header">
+            <h2>Главные преимущества нашего сервиса</h2>
+            <p>
+              Мы создали наш сервис для вашего максимального удобства и экономии времени.
+              Вот ключевые причины, почему пользователи выбирают именно нас для контроля своих
+              обязательств.
+            </p>
+          </div>
+          <div class="features__wrapper">
+            <div class="features__card">
+              <div class="features__cover">
+                <img src="assets/img/features-1.jpg" alt="" />
+              </div>
+              <div class="features__content">
+                <h3>Централизованная проверка данных</h3>
+                <p>
+                  Вся информация о ваших обязательствах собирается из официальных источников:
+                  баз ФССП, ГИБДД и ФНС России
+                </p>
+              </div>
+            </div>
+            <div class="features__card">
+              <div class="features__cover">
+                <img src="assets/img/features-2.jpg" alt="" />
+              </div>
+              <div class="features__content">
+                <h3>Своевременные оповещения</h3>
+                <p>
+                  Вы моментально получаете уведомление, как только в системе обнаруживается новая
+                  задолженность или неоплаченный штраф
+                </p>
+              </div>
+            </div>
+            <div class="features__card">
+              <div class="features__cover">
+                <img src="assets/img/features-3.jpg" alt="" />
+              </div>
+              <div class="features__content">
+                <h3>Непрерывный автоматизированный контроль</h3>
+                <p>
+                  Наша система регулярно отслеживает все добавленные вами объекты на предмет
+                  появления новых долгов и штрафов
+                </p>
+              </div>
+            </div>
+            <div class="features__card">
+              <div class="features__cover">
+                <img src="assets/img/features-4.jpg" alt="" />
+              </div>
+              <div class="features__content">
+                <h3>Удобное онлайн-погашение</h3>
+                <p>
+                  Оплачивайте любые обнаруженные задолженности прямо в личном кабинете с помощью
+                  банковской карты без комиссии
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="procces">
+        <div class="procces__container">
+          <div class="procces__header">
+            <div class="procces__label">
+              <img src="assets/img/refresh.svg" alt="" />
+              Почему мы
+            </div>
+            <h2>Процесс работы сервиса</h2>
+            <p>
+              Взаимодействие с платформой построено просто и интуитивно понятно. Весь путь
+              от регистрации до полного контроля над вашими платежами займёт всего несколько
+              минут.
+            </p>
+          </div>
+          <div class="procces__wrapper">
+            <div class="procces__card">
+              <h3>
+                Быстрая <br />
+                регистрация
+              </h3>
+              <p>
+                Создайте свой аккаунт на платформе за пару минут, указав номер мобильного
+                телефона.
+              </p>
+              <div class="procces__numbers">01</div>
+            </div>
+            <div class="procces__card">
+              <h3>Введите данные для проверки</h3>
+              <p>Добавьте в личном кабинете информацию, необходимую для мониторинга</p>
+              <div class="procces__numbers">02</div>
+            </div>
+            <div class="procces__card">
+              <h3>Полный отчёт по задолженностям</h3>
+              <p>После завершения сканирования баз вы получите детализированную информацию</p>
+              <div class="procces__numbers">03</div>
+            </div>
+            <div class="procces__card">
+              <h3>
+                Удобное погашение <br />
+                онлайн
+              </h3>
+              <p>
+                Оперативно закрывайте найденные задолженности непосредственно в сервисе с помощью
+                банковской карты
+              </p>
+              <div class="procces__numbers">04</div>
+            </div>
+            <div class="procces__card">
+              <h3>Персонализируйте оповещения</h3>
+              <p>
+                Укажите ваш email и настройте, как часто вы хотите получать отчёты: ежедневно
+                и еженедельно
+              </p>
+              <div class="procces__numbers">05</div>
+            </div>
+            <div class="procces__card">
+              <h3>Контроль над новыми начислениями</h3>
+              <p>
+                Как только у вас появится новый долг, вы сразу же получите автоматическое
+                оповещение на электронную почту
+              </p>
+              <div class="procces__numbers">06</div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer__container">
+        <div class="footer-top">
+          <div class="footer-top__logo">
+            <img src="assets/img/dashboard/logo.svg" alt="" />
+          </div>
+          <div class="footer-top__menu">
+            <div class="footer-top__column">
+              <div class="footer-top__title">Услуги</div>
+              <div class="footer-top__list">
+                <a href="#">Долги ФССП</a>
+                <a href="#">Штрафы ГИБДД</a>
+                <a href="#">Долги ФНС</a>
+                <a href="#">Посылки</a>
+                <a href="#">Расписания</a>
+                <a href="#">Финансы</a>
+              </div>
+            </div>
+            <div class="footer-top__column">
+              <div class="footer-top__title">О сервисе</div>
+              <div class="footer-top__list">
+                <a href="#">Премиум</a>
+                <a href="#">Служба поддержки</a>
+                <a href="#">Описание функциональных характеристик</a>
+                <a href="#">Отмена подписки (мобильные и карты)</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="footer-bottom__column">
+            <span class="footer-bottom__copyright">© 2025 Все права защищены</span>
+            <a href="#">Правила оказания услуг</a>
+          </div>
+          <div class="footer-bottom__column">
+            <a href="#">Политика конфиденциальности</a>
+            <a href="#">Согласие на обработку персональных данных</a>
+          </div>
+          <div class="footer-bottom__column">
+            <a href="#" class="footer-bottom__phone">8-499-999-99-99</a>
+            <a href="#" class="footer-bottom__email">support@infoproverka.me</a>
+          </div>
         </div>
       </div>
     </footer>
 
     <!--  -->
-    <div class="popup" id="getCallPopup">
-      <div class="popup__content">
-        <div class="popup__body">
-          <button class="popup__close" type="button"></button>
-
-          <div class="popup__title">Мы вам перезвоним!</div>
-          <div class="popup__text">
-            Нужна консультация? Оставьте свой контакт, мы с вами свяжемся и ответим на вопросы!
-          </div>
-
-          <div class="popup__form form">
-            <form action="" method="post">
-              <div class="form-item">
-                <input id="callback-name" name="name" type="text" placeholder="Ваше имя" autocomplete="name" />
-              </div>
-
-              <div class="form-item">
-                <input id="callback-phone" name="phone" type="tel" placeholder="Ваш телефон*" autocomplete="tel" required />
-              </div>
-
-              <div class="form-item checkbox">
-                <label for="callback-policy" class="checkbox-label">
-                  <input type="checkbox" id="callback-policy" name="policy" value="1" required />
-                  <span class="checkbox-text">
-                    Оставляя заявку вы даёте
-                    <a href="#">согласие на обработку персональных данных</a>
-                  </span>
-                </label>
-              </div>
-
-              <button class="btn" type="submit">Отправить</button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="popup" id="formSuccess">
-      <div class="popup__content">
-        <div class="popup__body _center">
-          <button class="popup__close"></button>
-          <div class="popup__icon">
-            <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect width="60" height="60" rx="30" fill="#C77F15" />
-              <path d="M42.2222 21.1111L25.9259 38.8889L17.7777 30" stroke="white" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-          </div>
-          <div class="popup__title">Спасибо за заявку</div>
-          <div class="popup__text">В скором времени мы свяжемся с вами</div>
-        </div>
-      </div>
-    </div>
 
   </div>
-  <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
   <script src="assets/js/main.js"></script>
 
 </body>

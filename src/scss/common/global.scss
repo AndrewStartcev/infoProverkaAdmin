@@ -86,9 +86,17 @@ img {
     padding: 0 10px;
   }
 }
-
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
 .main {
   flex: 1 1 auto;
+  padding-top: 86px;
+  @include media-mobile-horizontal {
+    padding-top: 55px;
+  }
 }
 
 /* Блокировка скролла (твоя JS логика) */
