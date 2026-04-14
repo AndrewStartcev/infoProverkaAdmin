@@ -1,0 +1,499 @@
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 28px;
+  height: 18px;
+  flex: 0 0 auto;
+  input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+    &:checked + .switch__slider {
+      background: #28af4c;
+    }
+    &:checked + .switch__slider::before {
+      transform: translateX(10px);
+    }
+  }
+  &__slider {
+    position: absolute;
+    inset: 0;
+    cursor: pointer;
+    background: rgba(#0f1b33, 0.16);
+    border-radius: 999px;
+    transition: 0.2s ease;
+    &::before {
+      content: '';
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      left: 1px;
+      top: 1px;
+      background: #ffffff;
+      border-radius: 50%;
+      transition: 0.2s ease;
+    }
+  }
+  &.--big {
+    width: 50px;
+    height: 30px;
+    input {
+      &:checked + .switch__slider::before {
+        transform: translateX(20px);
+      }
+    }
+    .switch__slider {
+      &::before {
+        width: 28px;
+        height: 28px;
+      }
+    }
+    @include media-mobile-horizontal {
+      width: 28px;
+      height: 18px;
+      input {
+        &:checked + .switch__slider::before {
+          transform: translateX(10px);
+        }
+      }
+      .switch__slider {
+        &::before {
+          width: 16px;
+          height: 16px;
+        }
+      }
+    }
+  }
+}
+
+.checkbox {
+  &__label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+
+    input[type='checkbox'] {
+      display: none;
+    }
+
+    &::before {
+      content: '';
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      margin: 2px;
+      margin-bottom: auto;
+      border-radius: 6px;
+      border: 1px solid #0f1b33;
+      transition:
+        background 0.2s,
+        border-color 0.2s;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 2px;
+      top: 2px;
+      width: 20px;
+      height: 20px;
+      opacity: 0;
+      transition: opacity 0.2s;
+      background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%0A%3E%3Cpath d='M14.19 0H5.81C2.17 0 0 2.17 0 5.81V14.18C0 17.83 2.17 20 5.81 20H14.18C17.82 20 19.99 17.83 19.99 14.19V5.81C20 2.17 17.83 0 14.19 0ZM14.78 7.7L9.11 13.37C8.97 13.51 8.78 13.59 8.58 13.59C8.38 13.59 8.19 13.51 8.05 13.37L5.22 10.54C4.93 10.25 4.93 9.77 5.22 9.48C5.51 9.19 5.99 9.19 6.28 9.48L8.58 11.78L13.72 6.64C14.01 6.35 14.49 6.35 14.78 6.64C15.07 6.93 15.07 7.4 14.78 7.7Z' fill='%2328AF4C' /%3E%3C/svg%3E%0A");
+    }
+
+    position: relative;
+  }
+
+  &__label:has(input:checked) {
+    &::before {
+      border-color: #28af4c;
+    }
+
+    &::after {
+      opacity: 1;
+    }
+  }
+
+  .checkbox-text {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 120%;
+    color: rgba(#0f1b33, 0.5);
+    b {
+      color: #0f1b33;
+      font-weight: 400;
+    }
+
+    a {
+      color: #0f1b33;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.suggest {
+  position: relative;
+
+  &__dropdown {
+    display: none;
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 0;
+    width: 100%;
+    max-height: 120px;
+    overflow-y: auto;
+    background: #fff;
+    border: 1px solid rgba(15, 27, 51, 0.08);
+    border-radius: 10px;
+    z-index: 50;
+
+    &._open {
+      display: block;
+    }
+  }
+
+  &__option {
+    padding: 10px 16px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.2s;
+
+    &:hover {
+      background: #f0f0f0;
+    }
+  }
+}
+
+.form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  &__item {
+    width: 100%;
+    input {
+      width: 100%;
+      display: flex;
+      padding: 20px 20px;
+      align-items: center;
+      gap: 8px;
+      align-self: stretch;
+      border-radius: 12px;
+      border: 1px solid rgba(15, 27, 51, 0.08);
+      background: rgba(15, 27, 51, 0.04);
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 1;
+      align-self: stretch;
+      overflow: hidden;
+      color: rgba(15, 27, 51, 1);
+      text-overflow: ellipsis;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 120%;
+      &:not(:placeholder-shown) {
+        background: #fff;
+        border: 1px solid #0f1b33;
+      }
+    }
+    textarea {
+      width: 100%;
+      min-height: 150px;
+      resize: vertical;
+      display: flex;
+      padding: 20px 20px;
+      align-items: center;
+      gap: 8px;
+      align-self: stretch;
+      border-radius: 12px;
+      border: 1px solid rgba(15, 27, 51, 0.08);
+      background: rgba(15, 27, 51, 0.04);
+      color: rgba(15, 27, 51, 1);
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 120%;
+      &:not(:placeholder-shown) {
+        background: #fff;
+        border: 1px solid #0f1b33;
+      }
+    }
+  }
+
+  &__row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: stretch;
+    gap: 16px;
+    width: 100%;
+    .form__item {
+      flex: 1 1 calc(33.33% - 16px);
+    }
+    button {
+      flex: 1 1 calc(50% - 16px);
+      width: 100%;
+    }
+  }
+  &__footer {
+    margin-top: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@include media-mobile-horizontal {
+  .form {
+    &__row {
+      flex-direction: column;
+      .form__item {
+        flex: 1 1 auto;
+      }
+      button {
+        flex: 1 1 auto;
+        width: 100%;
+      }
+    }
+    &__footer {
+      flex-direction: column-reverse;
+    }
+  }
+}
+
+/* ─── Обёртка поля ─────────────────────────────────────────────────────────── */
+.datepicker {
+  width: 100%;
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 4px;
+  font-family: inherit;
+}
+
+.datepicker__input-wrap {
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  input {
+    width: 100%;
+  }
+  button {
+    flex: 0 0 auto;
+    width: auto;
+  }
+}
+
+.datepicker__icon {
+  width: auto;
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  color: #8a9ab0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.15s;
+}
+
+.datepicker__icon:hover {
+  color: #3b9af5;
+}
+
+/* ─── Дропдаун ─────────────────────────────────────────────────────────────── */
+.datepicker__calendar {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  z-index: 100;
+  display: none;
+}
+
+.datepicker__calendar._open {
+  display: block;
+  animation: cal-in 0.18s ease;
+}
+
+@keyframes cal-in {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ─── Блок календаря ───────────────────────────────────────────────────────── */
+.cal {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 6px 16px 0 rgba(15, 27, 51, 0.12);
+  padding: 10px;
+  min-width: 280px;
+  user-select: none;
+}
+
+/* Шапка */
+.cal__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.cal__title {
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+}
+
+.cal__nav {
+  display: flex;
+  gap: 6px;
+}
+
+.cal__nav-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #5a7a99;
+  transition:
+    background 0.15s,
+    color 0.15s;
+}
+
+.cal__nav-btn:hover {
+  background: #eaf2fc;
+  color: #3b9af5;
+}
+
+/* Сетка */
+.cal__grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px 0;
+}
+
+/* Дни недели */
+.cal__dow {
+  text-align: center;
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(15, 27, 51, 0.3);
+  padding-bottom: 10px;
+}
+
+/* Ячейки дней */
+.cal__day {
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  background: none;
+  border: none;
+  font-size: 12px;
+  font-weight: 500;
+  color: #0f1b33;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    background 0.12s,
+    color 0.12s;
+  margin: 2px auto;
+  width: 32px;
+  height: 34px;
+}
+
+.cal__day:hover:not(._selected):not(._other) {
+  background: #eaf2fc;
+  color: #3b9af5;
+}
+
+.cal__day._other {
+  color: #c5d0da;
+  font-weight: 400;
+}
+
+.cal__day._other:hover {
+  color: #0f1b33;
+  color: #a0b4c4;
+}
+
+.cal__day._today:not(._selected) {
+  background: #fff;
+  color: #2f94ef;
+}
+
+.cal__day._selected {
+  background: #2f94ef;
+  color: #fff;
+}
+
+.cal__day._selected:hover {
+  background: #2f94ef;
+}
+
+.form__footer {
+  border-top: 1px solid rgba(15, 27, 51, 0.08);
+  padding-top: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  align-self: stretch;
+  text-align: center;
+  a {
+    font-weight: bold;
+  }
+}
+
+.password {
+  flex: 0 0 auto;
+  color: #0f1b33;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 100%;
+}
+
+.nowrap {
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+.text-min {
+  font-size: 12px;
+}
+
+.page__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

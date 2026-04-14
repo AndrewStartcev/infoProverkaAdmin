@@ -1,0 +1,126 @@
+.result {
+  &__container {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 100px;
+    border-radius: 24px;
+    padding: 84px 64px;
+    background: url('../img/bg/result.svg') center center / cover no-repeat;
+    box-shadow: 0 70px 70px 0 rgba(194, 211, 226, 0.22);
+    z-index: 1;
+  }
+
+  &__content {
+    max-width: 568px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    h2 {
+      margin: 16px 0 24px;
+      font-size: 56px;
+      font-weight: 500;
+      line-height: 84%;
+      letter-spacing: -1.68px;
+      background: linear-gradient(90deg, #0f1b33 0%, #3d5d9c 99.6%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    p {
+      margin: 8px;
+      align-self: stretch;
+      color: rgba(15, 27, 51, 0.8);
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 120%;
+    }
+    .btn {
+      margin-top: 32px;
+    }
+  }
+
+  &__label {
+    color: #28af4c;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 100%;
+    display: inline-flex;
+    padding: 8px 12px;
+    align-items: center;
+    gap: 4px;
+    border-radius: 100px;
+    background: linear-gradient(90deg, rgba(40, 175, 76, 0.12) 0%, rgba(40, 175, 76, 0) 100%);
+  }
+
+  &__images {
+    position: absolute;
+    right: -438px;
+    top: 50px;
+  }
+}
+
+@include media-tablet-horizontal {
+  .result {
+    margin: 0 16px;
+    &__container {
+      padding: 48px 32px;
+    }
+
+    &__content {
+      max-width: 388px;
+      h2 {
+        font-size: 42px;
+      }
+    }
+
+    &__images {
+      position: absolute;
+      right: -461px;
+      top: 36px;
+      img {
+        width: 765px;
+      }
+    }
+  }
+}
+
+@include media-mobile-horizontal {
+  .result {
+    margin: 0 8px;
+    &__container {
+      border-radius: 16px;
+      padding: 32px 24px;
+      flex-direction: column;
+      gap: 16px;
+      padding-bottom: 295px;
+    }
+    &__label {
+      font-size: 10px;
+    }
+
+    &__content {
+      max-width: 100%;
+      h2 {
+        margin: 12px 0 16px;
+        font-size: 28px;
+      }
+      p {
+        font-size: 14px;
+      }
+      .btn {
+        margin-top: 24px;
+      }
+    }
+
+    &__images {
+      position: absolute;
+      right: -453px;
+      top: auto;
+      bottom: -175px;
+    }
+  }
+}

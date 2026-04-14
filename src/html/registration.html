@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="Ru-ru">
+  @@include("chunk/head.html", {"title": "Платформа для сбора и анализа данных",})
+
+  <body>
+    <div class="page">
+      @@include("chunk/header.html")
+
+      <main class="main">
+        <section class="not-page">
+          <div class="page__container">
+            <div class="popup__body show">
+              <div class="popup__header">
+                <div class="popup__icon">
+                  <img src="assets/img/dashboard/icons/popup-fizface.svg" alt="" />
+                </div>
+                <div class="popup__title">Регистрация</div>
+                <div class="popup__text">
+                  Введите ваш номер мобильного телефона, на него будет отправлена СМС с паролем
+                </div>
+              </div>
+
+              <div class="popup__form form">
+                <form action="" method="post">
+                  <div class="form__item">
+                    <input name="surname" type="tel" placeholder="Номер телефона*" required />
+                  </div>
+
+                  <button class="btn w-100" type="submit">Зарегистрироваться</button>
+                  <div class="form__item checkbox">
+                    <label for="fiz-policy" class="checkbox__label">
+                      <input type="checkbox" id="fiz-policy" name="policy" value="1" required />
+                      <span class="checkbox-text">
+                        Я даю <b>Согласие</b> на обработку моих персональных данных в соответствии
+                        <a href="#">с Политикой конфиденциальности</a> и ознакомлен
+                        <a href="#">с Правилами работы сервиса</a>
+                      </span>
+                    </label>
+                  </div>
+                </form>
+                <div class="form__footer">
+                  У вас есть аккаунт на сайте? <a href="auth.html">Войти</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      @@include("chunk/footer.html")
+      <!--  -->
+      @@include("chunk/popup.html")
+    </div>
+    @@include("chunk/script.html")
+  </body>
+</html>

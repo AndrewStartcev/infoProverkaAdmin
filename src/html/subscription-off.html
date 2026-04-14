@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="Ru-ru">
+  @@include("chunk/head.html", {"title": "Платформа для сбора и анализа данных",})
+
+  <body>
+    <div class="page">
+      @@include("chunk/header.html")
+
+      <main class="main">
+        <section class="not-page">
+          <div class="page__container">
+            <div class="popup__body show">
+              <div class="popup__header">
+                <div class="popup__icon">
+                  <img src="assets/img/dashboard/icons/sub.svg" alt="" />
+                </div>
+                <div class="popup__title">Отключение подписки</div>
+                <div class="popup__text">Отменить неограниченный доступ ко всем сервисам</div>
+              </div>
+
+              <div class="popup__form form">
+                <p>
+                  Если вы желаете отключить платную подписку оформленную на мобильный номер телефона
+                  или банковскую карту — введите номер своего мобильного телефона с которым
+                  вы регистрировались на сервисе и нажмите «Отказаться»
+                </p>
+                <form action="" method="post">
+                  <div class="form__item">
+                    <input name="surname" type="tel" placeholder="Номер телефона*" required />
+                  </div>
+
+                  <button class="btn w-100" type="submit">Отмена подписки</button>
+                </form>
+                <div class="form__footer">
+                  <span class="text-min"
+                    >Внимание! Для отключения подписки оформленной на банковскую карту
+                    вы также можете использовать страницу отключения платной подписки платёжного
+                    сервиса CloudPayments. Перейдите по ссылке ниже, в поле «Сумма» укажите сумму,
+                    которая была списана с карты 5 ₽ или 99 ₽ или 399 ₽.
+                    <br />
+                    <a href="#">Перейти</a>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      @@include("chunk/footer.html")
+      <!--  -->
+      @@include("chunk/popup.html")
+    </div>
+    @@include("chunk/script.html")
+  </body>
+</html>

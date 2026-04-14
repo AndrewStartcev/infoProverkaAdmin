@@ -1,8 +1,8 @@
 <header class="header">
   <div class="header__container">
-    <div class="header__logo">
+    <a href="index.html" class="header__logo">
       <img src="assets/img/dashboard/logo.svg" alt="" />
-    </div>
+    </a>
     <div class="header__menu">
       <a href="#">Долги ФССП</a>
       <a href="#">Штрафы ГИБДД</a>
@@ -12,8 +12,8 @@
       <a href="#">Финансы</a>
     </div>
     <div class="header__action">
-      <a href="#" class="btn-outline">Регистрация</a>
-      <a href="#" class="btn">
+      <a href="registration.html" class="btn-outline">Регистрация</a>
+      <a href="auth.html" class="btn">
         Войти
         <svg
           width="16"
@@ -61,3 +61,71 @@
     </button>
   </div>
 </header>
+
+<div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Навигация">
+  <div class="mobile-menu__header">
+    <a href="index.html" class="header__logo">
+      <img src="assets/img/dashboard/logo.svg" alt="" />
+    </a>
+    <button class="mobile-menu__close" id="mobileMenuClose" aria-label="Закрыть меню">
+      <svg
+        width="20"
+        height="20"
+        viewBox="0 0 20 20"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M3 3L17 17M17 3L3 17"
+          stroke="currentColor"
+          stroke-width="1.5"
+          stroke-linecap="round"
+        />
+      </svg>
+    </button>
+  </div>
+  <nav class="mobile-menu__nav">
+    <a href="#">Долги ФССП</a>
+    <a href="#">Штрафы ГИБДД</a>
+    <a href="#">Долги ФНС</a>
+    <a href="#">Посылки</a>
+    <a href="#">Расписания</a>
+    <a href="#">Финансы</a>
+  </nav>
+  <div class="mobile-menu__footer">
+    <a href="registration.html" class="btn-outline">Регистрация</a>
+    <a href="auth.html" class="btn">
+      Войти
+      <svg
+        width="16"
+        height="16"
+        viewBox="0 0 16 16"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M5.93335 5.04C6.14002 2.64 7.37335 1.66 10.0733 1.66H10.16C13.14 1.66 14.3334 2.85333 14.3334 5.83333V10.18C14.3334 13.16 13.14 14.3533 10.16 14.3533H10.0733C7.39335 14.3533 6.16002 13.3867 5.94002 11.0267"
+          stroke="white"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+        <path
+          d="M1.33337 8H9.92004"
+          stroke="white"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+        <path
+          d="M8.43335 5.76667L10.6667 8L8.43335 10.2333"
+          stroke="white"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+    </a>
+  </div>
+</div>
+<div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>

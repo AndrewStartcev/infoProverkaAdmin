@@ -1,0 +1,114 @@
+.recomend {
+  background: url('../img/bg/recomend.svg') center center / cover no-repeat;
+  padding: 64px 0px;
+  border-radius: 24px;
+
+  &__container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 64px;
+    align-self: stretch;
+  }
+
+  &__cover {
+    flex: 1 1 600px;
+    img {
+      width: 100%;
+    }
+  }
+
+  &__content {
+    max-width: 664px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    h2 {
+      margin: 16px 0;
+      align-self: stretch;
+      font-size: 56px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 84%;
+      letter-spacing: -1.68px;
+      background: linear-gradient(90deg, #0f1b33 0%, #3d5d9c 99.6%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    p {
+      margin: 0;
+      align-self: stretch;
+      color: rgba(15, 27, 51, 0.8);
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 120%;
+      margin-bottom: 32px;
+    }
+  }
+
+  &__label {
+    color: #28af4c;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 100%;
+    display: inline-flex;
+    padding: 8px 12px;
+    align-items: center;
+    gap: 4px;
+    border-radius: 100px;
+    background: linear-gradient(90deg, rgba(40, 175, 76, 0.12) 0%, rgba(40, 175, 76, 0) 100%);
+  }
+}
+
+@include media-tablet-horizontal {
+  .recomend {
+    &__container {
+      gap: 48px;
+    }
+
+    &__cover {
+      flex: 1 1 50%;
+      width: 100%;
+    }
+
+    &__content {
+      flex: 1 1 50%;
+      max-width: 100%;
+      h2 {
+        margin: 16px 0 24px;
+        font-size: 42px;
+      }
+    }
+  }
+}
+
+@include media-mobile-horizontal {
+  .recomend {
+    border-radius: 24px;
+    &__container {
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    &__cover {
+      flex: 1 1 auto;
+      width: 100%;
+    }
+    &__label {
+      font-size: 10px;
+    }
+    &__content {
+      flex: 1 1 auto;
+      h2 {
+        margin: 16px 0 12px;
+        font-size: 28px;
+      }
+      p {
+        font-size: 14px;
+        margin-bottom: 24px;
+      }
+    }
+  }
+}

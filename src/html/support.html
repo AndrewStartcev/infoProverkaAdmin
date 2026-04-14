@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="Ru-ru">
+  @@include("chunk/head.html", {"title": "Платформа для сбора и анализа данных",})
+
+  <body>
+    <div class="page">
+      @@include("chunk/header.html")
+
+      <main class="main">
+        <section class="not-page">
+          <div class="page__container">
+            <div class="popup__body show">
+              <div class="popup__header">
+                <div class="popup__icon">
+                  <img src="assets/img/dashboard/icons/support.svg" alt="" />
+                </div>
+                <div class="popup__title">Служба поддержки клиентов</div>
+                <div class="popup__text">
+                  Для связи со Службой поддержки отправьте запрос с вашим вопросом
+                </div>
+                <button class="btn" data-popup="#getSupport">Задать вопрос</button>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      @@include("chunk/footer.html")
+      <!--  -->
+      @@include("chunk/popup.html")
+    </div>
+    @@include("chunk/script.html")
+  </body>
+</html>
