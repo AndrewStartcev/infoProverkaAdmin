@@ -1,326 +1,257 @@
 <!doctype html>
 <html lang="Ru-ru">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <title>Платформа для сбора и анализа данных</title>
-    <link rel="stylesheet" href="assets/css/style.css" />
-  </head>
 
-  <body>
-    <div class="page">
-      <header class="header">
-        <div class="header__container">
-          <a href="index.html" class="header__logo">
-            <img src="assets/img/dashboard/logo.svg" alt="" />
-          </a>
-          <div class="header__menu">
-            <a href="#">Долги ФССП</a>
-            <a href="#">Штрафы ГИБДД</a>
-            <a href="#">Долги ФНС</a>
-            <a href="#">Посылки</a>
-            <a href="#">Расписания</a>
-            <a href="#">Финансы</a>
-          </div>
-          <div class="header__action">
-            <a href="registration.html" class="btn-outline">Регистрация</a>
-            <a href="auth.html" class="btn">
-              Войти
-              <svg
-                width="16"
-                height="16"
-                viewBox="0 0 16 16"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M5.93335 5.04C6.14002 2.64 7.37335 1.66 10.0733 1.66H10.16C13.14 1.66 14.3334 2.85333 14.3334 5.83333V10.18C14.3334 13.16 13.14 14.3533 10.16 14.3533H10.0733C7.39335 14.3533 6.16002 13.3867 5.94002 11.0267"
-                  stroke="white"
-                  stroke-width="1.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-                <path
-                  d="M1.33337 8H9.92004"
-                  stroke="white"
-                  stroke-width="1.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-                <path
-                  d="M8.43335 5.76667L10.6667 8L8.43335 10.2333"
-                  stroke="white"
-                  stroke-width="1.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-            </a>
-          </div>
-          <button class="header__burger">
-            <svg
-              width="32"
-              height="32"
-              viewBox="0 0 32 32"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path d="M4 9.33333H28" stroke="#0F1B33" stroke-width="1.5" stroke-linecap="round" />
-              <path d="M4 16H28" stroke="#0F1B33" stroke-width="1.5" stroke-linecap="round" />
-              <path d="M4 22.6667H28" stroke="#0F1B33" stroke-width="1.5" stroke-linecap="round" />
-            </svg>
-          </button>
-        </div>
-      </header>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Платформа для сбора и анализа данных</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
 
-      <div
-        class="mobile-menu"
-        id="mobileMenu"
-        role="dialog"
-        aria-modal="true"
-        aria-label="Навигация"
-      >
-        <div class="mobile-menu__header">
-          <a href="index.html" class="header__logo">
-            <img src="assets/img/dashboard/logo.svg" alt="" />
-          </a>
-          <button class="mobile-menu__close" id="mobileMenuClose" aria-label="Закрыть меню">
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 20 20"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M3 3L17 17M17 3L3 17"
-                stroke="currentColor"
-                stroke-width="1.5"
-                stroke-linecap="round"
-              />
-            </svg>
-          </button>
-        </div>
-        <nav class="mobile-menu__nav">
+
+<body>
+  <div class="page">
+    <header class="header">
+      <div class="header__container">
+        <a href="index.html" class="header__logo">
+          <img src="assets/img/dashboard/logo.svg" alt="" />
+        </a>
+        <div class="header__menu">
           <a href="#">Долги ФССП</a>
           <a href="#">Штрафы ГИБДД</a>
           <a href="#">Долги ФНС</a>
           <a href="#">Посылки</a>
           <a href="#">Расписания</a>
           <a href="#">Финансы</a>
-        </nav>
-        <div class="mobile-menu__footer">
+        </div>
+        <div class="header__action">
           <a href="registration.html" class="btn-outline">Регистрация</a>
           <a href="auth.html" class="btn">
             Войти
-            <svg
-              width="16"
-              height="16"
-              viewBox="0 0 16 16"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M5.93335 5.04C6.14002 2.64 7.37335 1.66 10.0733 1.66H10.16C13.14 1.66 14.3334 2.85333 14.3334 5.83333V10.18C14.3334 13.16 13.14 14.3533 10.16 14.3533H10.0733C7.39335 14.3533 6.16002 13.3867 5.94002 11.0267"
-                stroke="white"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-              <path
-                d="M1.33337 8H9.92004"
-                stroke="white"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-              <path
-                d="M8.43335 5.76667L10.6667 8L8.43335 10.2333"
-                stroke="white"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M5.93335 5.04C6.14002 2.64 7.37335 1.66 10.0733 1.66H10.16C13.14 1.66 14.3334 2.85333 14.3334 5.83333V10.18C14.3334 13.16 13.14 14.3533 10.16 14.3533H10.0733C7.39335 14.3533 6.16002 13.3867 5.94002 11.0267" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M1.33337 8H9.92004" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M8.43335 5.76667L10.6667 8L8.43335 10.2333" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
           </a>
         </div>
+        <button class="header__burger">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 9.33333H28" stroke="#0F1B33" stroke-width="1.5" stroke-linecap="round" />
+            <path d="M4 16H28" stroke="#0F1B33" stroke-width="1.5" stroke-linecap="round" />
+            <path d="M4 22.6667H28" stroke="#0F1B33" stroke-width="1.5" stroke-linecap="round" />
+          </svg>
+        </button>
       </div>
-      <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+    </header>
 
-      <main class="main">
-        <section class="not-page">
-          <div class="not-page__container">
-            <img src="assets/img/no404.svg" alt="" />
-            <h1>Страница не найдена</h1>
+    <div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Навигация">
+      <div class="mobile-menu__header">
+        <a href="index.html" class="header__logo">
+          <img src="assets/img/dashboard/logo.svg" alt="" />
+        </a>
+        <button class="mobile-menu__close" id="mobileMenuClose" aria-label="Закрыть меню">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3 3L17 17M17 3L3 17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+          </svg>
+        </button>
+      </div>
+      <nav class="mobile-menu__nav">
+        <a href="#">Долги ФССП</a>
+        <a href="#">Штрафы ГИБДД</a>
+        <a href="#">Долги ФНС</a>
+        <a href="#">Посылки</a>
+        <a href="#">Расписания</a>
+        <a href="#">Финансы</a>
+      </nav>
+      <div class="mobile-menu__footer">
+        <a href="registration.html" class="btn-outline">Регистрация</a>
+        <a href="auth.html" class="btn">
+          Войти
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M5.93335 5.04C6.14002 2.64 7.37335 1.66 10.0733 1.66H10.16C13.14 1.66 14.3334 2.85333 14.3334 5.83333V10.18C14.3334 13.16 13.14 14.3533 10.16 14.3533H10.0733C7.39335 14.3533 6.16002 13.3867 5.94002 11.0267" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M1.33337 8H9.92004" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M8.43335 5.76667L10.6667 8L8.43335 10.2333" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </a>
+      </div>
+    </div>
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+
+
+    <main class="main">
+      <section class="not-page">
+        <div class="not-page__container">
+          <img src="assets/img/no404.svg" alt="" />
+          <h1>Страница не найдена</h1>
+          <p>
+            Извините, такой страницы не существует. Возможно, она была удалена или вы перешли
+            по неверной ссылке.
+          </p>
+          <a href="index.html" class="btn">Вернуться на главную</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer__container">
+        <div class="footer-top">
+          <div class="footer-top__logo">
+            <img src="assets/img/dashboard/logo.svg" alt="" />
+          </div>
+          <div class="footer-top__menu">
+            <div class="footer-top__column">
+              <div class="footer-top__title">Услуги</div>
+              <div class="footer-top__list">
+                <a href="#">Долги ФССП</a>
+                <a href="#">Штрафы ГИБДД</a>
+                <a href="#">Долги ФНС</a>
+                <a href="#">Посылки</a>
+                <a href="#">Расписания</a>
+                <a href="#">Финансы</a>
+              </div>
+            </div>
+            <div class="footer-top__column">
+              <div class="footer-top__title">О сервисе</div>
+              <div class="footer-top__list">
+                <a href="premium.html">Премиум</a>
+                <a href="support.html">Служба поддержки</a>
+                <a href="#">Описание функциональных характеристик</a>
+                <a href="subscription-off.html">Отмена подписки (мобильные и карты)</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="footer-bottom__column">
+            <span class="footer-bottom__copyright">© 2025 Все права защищены</span>
+            <a href="#">Правила оказания услуг</a>
+          </div>
+          <div class="footer-bottom__column">
+            <a href="#">Политика конфиденциальности</a>
+            <a href="#">Согласие на обработку персональных данных</a>
+          </div>
+          <div class="footer-bottom__column">
+            <a href="#" class="footer-bottom__phone">8-499-999-99-99</a>
+            <a href="#" class="footer-bottom__email">support@infoproverka.me</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!--  -->
+    <div class="popup" id="getTarifs">
+      <div class="popup__content">
+        <div class="popup__body --big">
+          <button class="popup__close" type="button"></button>
+
+          <div class="popup__header">
+            <div class="popup__title">
+              Пожалуйста, ознакомьтесь с действующим тарифным планом сервиса по автоматическому
+              мониторингу задолженностей с уведомлениями.
+            </div>
+          </div>
+
+          <div class="popup__description">
             <p>
-              Извините, такой страницы не существует. Возможно, она была удалена или вы перешли
-              по неверной ссылке.
+              Стоимость услуги составляет 5 рублей за пробные 5 суток использования сервиса.
+              В дальнейшем, после пробного периода, стоимость использования сервиса составляет
+              399 рублей за 30 дней или 99 рублей за 7 дней, если списание в размере 399 рублей было
+              не успешно.
             </p>
-            <a href="index.html" class="btn">Вернуться на главную</a>
+            <h2>Отменить или восстановить подписку</h2>
+            <p>
+              Если услуга перестала быть актуальна для вас, вы можете самостоятельно отписаться
+              от услуги в любой момент через страницу отключения подписки <a href="#">здесь</a>.
+            </p>
+            <p>
+              Если вам потребуется дополнительная помощь обращайтесь в Службу поддержки через <a href="#">форму обратной связи</a>
+              или по электронной почте <a href="#">support@hphelp.me</a>.
+            </p>
+            <h2>Безопасность платежей</h2>
+            <p>
+              Безопасность платежей осуществляется с помощью БАНКА-ЭКВАЙЕРА, функционирующего на основе
+              современных протоколов и технологий, разработанных международными платёжными системами
+              Visa International и Mastercard International (3D Secure, USAF) Безопасность передаваемой
+              информации обеспечивается с помощью современных протоколов безопасности в Интернет
+              (SSL/TLS) Передача полученных конфиденциальных данных Держателя карты (реквизиты карты,
+              регистрационные данные и т.д.) осуществляются по закрытым сетям передачи данных,
+              сертифицированным международными стандартами банковской безопасности PSI DSS 1 уровня.
+            </p>
+            <p><b>Все ваши данные надёжно защищены.</b></p>
           </div>
-        </section>
-      </main>
-
-      <footer class="footer">
-        <div class="footer__container">
-          <div class="footer-top">
-            <div class="footer-top__logo">
-              <img src="assets/img/dashboard/logo.svg" alt="" />
-            </div>
-            <div class="footer-top__menu">
-              <div class="footer-top__column">
-                <div class="footer-top__title">Услуги</div>
-                <div class="footer-top__list">
-                  <a href="#">Долги ФССП</a>
-                  <a href="#">Штрафы ГИБДД</a>
-                  <a href="#">Долги ФНС</a>
-                  <a href="#">Посылки</a>
-                  <a href="#">Расписания</a>
-                  <a href="#">Финансы</a>
-                </div>
-              </div>
-              <div class="footer-top__column">
-                <div class="footer-top__title">О сервисе</div>
-                <div class="footer-top__list">
-                  <a href="#">Премиум</a>
-                  <a href="#">Служба поддержки</a>
-                  <a href="#">Описание функциональных характеристик</a>
-                  <a href="subscription-off.html">Отмена подписки (мобильные и карты)</a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="footer-bottom">
-            <div class="footer-bottom__column">
-              <span class="footer-bottom__copyright">© 2025 Все права защищены</span>
-              <a href="#">Правила оказания услуг</a>
-            </div>
-            <div class="footer-bottom__column">
-              <a href="#">Политика конфиденциальности</a>
-              <a href="#">Согласие на обработку персональных данных</a>
-            </div>
-            <div class="footer-bottom__column">
-              <a href="#" class="footer-bottom__phone">8-499-999-99-99</a>
-              <a href="#" class="footer-bottom__email">support@infoproverka.me</a>
-            </div>
-          </div>
-        </div>
-      </footer>
-
-      <!--  -->
-      <div class="popup" id="getTarifs">
-        <div class="popup__content">
-          <div class="popup__body --big">
-            <button class="popup__close" type="button"></button>
-
-            <div class="popup__header">
-              <div class="popup__title">
-                Пожалуйста, ознакомьтесь с действующим тарифным планом сервиса по автоматическому
-                мониторингу задолженностей с уведомлениями.
-              </div>
-            </div>
-
-            <div class="popup__description">
-              <p>
-                Стоимость услуги составляет 5 рублей за пробные 5 суток использования сервиса.
-                В дальнейшем, после пробного периода, стоимость использования сервиса составляет
-                399 рублей за 30 дней или 99 рублей за 7 дней, если списание в размере 399 рублей
-                было не успешно.
-              </p>
-              <h2>Отменить или восстановить подписку</h2>
-              <p>
-                Если услуга перестала быть актуальна для вас, вы можете самостоятельно отписаться
-                от услуги в любой момент через страницу отключения подписки <a href="#">здесь</a>.
-              </p>
-              <p>
-                Если вам потребуется дополнительная помощь обращайтесь в Службу поддержки через <a
-                  href="#"
-                  >форму обратной связи</a
-                >
-                или по электронной почте <a href="#">support@hphelp.me</a>.
-              </p>
-              <h2>Безопасность платежей</h2>
-              <p>
-                Безопасность платежей осуществляется с помощью БАНКА-ЭКВАЙЕРА, функционирующего
-                на основе современных протоколов и технологий, разработанных международными
-                платёжными системами Visa International и Mastercard International (3D Secure, USAF)
-                Безопасность передаваемой информации обеспечивается с помощью современных протоколов
-                безопасности в Интернет (SSL/TLS) Передача полученных конфиденциальных данных
-                Держателя карты (реквизиты карты, регистрационные данные и т.д.) осуществляются
-                по закрытым сетям передачи данных, сертифицированным международными стандартами
-                банковской безопасности PSI DSS 1 уровня.
-              </p>
-              <p><b>Все ваши данные надёжно защищены.</b></p>
-            </div>
-            <button class="btn" data-close>Закрыть</button>
-          </div>
+          <button class="btn" data-close>Закрыть</button>
         </div>
       </div>
+    </div>
 
-      <div class="popup" id="getSupport">
-        <div class="popup__content">
-          <div class="popup__body">
-            <button class="popup__close" type="button"></button>
+    <div class="popup" id="getSupport">
+      <div class="popup__content">
+        <div class="popup__body">
+          <button class="popup__close" type="button"></button>
 
-            <div class="popup__header">
-              <div class="popup__title">Обратиться за помощью</div>
-            </div>
-
-            <div class="popup__form form">
-              <form action="" method="post">
-                <div class="form__item patronymic-item">
-                  <input name="patronymic" type="text" placeholder="ФИО*" required />
-                </div>
-                <div class="form__row">
-                  <div class="form__item patronymic-item">
-                    <input name="patronymic" type="text" placeholder="Телефон*" required />
-                  </div>
-                  <div class="form__item patronymic-item">
-                    <input name="patronymic" type="text" placeholder="Эл почта*" required />
-                  </div>
-                </div>
-                <div class="form__item patronymic-item">
-                  <input name="patronymic" type="text" placeholder="Тема письма*" required />
-                </div>
-                <div class="form__item patronymic-item">
-                  <textarea name="" id="" placeholder="Содержание обращения*"></textarea>
-                </div>
-                <button class="btn w-100" type="submit">Отправить запрос</button>
-                <div class="form__item checkbox">
-                  <label for="fiz-policy" class="checkbox__label">
-                    <input type="checkbox" id="fiz-policy" name="policy" value="1" required />
-                    <span class="checkbox-text">
-                      Я даю <b>Согласие</b> на обработку моих персональных данных в соответствии
-                      <a href="#">с Политикой конфиденциальности</a> и ознакомлен
-                      <a href="#">с Правилами работы сервиса</a>
-                    </span>
-                  </label>
-                </div>
-              </form>
-            </div>
+          <div class="popup__header">
+            <div class="popup__title">Обратиться за помощью</div>
           </div>
-        </div>
-      </div>
 
-      <div class="popup" id="formSuccess">
-        <div class="popup__content">
-          <div class="popup__body">
-            <button class="popup__close" type="button"></button>
-
-            <div class="popup__header">
-              <div class="popup__icon">
-                <img src="assets/img/dashboard/icons/success.svg" alt="" />
+          <div class="popup__form form">
+            <form action="" method="post">
+              <div class="form__item patronymic-item">
+                <input name="patronymic" type="text" placeholder="ФИО*" required />
               </div>
-              <div class="popup__title">Запрос отправлен</div>
-              <div class="popup__text">
-                Спасибо, что обратились к нам за помощью. Мы свяжемся с вами в ближайшее время.
+              <div class="form__row">
+                <div class="form__item patronymic-item">
+                  <input name="patronymic" type="text" placeholder="Телефон*" required />
+                </div>
+                <div class="form__item patronymic-item">
+                  <input name="patronymic" type="text" placeholder="Эл почта*" required />
+                </div>
               </div>
-              <a href="index.html" class="btn">На главную</a>
-            </div>
+              <div class="form__item patronymic-item">
+                <input name="patronymic" type="text" placeholder="Тема письма*" required />
+              </div>
+              <div class="form__item patronymic-item">
+                <textarea name="" id="" placeholder="Содержание обращения*"></textarea>
+              </div>
+              <button class="btn w-100" type="submit">Отправить запрос</button>
+              <div class="form__item checkbox">
+                <label for="fiz-policy" class="checkbox__label">
+                  <input type="checkbox" id="fiz-policy" name="policy" value="1" required />
+                  <span class="checkbox-text">
+                    Я даю <b>Согласие</b> на обработку моих персональных данных в соответствии
+                    <a href="#">с Политикой конфиденциальности</a> и ознакомлен
+                    <a href="#">с Правилами работы сервиса</a>
+                  </span>
+                </label>
+              </div>
+            </form>
           </div>
         </div>
       </div>
     </div>
-    <script src="assets/js/main.js"></script>
-  </body>
+
+    <div class="popup" id="formSuccess">
+      <div class="popup__content">
+        <div class="popup__body">
+          <button class="popup__close" type="button"></button>
+
+          <div class="popup__header">
+            <div class="popup__icon">
+              <img src="assets/img/dashboard/icons/success.svg" alt="" />
+            </div>
+            <div class="popup__title">Запрос отправлен</div>
+            <div class="popup__text">
+              Спасибо, что обратились к нам за помощью. Мы свяжемся с вами в ближайшее время.
+            </div>
+            <a href="index.html" class="btn">На главную</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <script src="assets/js/main.js"></script>
+
+</body>
+
 </html>
